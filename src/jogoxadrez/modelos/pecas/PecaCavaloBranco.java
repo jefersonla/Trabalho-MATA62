@@ -16,7 +16,7 @@ import javax.swing.JButton;
 public class PecaCavaloBranco extends JButton {
 
     public PecaCavaloBranco() {
-        this.setIcon(new ImageIcon("imagens\\cavalo-B.gif"));
+        this.setIcon(new ImageIcon(this.getClass().getResource("/resources/cavalo-B.gif")));
         this.setBackground(new Color(255,255,255));
         this.setSize(50, 50);
     }

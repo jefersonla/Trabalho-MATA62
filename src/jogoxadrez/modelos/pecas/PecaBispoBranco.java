@@ -12,7 +12,7 @@ import javax.swing.JButton;
 public class PecaBispoBranco extends JButton {
 
     public PecaBispoBranco() {
-        this.setIcon(new ImageIcon(this.getClass().getResource("/imagens/bispo-B.gif")));
+        this.setIcon(new ImageIcon(this.getClass().getResource("/resources/bispo-B.gif")));
         this.setBackground(new Color(255,255,255));
         this.setSize(50, 50);
     }

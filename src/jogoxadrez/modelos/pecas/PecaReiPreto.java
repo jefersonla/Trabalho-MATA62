@@ -16,7 +16,7 @@ import javax.swing.JButton;
 public class PecaReiPreto extends JButton {
 
     public PecaReiPreto() {
-        this.setIcon(new ImageIcon("imagens\\rei-P.gif"));
+        this.setIcon(new ImageIcon(this.getClass().getResource("/resources/rei-P.gif")));
         this.setBackground(new Color(255,255,255));
         this.setSize(50, 50);
     }

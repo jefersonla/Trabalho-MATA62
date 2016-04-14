@@ -18,7 +18,7 @@ public class PecaPeaoPreto extends JButton{
     private boolean mexeu;
     
     public PecaPeaoPreto() {
-        this.setIcon(new ImageIcon("imagens\\peao-P.gif"));
+        this.setIcon(new ImageIcon(this.getClass().getResource("/resources/peao-P.gif")));
         this.setBackground(new Color(255,255,255));
         this.setSize(50, 50);
     }

@@ -1,9 +1,3 @@
-/*
- * framePrincipal.java
- *
- * Created on 17 de Março de 2009, 10:34
- */
-
 package jogoxadrez.telas;
 
 import java.awt.Color;
@@ -23,7 +17,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private EntradaJogo entrada;
     private static int jogadorDaVez;
     private ArrayList<Jogador> jogadores=new ArrayList<Jogador>();
-    private Jogada jogada;
+    private final Jogada jogada;
     
     /** Creates new form framePrincipal */
     public FramePrincipal() {

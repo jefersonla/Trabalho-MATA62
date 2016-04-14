@@ -16,7 +16,7 @@ import javax.swing.JButton;
 public class PecaTorreBranco extends JButton{
 
     public PecaTorreBranco() {
-        this.setIcon(new ImageIcon("imagens\\torre-B.gif"));
+        this.setIcon(new ImageIcon(this.getClass().getResource("/resources/torre-B.gif")));
         this.setBackground(new Color(255,255,255));
         this.setSize(50, 50);
     }
