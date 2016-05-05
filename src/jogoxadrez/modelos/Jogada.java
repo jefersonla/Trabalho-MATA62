@@ -6,32 +6,32 @@ import java.util.Collection;
 
 /**
  *
- * @author Pedro
+ * @author Jeferson Lima
  */
 public class Jogada {
 
     private Jogador jogador;
     private int jogadaRecente;
-    private Collection<Point> posicoes;
+    private final Collection<Point> posicoes;
 
     public Jogada() {
-        posicoes=new ArrayList<Point>();
-        this.jogadaRecente=-1;
+        posicoes = new ArrayList<>();
+        this.jogadaRecente = -1;
     }
 
     public Jogada(Jogador jogador) {
-        posicoes=new ArrayList<Point>();
+        posicoes = new ArrayList<>();
         this.jogador = jogador;
     }
 
     public Jogada(Jogador jogador, int jogadaRecente) {
-        posicoes=new ArrayList<Point>();
+        posicoes = new ArrayList<>();
         this.jogador = jogador;
         this.jogadaRecente = jogadaRecente;
     }
 
     public Jogada(Jogador jogador, int jogadaRecente, Collection<Point> posicoes) {
-        posicoes=new ArrayList<Point>();
+        posicoes = new ArrayList<>();
         this.jogador = jogador;
         this.jogadaRecente = jogadaRecente;
         this.posicoes = posicoes;
@@ -60,10 +60,9 @@ public class Jogada {
     public void setPosicoes(Point posicao) {
         this.posicoes.add(posicao);
     }
-    
+
     public void removePosicao(Point posicao) {
         this.posicoes.remove(posicao);
     }
-    
-    
+
 }

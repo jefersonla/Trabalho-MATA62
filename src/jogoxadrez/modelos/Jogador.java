@@ -2,7 +2,7 @@ package jogoxadrez.modelos;
 
 /**
  *
- * @author Pedro
+ * @author Jeferson Lima
  */
 public class Jogador {
 
@@ -31,7 +31,5 @@ public class Jogador {
     public void setPeca(String peca) {
         this.peca = peca;
     }
-    
-    
-    
+
 }
