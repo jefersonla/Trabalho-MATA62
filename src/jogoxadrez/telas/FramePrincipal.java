@@ -26,7 +26,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         this.jogada = new Jogada();
         adicionaPanelEntrada();
         this.JMenuJogo.setEnabled(false);
-
     }
 
     /**
@@ -39,7 +38,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         lblJjogador = new javax.swing.JLabel();
-        lbMensagem = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         JMenuJogo = new javax.swing.JMenu();
         JMenuXadrez = new javax.swing.JMenu();
@@ -50,20 +48,19 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(540, 480));
+        setMinimumSize(new java.awt.Dimension(540, 480));
         setPreferredSize(new java.awt.Dimension(540, 480));
         setResizable(false);
 
         lblJjogador.setBackground(new java.awt.Color(255, 255, 204));
         lblJjogador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblJjogador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblJjogador.setText("Jogador da vez :");
-
-        lbMensagem.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbMensagem.setForeground(new java.awt.Color(255, 0, 0));
-        lbMensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jMenuBar1.setEnabled(false);
 
-        JMenuJogo.setLabel("Jogo");
+        JMenuJogo.setToolTipText("Jogo");
+	JMenuJogo.setText("Jogo");
 
         JMenuXadrez.setText("Xadrez");
 
@@ -105,19 +102,15 @@ public class FramePrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblJjogador, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(lblJjogador, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(250, Short.MAX_VALUE)
+                .addGap(250, 250, 250)
                 .addComponent(lblJjogador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9))
+                .addGap(169, 169, 169))
         );
 
         pack();
@@ -207,7 +200,6 @@ private void JMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private javax.swing.JMenu JMenuXadrez;
     private javax.swing.JMenuItem JMenuXadrezBasico;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel lbMensagem;
     private javax.swing.JLabel lblJjogador;
     // End of variables declaration//GEN-END:variables
 

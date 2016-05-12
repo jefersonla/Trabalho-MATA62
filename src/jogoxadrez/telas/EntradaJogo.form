@@ -16,7 +16,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel2" alignment="1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -29,10 +29,10 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[540, 480]"/>
+          <Dimension value="[540, 470]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[540, 480]"/>
+          <Dimension value="[540, 470]"/>
         </Property>
       </Properties>
 
@@ -78,9 +78,9 @@
                       <Component id="jLabel2" max="32767" attributes="0"/>
                       <Component id="txtJogador2" pref="29" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="btEnviar" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

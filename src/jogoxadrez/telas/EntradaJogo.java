@@ -5,13 +5,13 @@
  */
 package jogoxadrez.telas;
 
-import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import jogoxadrez.modelos.*;
 
 /**
  *
- * @author Pedro
+ * @author Jeferson Lima
+ * @version 1.0
  */
 public class EntradaJogo extends javax.swing.JPanel {
 
@@ -29,10 +29,15 @@ public class EntradaJogo extends javax.swing.JPanel {
         
         /* Logo */
         jLabel3.setIcon(new ImageIcon(this.getClass().getResource("/resources/ufba_boards_logo.png")));
-        /* Disable resizable */
-        fp.setResizable(false);
-        /* Set prefered */
-        fp.setPreferredSize(new Dimension(540, 510));
+        
+        /* Title */
+        fp.setTitle("UFBA Boards v 1.0");
+        
+        /* Interface icon */
+        fp.setIconImage(new ImageIcon(this.getClass().getResource("/resources/ufba_icon.png")).getImage());
+        
+        /* Centered Frame */
+        fp.setLocationRelativeTo(null);
         
         this.fp = fp;
     }
@@ -55,8 +60,8 @@ public class EntradaJogo extends javax.swing.JPanel {
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
-        jPanel2.setMaximumSize(new java.awt.Dimension(540, 480));
-        jPanel2.setPreferredSize(new java.awt.Dimension(540, 480));
+        jPanel2.setMaximumSize(new java.awt.Dimension(540, 470));
+        jPanel2.setPreferredSize(new java.awt.Dimension(540, 470));
 
         txtJogador1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
@@ -124,16 +129,16 @@ public class EntradaJogo extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtJogador2, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
-                .addGap(20, 20, 20)
+                .addGap(22, 22, 22)
                 .addComponent(btEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
