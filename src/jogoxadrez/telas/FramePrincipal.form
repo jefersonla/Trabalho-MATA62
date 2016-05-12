@@ -9,6 +9,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="JMenuJogo">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Jogo"/>
             <Property name="toolTipText" type="java.lang.String" value="Jogo"/>
           </Properties>
           <SubComponents>

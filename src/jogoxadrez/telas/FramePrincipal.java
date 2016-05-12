@@ -22,10 +22,17 @@ public class FramePrincipal extends javax.swing.JFrame {
      * Creates new form framePrincipal
      */
     public FramePrincipal() {
+        /* Inicializa os componentes */
         initComponents();
+        
+        /* Instancia uma nova jogada */
         this.jogada = new Jogada();
+        
+        /* Adiciona o Painel de Entrada */
         adicionaPanelEntrada();
-        this.JMenuJogo.setEnabled(false);
+        
+        /* Desabilita a criação de novos jogos enquanto não for especificado os nomes do jogadores */
+        this.JMenuXadrez.setEnabled(false);
     }
 
     /**
@@ -59,8 +66,8 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setEnabled(false);
 
+        JMenuJogo.setText("Jogo");
         JMenuJogo.setToolTipText("Jogo");
-	JMenuJogo.setText("Jogo");
 
         JMenuXadrez.setText("Xadrez");
 
@@ -123,13 +130,17 @@ private void JMenuXadrezBasicoActionPerformed(java.awt.event.ActionEvent evt) {/
     layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                    .addComponent(this.tabuleiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(  this.tabuleiro, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(0, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                    .addComponent(this.tabuleiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(  this.tabuleiro, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                    javax.swing.GroupLayout.DEFAULT_SIZE,
+                                    javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(100, Short.MAX_VALUE))
     );
 
@@ -154,22 +165,26 @@ private void JMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                        .addComponent(entrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(  entrada, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                        .addComponent(entrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(  entrada, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
         this.lblJjogador.setVisible(false);
     }
-
-    public void habilitarMenu() {
-        this.JMenuJogo.setEnabled(true);
+    
+    public void enableXadrexMenu(){
+        this.JMenuXadrez.setEnabled(true);
     }
 
     public static int getJogadorDaVez() {

@@ -24,21 +24,20 @@ public class EntradaJogo extends javax.swing.JPanel {
      */
     public EntradaJogo(FramePrincipal fp) {
         initComponents();
-        
+
         // Set some external properties
-        
         /* Logo */
         jLabel3.setIcon(new ImageIcon(this.getClass().getResource("/resources/ufba_boards_logo.png")));
-        
+
         /* Title */
         fp.setTitle("UFBA Boards v 1.0");
-        
+
         /* Interface icon */
         fp.setIconImage(new ImageIcon(this.getClass().getResource("/resources/ufba_icon.png")).getImage());
-        
+
         /* Centered Frame */
         fp.setLocationRelativeTo(null);
-        
+
         this.fp = fp;
     }
 
@@ -151,15 +150,17 @@ public class EntradaJogo extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
-        if (!this.txtJogador1.getText().equals("") && !this.txtJogador2.getText().equals("")) {
+        if (this.txtJogador1.getText().length() > 4
+                && this.txtJogador2.getText().length() > 4) {
+            
             this.setVisible(false);
-            fp.habilitarMenu();
             Jogador j1 = new Jogador(this.txtJogador1.getText());
-            j1.setPeca("Branco");
             Jogador j2 = new Jogador(this.txtJogador2.getText());
+            j1.setPeca("Branco");
             j2.setPeca("Preto");
             fp.setNovoJogador(j1);
             fp.setNovoJogador(j2);
+            fp.enableXadrexMenu();
         }
     }//GEN-LAST:event_btEnviarActionPerformed
 
