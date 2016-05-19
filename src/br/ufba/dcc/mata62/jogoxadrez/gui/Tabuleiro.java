@@ -1,4 +1,4 @@
-package br.ufba.dcc.mata62.jogoxadrez.telas;
+package br.ufba.dcc.mata62.jogoxadrez.gui;
 
 import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaPeaoPreto;
 import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaBispoBranco;

@@ -21,24 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.jogoxadrez;
-
-import br.ufba.dcc.mata62.jogoxadrez.states.GameState;
-import br.ufba.dcc.mata62.jogoxadrez.gui.FramePrincipal;
+package br.ufba.dcc.mata62.jogoxadrez.states;
 
 /**
  *
  * @author jeferson
  */
-public abstract class AbstractGame extends FramePrincipal implements IGame {
-    private IGame game;
-    private GameState state;
-    protected IPersistence persistence;
+public class Paused {
     
-    public AbstractGame(){
-    }
-    
-    public void display(){
-        this.setVisible(true);
-    }
 }

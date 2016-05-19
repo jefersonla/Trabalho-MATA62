@@ -1,6 +1,6 @@
 package br.ufba.dcc.mata62.jogoxadrez;
 
-import br.ufba.dcc.mata62.jogoxadrez.telas.FramePrincipal;
+import br.ufba.dcc.mata62.jogoxadrez.gui.FramePrincipal;
 import java.awt.EventQueue;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -16,8 +16,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        FramePrincipal fp = new FramePrincipal();
-        final AbstractGame chess_game = new Chess(fp);
+        final AbstractGame chess_game = Chess.getInstance();
 
         EventQueue.invokeLater(new Runnable() {
 

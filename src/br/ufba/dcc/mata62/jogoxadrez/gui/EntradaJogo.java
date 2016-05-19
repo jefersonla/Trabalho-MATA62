@@ -3,7 +3,7 @@
  *
  * Created on 17 de Março de 2009, 14:42
  */
-package br.ufba.dcc.mata62.jogoxadrez.telas;
+package br.ufba.dcc.mata62.jogoxadrez.gui;
 
 import br.ufba.dcc.mata62.jogoxadrez.modelos.Jogador;
 import javax.swing.ImageIcon;

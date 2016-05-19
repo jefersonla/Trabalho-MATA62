@@ -23,15 +23,23 @@
  */
 package br.ufba.dcc.mata62.jogoxadrez;
 
-import br.ufba.dcc.mata62.jogoxadrez.telas.FramePrincipal;
-
 /**
  *
  * @author jeferson
  */
 public class Chess extends AbstractGame {
-    public Chess(FramePrincipal fp){
-        super(fp);
+    private static Chess instance = null;
+    
+    private Chess(){
         super.persistence = new SQLitePersistence();
     }
+    
+    public static Chess getInstance(){
+        if(instance == null)
+            instance = new Chess();
+        
+        return instance;
+    }
+    
+    
 }

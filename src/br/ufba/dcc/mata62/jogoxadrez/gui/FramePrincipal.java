@@ -1,4 +1,4 @@
-package br.ufba.dcc.mata62.jogoxadrez.telas;
+package br.ufba.dcc.mata62.jogoxadrez.gui;
 
 import java.awt.Color;
 import java.awt.Point;
@@ -54,9 +54,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         JMenuInformacoes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(540, 501));
         setMinimumSize(new java.awt.Dimension(540, 501));
-        setPreferredSize(new java.awt.Dimension(540, 501));
         setResizable(false);
 
         lblJjogador.setBackground(new java.awt.Color(255, 255, 204));
