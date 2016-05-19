@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package jogoxadrez.modelos.pecas;
+package br.ufba.dcc.mata62.jogoxadrez.modelos.pecas;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -13,12 +13,12 @@ import javax.swing.JButton;
  *
  * @author Pedro
  */
-public class PecaPeaoBranco extends JButton{
+public class PecaPeaoPreto extends JButton{
 
     private boolean mexeu;
     
-    public PecaPeaoBranco() {
-        this.setIcon(new ImageIcon(this.getClass().getResource("/resources/peao-B.gif")));
+    public PecaPeaoPreto() {
+        this.setIcon(new ImageIcon(this.getClass().getResource("/resources/peao-P.gif")));
         this.setBackground(new Color(255,255,255));
         this.setSize(50, 50);
     }

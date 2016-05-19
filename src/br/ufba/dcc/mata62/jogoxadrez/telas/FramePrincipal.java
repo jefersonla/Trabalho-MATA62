@@ -1,10 +1,10 @@
-package jogoxadrez.telas;
+package br.ufba.dcc.mata62.jogoxadrez.telas;
 
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
-import jogoxadrez.modelos.Jogada;
-import jogoxadrez.modelos.Jogador;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.Jogada;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.Jogador;
 
 /**
  *
@@ -54,15 +54,18 @@ public class FramePrincipal extends javax.swing.JFrame {
         JMenuInformacoes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(540, 480));
-        setMinimumSize(new java.awt.Dimension(540, 480));
-        setPreferredSize(new java.awt.Dimension(540, 480));
+        setMaximumSize(new java.awt.Dimension(540, 501));
+        setMinimumSize(new java.awt.Dimension(540, 501));
+        setPreferredSize(new java.awt.Dimension(540, 501));
         setResizable(false);
 
         lblJjogador.setBackground(new java.awt.Color(255, 255, 204));
         lblJjogador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblJjogador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblJjogador.setText("Jogador da vez :");
+        lblJjogador.setMaximumSize(new java.awt.Dimension(516, 60));
+        lblJjogador.setMinimumSize(new java.awt.Dimension(516, 60));
+        lblJjogador.setPreferredSize(new java.awt.Dimension(516, 60));
 
         jMenuBar1.setEnabled(false);
 
@@ -109,7 +112,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblJjogador, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblJjogador, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

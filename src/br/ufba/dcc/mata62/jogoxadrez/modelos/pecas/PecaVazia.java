@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package jogoxadrez.modelos.pecas;
+package br.ufba.dcc.mata62.jogoxadrez.modelos.pecas;
 
 import java.awt.Color;
 import javax.swing.JButton;

@@ -3,10 +3,10 @@
  *
  * Created on 17 de Março de 2009, 14:42
  */
-package jogoxadrez.telas;
+package br.ufba.dcc.mata62.jogoxadrez.telas;
 
+import br.ufba.dcc.mata62.jogoxadrez.modelos.Jogador;
 import javax.swing.ImageIcon;
-import jogoxadrez.modelos.*;
 
 /**
  *
@@ -59,8 +59,9 @@ public class EntradaJogo extends javax.swing.JPanel {
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
-        jPanel2.setMaximumSize(new java.awt.Dimension(540, 470));
-        jPanel2.setPreferredSize(new java.awt.Dimension(540, 470));
+        jPanel2.setMaximumSize(new java.awt.Dimension(540, 480));
+        jPanel2.setMinimumSize(new java.awt.Dimension(540, 480));
+        jPanel2.setPreferredSize(new java.awt.Dimension(540, 480));
 
         txtJogador1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
@@ -86,7 +87,9 @@ public class EntradaJogo extends javax.swing.JPanel {
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Uma plataforma para jogos de tabuleiro");
         jTextField1.setBorder(null);
-        jTextField1.setPreferredSize(new java.awt.Dimension(345, 25));
+        jTextField1.setMaximumSize(new java.awt.Dimension(516, 60));
+        jTextField1.setMinimumSize(new java.awt.Dimension(516, 60));
+        jTextField1.setPreferredSize(new java.awt.Dimension(516, 60));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -103,8 +106,8 @@ public class EntradaJogo extends javax.swing.JPanel {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtJogador1)

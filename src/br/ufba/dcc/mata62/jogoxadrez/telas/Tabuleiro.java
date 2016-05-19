@@ -1,10 +1,22 @@
-package jogoxadrez.telas;
+package br.ufba.dcc.mata62.jogoxadrez.telas;
 
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaPeaoPreto;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaBispoBranco;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaRainhaBranco;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaTorrePreto;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaBispoPreto;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaTorreBranco;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaCavaloPreto;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaReiPreto;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaRainhaPreto;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaPeaoBranco;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaVazia;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaReiBranco;
+import br.ufba.dcc.mata62.jogoxadrez.modelos.pecas.PecaCavaloBranco;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import jogoxadrez.modelos.pecas.*;
 
 /**
  * @author Pedro Kislansky e Luís Lima

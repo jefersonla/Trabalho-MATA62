@@ -1,4 +1,4 @@
-package jogoxadrez.modelos;
+package br.ufba.dcc.mata62.jogoxadrez.modelos;
 
 /**
  *
