@@ -21,27 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.jogoxadrez;
+package br.ufba.dcc.mata62.jogoxadrez.persistence;
+
+import br.ufba.dcc.mata62.jogoxadrez.AbstractGame;
 
 /**
  *
  * @author jeferson
  */
-public class SQLitePersistence implements IPersistence {
-
-    @Override
-    public void save(AbstractGame game) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void load(AbstractGame game) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void remove(AbstractGame game) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+public interface IPersistence {
+    void save(AbstractGame game)   throws Exception;
+    void load(AbstractGame game)   throws Exception;
+    void remove(AbstractGame game) throws Exception;
 }

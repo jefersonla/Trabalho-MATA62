@@ -23,6 +23,8 @@
  */
 package br.ufba.dcc.mata62.jogoxadrez;
 
+import br.ufba.dcc.mata62.jogoxadrez.persistence.SQLitePersistence;
+
 /**
  *
  * @author jeferson

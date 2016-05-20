@@ -21,14 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.jogoxadrez;
+package br.ufba.dcc.mata62.jogoxadrez.boards;
+
+import br.ufba.dcc.mata62.jogoxadrez.gui.Tabuleiro;
 
 /**
  *
  * @author jeferson
  */
-public interface IPersistence {
-    void save(AbstractGame game)   throws Exception;
-    void load(AbstractGame game)   throws Exception;
-    void remove(AbstractGame game) throws Exception;
+public class AbstractBoard extends Tabuleiro {
+
+    public AbstractBoard() {
+        super(null);
+    }
+    
 }

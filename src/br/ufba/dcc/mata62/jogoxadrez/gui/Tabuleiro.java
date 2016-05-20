@@ -22,7 +22,7 @@ import javax.swing.JButton;
  * @author Pedro Kislansky e Luís Lima
  * @version 1.0
  */
-public final class Tabuleiro extends javax.swing.JPanel {
+public class Tabuleiro extends javax.swing.JPanel {
 
     private final FramePrincipal fp;
     private final ArrayList<JButton> pecas;
