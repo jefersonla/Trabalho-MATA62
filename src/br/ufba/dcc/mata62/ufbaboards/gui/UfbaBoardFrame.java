@@ -23,7 +23,6 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
-import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**

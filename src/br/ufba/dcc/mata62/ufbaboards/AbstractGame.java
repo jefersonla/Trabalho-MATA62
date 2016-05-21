@@ -26,7 +26,7 @@ package br.ufba.dcc.mata62.ufbaboards;
 import br.ufba.dcc.mata62.ufbaboards.persistence.IPersistence;
 import br.ufba.dcc.mata62.ufbaboards.boards.BoardFactory;
 import br.ufba.dcc.mata62.ufbaboards.states.GameState;
-import br.ufba.dcc.mata62.ufbaboards.gui.FramePrincipal;
+import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.FramePrincipal;
 
 /**
  *

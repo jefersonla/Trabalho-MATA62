@@ -1,4 +1,4 @@
-package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.old;
+package br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
