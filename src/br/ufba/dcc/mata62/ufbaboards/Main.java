@@ -1,6 +1,6 @@
 package br.ufba.dcc.mata62.ufbaboards;
 
-import br.ufba.dcc.mata62.ufbaboards.gui.FramePrincipal;
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
 import java.awt.EventQueue;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
