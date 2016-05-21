@@ -23,6 +23,9 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author jeferson
@@ -33,9 +36,10 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
      * Creates new form UfbaBoardFrame
      */
     public UfbaBoardFrame() {
+        /* Init Components */
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,22 +49,246 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        appPanel = new javax.swing.JPanel();
+        appMenu = new javax.swing.JMenuBar();
+        gameMenu = new javax.swing.JMenu();
+        newGameMenuItem = new javax.swing.JMenuItem();
+        newSpecialGameMenuItem = new javax.swing.JMenuItem();
+        gameMenuExtra = new javax.swing.JMenu();
+        separatorGame1 = new javax.swing.JPopupMenu.Separator();
+        restartGameMenuItem = new javax.swing.JMenuItem();
+        saveGameMenuItem = new javax.swing.JMenuItem();
+        separatorGame2 = new javax.swing.JPopupMenu.Separator();
+        exitMenuItem = new javax.swing.JMenuItem();
+        optionsMenu = new javax.swing.JMenu();
+        undoMenuItem = new javax.swing.JMenuItem();
+        redoMenuItem = new javax.swing.JMenuItem();
+        optionsSeparator = new javax.swing.JPopupMenu.Separator();
+        statisticsMenuItem = new javax.swing.JMenuItem();
+        helpMenu = new javax.swing.JMenu();
+        gameHelpMenuItem = new javax.swing.JMenuItem();
+        aboutMenuItem = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("UFBA Boards");
+        setIconImage(new ImageIcon(this.getClass().getResource("/resources/ufba_icon.png")).getImage());
+        setMaximumSize(new java.awt.Dimension(1024, 1024));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        setName("MainFrame"); // NOI18N
+        setResizable(false);
+
+        appPanel.setToolTipText("");
+        appPanel.setName("appPanel"); // NOI18N
+
+        javax.swing.GroupLayout appPanelLayout = new javax.swing.GroupLayout(appPanel);
+        appPanel.setLayout(appPanelLayout);
+        appPanelLayout.setHorizontalGroup(
+            appPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 660, Short.MAX_VALUE)
+        );
+        appPanelLayout.setVerticalGroup(
+            appPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
+        );
+
+        appMenu.setToolTipText("UFBABoards Menu");
+        appMenu.setMaximumSize(new java.awt.Dimension(76, 1024));
+
+        gameMenu.setMnemonic('G');
+        gameMenu.setText("Game");
+        gameMenu.setToolTipText("Game Menu");
+
+        newGameMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        newGameMenuItem.setMnemonic('N');
+        newGameMenuItem.setText("New Game");
+        newGameMenuItem.setToolTipText("New Standard Game");
+        newGameMenuItem.setEnabled(false);
+        newGameMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newGameMenuItemActionPerformed(evt);
+            }
+        });
+        gameMenu.add(newGameMenuItem);
+
+        newSpecialGameMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        newSpecialGameMenuItem.setMnemonic('w');
+        newSpecialGameMenuItem.setText("New Special Game");
+        newSpecialGameMenuItem.setToolTipText("New Special Game");
+        newSpecialGameMenuItem.setEnabled(false);
+        newSpecialGameMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newSpecialGameMenuItemActionPerformed(evt);
+            }
+        });
+        gameMenu.add(newSpecialGameMenuItem);
+
+        gameMenuExtra.setMnemonic('m');
+        gameMenuExtra.setText("Game Menu");
+        gameMenuExtra.setToolTipText("Extra Game Menu");
+        gameMenuExtra.setEnabled(false);
+        gameMenu.add(gameMenuExtra);
+        gameMenu.add(separatorGame1);
+
+        restartGameMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        restartGameMenuItem.setMnemonic('R');
+        restartGameMenuItem.setText("Restart Game");
+        restartGameMenuItem.setToolTipText("Restart the current game");
+        restartGameMenuItem.setEnabled(false);
+        gameMenu.add(restartGameMenuItem);
+
+        saveGameMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        saveGameMenuItem.setMnemonic('S');
+        saveGameMenuItem.setText("Save Game");
+        saveGameMenuItem.setToolTipText("Save Current Game");
+        saveGameMenuItem.setEnabled(false);
+        gameMenu.add(saveGameMenuItem);
+        gameMenu.add(separatorGame2);
+
+        exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
+        exitMenuItem.setMnemonic('x');
+        exitMenuItem.setText("Exit");
+        exitMenuItem.setToolTipText("Exit Game");
+        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitMenuItemActionPerformed(evt);
+            }
+        });
+        gameMenu.add(exitMenuItem);
+
+        appMenu.add(gameMenu);
+
+        optionsMenu.setMnemonic('O');
+        optionsMenu.setText("Options");
+        optionsMenu.setToolTipText("Game Options Menu");
+
+        undoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        undoMenuItem.setMnemonic('U');
+        undoMenuItem.setText("Undo");
+        undoMenuItem.setToolTipText("Undo last movement");
+        undoMenuItem.setEnabled(false);
+        undoMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                undoMenuItemActionPerformed(evt);
+            }
+        });
+        optionsMenu.add(undoMenuItem);
+
+        redoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        redoMenuItem.setMnemonic('R');
+        redoMenuItem.setText("Redo");
+        redoMenuItem.setToolTipText("Redo last movement");
+        redoMenuItem.setEnabled(false);
+        redoMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                redoMenuItemActionPerformed(evt);
+            }
+        });
+        optionsMenu.add(redoMenuItem);
+        optionsMenu.add(optionsSeparator);
+
+        statisticsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        statisticsMenuItem.setMnemonic('t');
+        statisticsMenuItem.setText("Statistics");
+        statisticsMenuItem.setToolTipText("Statistics of the current game");
+        statisticsMenuItem.setEnabled(false);
+        optionsMenu.add(statisticsMenuItem);
+
+        appMenu.add(optionsMenu);
+
+        helpMenu.setText("Help");
+        helpMenu.setToolTipText("Game Help");
+
+        gameHelpMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_MASK));
+        gameHelpMenuItem.setText("GameHelp");
+        gameHelpMenuItem.setEnabled(false);
+        gameHelpMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gameHelpMenuItemActionPerformed(evt);
+            }
+        });
+        helpMenu.add(gameHelpMenuItem);
+
+        aboutMenuItem.setText("About");
+        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItemActionPerformed(evt);
+            }
+        });
+        helpMenu.add(aboutMenuItem);
+
+        appMenu.add(helpMenu);
+
+        setJMenuBar(appMenu);
+        appMenu.getAccessibleContext().setAccessibleName("UFBABoards Menu");
+        appMenu.getAccessibleContext().setAccessibleParent(this);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(appPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(appPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        appPanel.getAccessibleContext().setAccessibleName("App Main Panel");
+        appPanel.getAccessibleContext().setAccessibleDescription("App Main Panel");
+
+        getAccessibleContext().setAccessibleDescription("UFBA Boards Main Frame");
+        getAccessibleContext().setAccessibleParent(this);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aboutMenuItemActionPerformed
+
+    private void gameHelpMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameHelpMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gameHelpMenuItemActionPerformed
+
+    private void undoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_undoMenuItemActionPerformed
+
+    private void redoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_redoMenuItemActionPerformed
+
+    private void newGameMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newGameMenuItemActionPerformed
+
+    private void newSpecialGameMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newSpecialGameMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newSpecialGameMenuItemActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JMenuBar appMenu;
+    private javax.swing.JPanel appPanel;
+    private javax.swing.JMenuItem exitMenuItem;
+    private javax.swing.JMenuItem gameHelpMenuItem;
+    private javax.swing.JMenu gameMenu;
+    private javax.swing.JMenu gameMenuExtra;
+    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenuItem newGameMenuItem;
+    private javax.swing.JMenuItem newSpecialGameMenuItem;
+    private javax.swing.JMenu optionsMenu;
+    private javax.swing.JPopupMenu.Separator optionsSeparator;
+    private javax.swing.JMenuItem redoMenuItem;
+    private javax.swing.JMenuItem restartGameMenuItem;
+    private javax.swing.JMenuItem saveGameMenuItem;
+    private javax.swing.JPopupMenu.Separator separatorGame1;
+    private javax.swing.JPopupMenu.Separator separatorGame2;
+    private javax.swing.JMenuItem statisticsMenuItem;
+    private javax.swing.JMenuItem undoMenuItem;
     // End of variables declaration//GEN-END:variables
 }

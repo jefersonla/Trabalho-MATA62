@@ -6,7 +6,7 @@
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
 import br.ufba.dcc.mata62.ufbaboards.gui.FramePrincipal;
-import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.modelos.Jogador;
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.old.Jogador;
 import javax.swing.ImageIcon;
 
 /**

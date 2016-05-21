@@ -4,8 +4,8 @@ import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.boards.Tabuleiro;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
-import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.modelos.Jogada;
-import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.modelos.Jogador;
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.old.Jogada;
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.old.Jogador;
 
 /**
  *

@@ -1,4 +1,4 @@
-package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.modelos;
+package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.old;
 
 import java.awt.Point;
 import java.util.ArrayList;

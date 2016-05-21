@@ -5,7 +5,6 @@ import java.awt.EventQueue;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-
 /**
  *
  * @author Jeferson Lima
@@ -28,7 +27,7 @@ public class Main {
                     
                     /* Display the created interface */
                     chess_game.display();
-                    
+                                        
                 } catch (   ClassNotFoundException |
                             InstantiationException |
                             IllegalAccessException |
