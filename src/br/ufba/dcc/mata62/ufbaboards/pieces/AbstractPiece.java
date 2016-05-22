@@ -23,10 +23,16 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.pieces;
 
+import java.awt.Color;
+
 /**
  *
  * @author jeferson
  */
-public class AbstractPiece {
+public class AbstractPiece extends BoardPiece {
+    
+    public AbstractPiece(Color hoverColor, Color pressedColor) {
+        super(hoverColor, pressedColor);
+    }
     
 }

@@ -1,7 +1,7 @@
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
+import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
 import java.awt.CardLayout;
-import javax.swing.JPanel;
 
 /*
  * The MIT License
@@ -32,14 +32,22 @@ import javax.swing.JPanel;
  * @author jeferson
  */
 public class BoardPanel extends javax.swing.JPanel {
-
+    protected BoardMatrixPanel boardMatrix;
+    
     /**
      * Creates new form BoardPanel
-     * @param newBoardMatrix
-     * @param newleftRightNames
-     * @param newtopBottomNames
+     * @param newBoardMatrixSize
+     * @param newLeftRightNames
+     * @param newTopBottomNames
      */
-    public BoardPanel(JPanel newBoardMatrix, JPanel newleftRightNames, JPanel newtopBottomNames) {
+    public BoardPanel(  int newBoardMatrixSize,
+                        String[] newLeftRightNames,
+                        String[] newTopBottomNames) {
+        
+        /* Store Board Matrix */
+        boardMatrix = new BoardMatrixPanel(newBoardMatrixSize);
+                        
+        /* Init the components */
         initComponents();
         
         /* Get all panel's layout */
@@ -50,11 +58,11 @@ public class BoardPanel extends javax.swing.JPanel {
         CardLayout rightNamesPanelLayout = (CardLayout) rightNamesPanel.getLayout();
         
         /* Add all new panel's */
-        boardMatrixPanel.add(newBoardMatrix, "matrixBoard");
-        topNamesPanel.add(newtopBottomNames, "topNamesPanel");
-        bottomNamesPanel.add(newtopBottomNames, "bottomNamesPanel");
-        leftNamesPanel.add(newleftRightNames, "leftNamesPanel");
-        rightNamesPanel.add(newleftRightNames, "rightNamesPanel");
+        boardMatrixPanel.add(boardMatrix, "matrixBoard");
+        topNamesPanel.add(new BoardLabelsHorizontal(newTopBottomNames), "topNamesPanel");
+        bottomNamesPanel.add(new BoardLabelsHorizontal(newTopBottomNames), "bottomNamesPanel");
+        leftNamesPanel.add(new BoardLabelsVertical(newLeftRightNames), "leftNamesPanel");
+        rightNamesPanel.add(new BoardLabelsVertical(newLeftRightNames), "rightNamesPanel");
         
         /* Show all new panel's */
         matrixBoardLayout.show(boardMatrixPanel, "matrixBoard");
@@ -64,8 +72,8 @@ public class BoardPanel extends javax.swing.JPanel {
         rightNamesPanelLayout.show(rightNamesPanel, "rightNamesPanel");
     }
     
-    public BoardPanel(){
-        initComponents();
+    private void populateItens(int firstIndex, AbstractPiece[][] itens){
+        
     }
 
     /**
@@ -108,14 +116,29 @@ public class BoardPanel extends javax.swing.JPanel {
         corner4Label.setMinimumSize(new java.awt.Dimension(20, 20));
         corner4Label.setPreferredSize(new java.awt.Dimension(20, 20));
 
+        topNamesPanel.setMaximumSize(new java.awt.Dimension(432, 20));
+        topNamesPanel.setMinimumSize(new java.awt.Dimension(432, 20));
+        topNamesPanel.setPreferredSize(new java.awt.Dimension(432, 20));
         topNamesPanel.setLayout(new java.awt.CardLayout());
 
+        leftNamesPanel.setMaximumSize(new java.awt.Dimension(20, 432));
+        leftNamesPanel.setMinimumSize(new java.awt.Dimension(20, 432));
+        leftNamesPanel.setPreferredSize(new java.awt.Dimension(20, 432));
         leftNamesPanel.setLayout(new java.awt.CardLayout());
 
+        bottomNamesPanel.setMaximumSize(new java.awt.Dimension(432, 20));
+        bottomNamesPanel.setMinimumSize(new java.awt.Dimension(432, 20));
+        bottomNamesPanel.setPreferredSize(new java.awt.Dimension(432, 20));
         bottomNamesPanel.setLayout(new java.awt.CardLayout());
 
+        rightNamesPanel.setMaximumSize(new java.awt.Dimension(20, 432));
+        rightNamesPanel.setMinimumSize(new java.awt.Dimension(20, 432));
+        rightNamesPanel.setPreferredSize(new java.awt.Dimension(20, 432));
         rightNamesPanel.setLayout(new java.awt.CardLayout());
 
+        boardMatrixPanel.setMaximumSize(new java.awt.Dimension(432, 432));
+        boardMatrixPanel.setMinimumSize(new java.awt.Dimension(432, 432));
+        boardMatrixPanel.setPreferredSize(new java.awt.Dimension(432, 432));
         boardMatrixPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -124,18 +147,18 @@ public class BoardPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(leftNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(leftNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(corner4Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(corner1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bottomNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
-                    .addComponent(topNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boardMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bottomNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(topNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boardMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(corner2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rightNamesPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rightNamesPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(corner3Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -143,17 +166,17 @@ public class BoardPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(corner2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(topNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(topNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(corner1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(leftNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
-                    .addComponent(rightNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boardMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(leftNamesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rightNamesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boardMatrixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(corner4Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bottomNamesPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bottomNamesPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(corner3Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 

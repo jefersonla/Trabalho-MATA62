@@ -21,22 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.boards;
-
-import br.ufba.dcc.mata62.ufbaboards.boards.AbstractBoard;
+package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.pieces;
 
 /**
  *
  * @author jeferson
  */
-public class ChessBoard extends AbstractBoard{
-    
-    public ChessBoard() {
-        super(  8,
-                new String[]{"8", "7", "6", "5", "4", "3", "2", "1"},
-                new String[]{"A", "B", "C", "D", "E", "F", "G", "H"});
-        
-        //boardMatrix.populateItens(0, {});
-    }
+public class BlankPiece {
     
 }

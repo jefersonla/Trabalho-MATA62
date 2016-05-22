@@ -34,20 +34,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="leftNamesPanel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="leftNamesPanel" alignment="0" max="-2" attributes="0"/>
                   <Component id="corner4Label" max="32767" attributes="0"/>
                   <Component id="corner1Label" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="bottomNamesPanel" pref="432" max="32767" attributes="0"/>
-                  <Component id="topNamesPanel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="boardMatrixPanel" max="32767" attributes="0"/>
+                  <Component id="bottomNamesPanel" max="-2" attributes="0"/>
+                  <Component id="topNamesPanel" alignment="0" max="-2" attributes="0"/>
+                  <Component id="boardMatrixPanel" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="corner2Label" max="32767" attributes="0"/>
-                  <Component id="rightNamesPanel" alignment="1" max="32767" attributes="0"/>
+                  <Component id="rightNamesPanel" alignment="1" max="-2" attributes="0"/>
                   <Component id="corner3Label" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -58,19 +58,19 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="corner2Label" max="32767" attributes="0"/>
-                  <Component id="topNamesPanel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="topNamesPanel" alignment="0" max="-2" attributes="0"/>
                   <Component id="corner1Label" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="leftNamesPanel" pref="432" max="32767" attributes="0"/>
-                  <Component id="rightNamesPanel" max="32767" attributes="0"/>
-                  <Component id="boardMatrixPanel" max="32767" attributes="0"/>
+                  <Component id="leftNamesPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="rightNamesPanel" max="-2" attributes="0"/>
+                  <Component id="boardMatrixPanel" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="corner4Label" max="32767" attributes="0"/>
-                  <Component id="bottomNamesPanel" alignment="1" max="32767" attributes="0"/>
+                  <Component id="bottomNamesPanel" alignment="1" max="-2" attributes="0"/>
                   <Component id="corner3Label" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -147,22 +147,77 @@
       </AuxValues>
     </Component>
     <Container class="javax.swing.JPanel" name="topNamesPanel">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[432, 20]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[432, 20]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[432, 20]"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
     </Container>
     <Container class="javax.swing.JPanel" name="leftNamesPanel">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[20, 432]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[20, 432]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[20, 432]"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
     </Container>
     <Container class="javax.swing.JPanel" name="bottomNamesPanel">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[432, 20]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[432, 20]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[432, 20]"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
     </Container>
     <Container class="javax.swing.JPanel" name="rightNamesPanel">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[20, 432]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[20, 432]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[20, 432]"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
     </Container>
     <Container class="javax.swing.JPanel" name="boardMatrixPanel">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[432, 432]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[432, 432]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[432, 432]"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
     </Container>

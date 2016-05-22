@@ -23,6 +23,7 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
+import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
 import br.ufba.dcc.mata62.ufbaboards.pieces.BoardPiece;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -43,7 +44,7 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         initComponents();
         
         /* Create matrix of pieces */
-        piecesMatrix = new BoardPiece[size][size];
+        piecesMatrix = new AbstractPiece[size][size];
         
         int pieceSide = 432 / size; 
         Dimension pieceDimension = new Dimension(pieceSide, pieceSide);
@@ -52,7 +53,7 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         for(int i = 0; i < size; i++)
             for(int j = 0; j < size; j++){
                 /* Initialize the board Piece */
-                piecesMatrix[i][j] = new BoardPiece(new Color(153, 255, 153), new Color(102, 204, 255));
+                piecesMatrix[i][j] = new AbstractPiece(new Color(153, 255, 153), new Color(102, 204, 255));
                 
                 /* Select Heavy Blue Pieces */
                 if((i % 2) == (j % 2))                    

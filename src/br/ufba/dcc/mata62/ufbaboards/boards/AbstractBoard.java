@@ -16,14 +16,12 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHERnewtopBottomNames
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
-
-import javax.swing.JPanel;
 
 /**
  *
@@ -31,14 +29,8 @@ import javax.swing.JPanel;
  */
 public class AbstractBoard extends BoardPanel {
 
-    protected BoardMatrixPanel boardMatrix;
-    
-    public AbstractBoard(   BoardMatrixPanel newBoardMatrix, 
-                            BoardLabelsVertical newleftRightNames,
-                            BoardLabelsHorizontal newtopBottomNames) {
-        super(newBoardMatrix, newleftRightNames, newtopBottomNames);
-        
-        boardMatrix = newBoardMatrix;
+    public AbstractBoard(int matrixSizePanel, String[] leftRightNames, String[] topBottomNames){
+        super(matrixSizePanel, leftRightNames, topBottomNames);
     }
     
 }
