@@ -23,21 +23,29 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author jeferson
  */
 public class TwoPlayersStartPanel extends javax.swing.JPanel {
 
+    private final JPanel appPanel;
+    
     /**
      * Creates new form UfbaBoardPanel
      * @param gameName
+     * @param newAppPanel
      */
-    public TwoPlayersStartPanel(String gameName) {
+    public TwoPlayersStartPanel(String gameName, JPanel newAppPanel) {
         initComponents();
         
         /* Set Game Name */
         gameNameLabel.setText(gameName);
+        
+        /* Save App Panel */
+        appPanel = newAppPanel;
     }
 
     /**
