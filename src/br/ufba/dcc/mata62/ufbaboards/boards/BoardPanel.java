@@ -49,14 +49,14 @@ public class BoardPanel extends javax.swing.JPanel {
         CardLayout leftNamesPanelLayout = (CardLayout) leftNamesPanel.getLayout();
         CardLayout rightNamesPanelLayout = (CardLayout) rightNamesPanel.getLayout();
         
-        /* Add all panel's */
+        /* Add all new panel's */
         boardMatrixPanel.add(newBoardMatrix, "matrixBoard");
         topNamesPanel.add(newtopBottomNames, "topNamesPanel");
         bottomNamesPanel.add(newtopBottomNames, "bottomNamesPanel");
         leftNamesPanel.add(newleftRightNames, "leftNamesPanel");
         rightNamesPanel.add(newleftRightNames, "rightNamesPanel");
         
-        /* Show all panel's */
+        /* Show all new panel's */
         matrixBoardLayout.show(boardMatrixPanel, "matrixBoard");
         topNamesPanelLayout.show(topNamesPanel, "topNamesPanel");
         bottomNamesPanelLayout.show(bottomNamesPanel, "bottomNamesPanel");

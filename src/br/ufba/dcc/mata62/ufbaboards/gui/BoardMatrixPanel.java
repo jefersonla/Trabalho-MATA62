@@ -27,12 +27,12 @@ package br.ufba.dcc.mata62.ufbaboards.gui;
  *
  * @author jeferson
  */
-public class BoardMatrixtPanel extends javax.swing.JPanel {
+public class BoardMatrixPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form BoardPanel
      */
-    public BoardMatrixtPanel() {
+    public BoardMatrixPanel() {
         initComponents();
     }
 
@@ -48,18 +48,7 @@ public class BoardMatrixtPanel extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(432, 432));
         setMinimumSize(new java.awt.Dimension(432, 432));
         setName("boardGamePanel"); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
-        );
-
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
         getAccessibleContext().setAccessibleName("Board Game Panel");
         getAccessibleContext().setAccessibleDescription("Board Game Panel");
     }// </editor-fold>//GEN-END:initComponents

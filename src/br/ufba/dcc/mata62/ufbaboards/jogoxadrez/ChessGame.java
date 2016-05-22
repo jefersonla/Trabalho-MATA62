@@ -33,7 +33,12 @@ import java.awt.CardLayout;
  * @author jeferson
  */
 public class ChessGame extends AbstractGame {
+    /* Game Instance */
     private static ChessGame instance = null;
+    
+    /* Private attributes */
+    private String player1Name;
+    private String player2Name;
     
     private ChessGame(){
         super.persistence = new SQLitePersistence();
@@ -42,10 +47,15 @@ public class ChessGame extends AbstractGame {
         CardLayout appPanelLayout = (CardLayout) appPanel.getLayout();
         
         /* Add a Entry Panel*/
-        appPanel.add(new TwoPlayersStartPanel("ChessGame V 1.0"), "entryPanel");
+        appPanel.add(new TwoPlayersStartPanel("ChessGame V 1.0", appPanel), "entryPanel");
         
         /* Show Entry Panel */
         appPanelLayout.show(appPanel, "entryPanel");
+    }
+    
+    public void setPlayersName(String player1Name, String player2Name){
+        this.player1Name = player1Name;
+        this.player2Name = player2Name;
     }
     
     public static ChessGame getInstance(){

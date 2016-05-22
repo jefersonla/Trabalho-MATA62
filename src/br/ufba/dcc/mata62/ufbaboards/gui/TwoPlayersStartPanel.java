@@ -23,6 +23,8 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -164,7 +166,20 @@ public class TwoPlayersStartPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameButtonActionPerformed
-        // TODO add your handling code here:
+        /* Check if players name have more than 4 characters */
+        if((player1Input.getText().length() < 4) || (player2Input.getText().length() < 4)){
+            JOptionPane.showMessageDialog(  this,
+                                            "Player name should have, more than 4 characters",
+                                            "Player Name Warning!",
+                                            JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        /* Store players name */
+        ChessGame.getInstance().setPlayersName(player1Input.getText(), player2Input.getText());
+        
+        /* Remove this panel */
+        appPanel.remove(this);
     }//GEN-LAST:event_startGameButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
