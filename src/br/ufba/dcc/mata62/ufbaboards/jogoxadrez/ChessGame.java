@@ -38,9 +38,13 @@ public class ChessGame extends AbstractGame {
     private ChessGame(){
         super.persistence = new SQLitePersistence();
         
-        /* Show Entry Panel */
+        /* Get App Panel*/
         CardLayout appPanelLayout = (CardLayout) appPanel.getLayout();
+        
+        /* Add a Entry Panel*/
         appPanel.add(new TwoPlayersStartPanel("ChessGame V 1.0"), "entryPanel");
+        
+        /* Show Entry Panel */
         appPanelLayout.show(appPanel, "entryPanel");
     }
     

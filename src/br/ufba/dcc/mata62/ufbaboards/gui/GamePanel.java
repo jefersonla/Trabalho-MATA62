@@ -1,5 +1,8 @@
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /*
  * The MIT License
  *
@@ -30,13 +33,64 @@ package br.ufba.dcc.mata62.ufbaboards.gui;
  */
 public class GamePanel extends javax.swing.JPanel {
 
+    private JPanel actualMatrixBoardPanel;
+    private JPanel actualSidebarPanel;
+    
     /**
      * Creates new form UfbaBoardPanel
      */
     public GamePanel() {
         initComponents();
+        
+        /* Set actual matrix board panel and sidebar panel to null */
+        actualMatrixBoardPanel = null;
+        actualSidebarPanel = null;
     }
 
+    /**
+     * 
+     * @param newMatrixBoard 
+     */
+    public void addNewMatrixBoardPanel(JPanel newMatrixBoard){
+        /* Get board Panel Layout */
+        CardLayout boardPanelLayout = (CardLayout) boardPanel.getLayout();
+        
+        /* Remove the last element if there's one */
+        if(actualMatrixBoardPanel != null)
+            boardPanel.remove(actualMatrixBoardPanel);
+        
+        /* Store the new matrix board */
+        actualMatrixBoardPanel = newMatrixBoard;
+        
+        /* Add the actual Matrix Board Panel*/
+        boardPanel.add(newMatrixBoard, "matrixBoard");
+        
+        /* Show This Matrix Board Panel */
+        boardPanelLayout.show(boardPanel, "matrixBoard");
+    }
+    
+    /**
+     * 
+     * @param newSidebar 
+     */
+    public void addNewSidebarPanel(JPanel newSidebar){
+                /* Get board Panel Layout */
+        CardLayout sidebarPanelLayout = (CardLayout) sidebarPanel.getLayout();
+        
+        /* Remove the last element if there's one */
+        if(actualSidebarPanel != null)
+            sidebarPanel.remove(actualSidebarPanel);
+        
+        /* Store the new matrix board */
+        actualSidebarPanel = newSidebar;
+        
+        /* Add the actual Matrix Board Panel*/
+        sidebarPanel.add(newSidebar, "sidebarPanel");
+        
+        /* Show This Matrix Board Panel */
+        sidebarPanelLayout.show(sidebarPanel, "sidebarPanel");
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,7 +144,6 @@ public class GamePanel extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("UFBABoardPanel");
         getAccessibleContext().setAccessibleDescription("UFBABoard default panel");
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel boardPanel;

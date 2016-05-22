@@ -39,6 +39,7 @@ public abstract class AbstractGame extends UfbaBoardFrame implements IGame {
     protected IPersistence persistence;
     
     public AbstractGame(){
+        
     }
     
     public void display(){
