@@ -63,7 +63,6 @@ public class ChessGame extends AbstractGame {
             instance = new ChessGame();
         
         return instance;
-    }
-    
+    }    
     
 }

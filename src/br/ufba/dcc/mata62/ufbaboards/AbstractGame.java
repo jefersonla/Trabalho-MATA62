@@ -26,6 +26,7 @@ package br.ufba.dcc.mata62.ufbaboards;
 import br.ufba.dcc.mata62.ufbaboards.persistence.IPersistence;
 import br.ufba.dcc.mata62.ufbaboards.boards.BoardFactory;
 import br.ufba.dcc.mata62.ufbaboards.gui.UfbaBoardFrame;
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
 import br.ufba.dcc.mata62.ufbaboards.states.GameState;
 
 /**
@@ -39,9 +40,23 @@ public abstract class AbstractGame extends UfbaBoardFrame implements IGame {
     protected IPersistence persistence;
     
     public AbstractGame(){
-        
+        state = null;
+        boardFactory = new BoardFactory();
     }
     
+    @Override
+    public AbstractGame getGameInstance(String game){
+        if(game.equals("chess"))
+            return ChessGame.getInstance();
+        
+        return null;
+    }
+    
+    @Override
+    public void playGame(AbstractGame newGame) {
+        // Falta Implementar
+    }
+       
     public void display(){
         this.setVisible(true);
     }

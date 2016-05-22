@@ -29,4 +29,8 @@ package br.ufba.dcc.mata62.ufbaboards.boards;
  */
 public class BoardFactory {
     private AbstractBoard board;
+
+    public BoardFactory() {
+    }
+    
 }

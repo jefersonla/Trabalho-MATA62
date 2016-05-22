@@ -23,16 +23,16 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.Tabuleiro;
+import javax.swing.JPanel;
 
 /**
  *
  * @author jeferson
  */
-public class AbstractBoard extends Tabuleiro {
+public class AbstractBoard extends BoardPanel {
 
-    public AbstractBoard() {
-        super(null);
+    public AbstractBoard(JPanel newBoardMatrix, JPanel newleftRightNames, JPanel newtopBottomNames) {
+        super(newBoardMatrix, newleftRightNames, newtopBottomNames);
     }
     
 }

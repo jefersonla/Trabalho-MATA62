@@ -24,11 +24,16 @@
 package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.boards;
 
 import br.ufba.dcc.mata62.ufbaboards.boards.AbstractBoard;
+import javax.swing.JPanel;
 
 /**
  *
  * @author jeferson
  */
 public class ChessBoard extends AbstractBoard{
+    
+    public ChessBoard(JPanel newBoardMatrix, JPanel newleftRightNames, JPanel newtopBottomNames) {
+        super(newBoardMatrix, newleftRightNames, newtopBottomNames);
+    }
     
 }

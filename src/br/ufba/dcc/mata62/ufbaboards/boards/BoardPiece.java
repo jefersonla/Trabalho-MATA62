@@ -23,6 +23,8 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import javax.swing.Icon;
 import javax.swing.JButton;
 
@@ -31,12 +33,43 @@ import javax.swing.JButton;
  * @author jeferson
  */
 public class BoardPiece extends JButton{
-    private Icon icoResource;
+    private Color hoverBackgroundColor;
+    private Color pressedBackgroundColor;    
     
-    public BoardPiece(Icon icoResource) {
-        super(icoResource);
+    public BoardPiece(Icon iconResource, Color hoverColor, Color pressedColor) {
+        super(iconResource);
         
-        this.icoResource = icoResource;
+        hoverBackgroundColor = hoverColor;
+        pressedBackgroundColor = pressedColor;
+    }
+    
+    @Override
+    protected void paintComponent(Graphics g) {
+        if (getModel().isPressed()) {
+            g.setColor(pressedBackgroundColor);
+        } else if (getModel().isRollover()) {
+            g.setColor(hoverBackgroundColor);
+        } else {
+            g.setColor(getBackground());
+        }
+        g.fillRect(0, 0, getWidth(), getHeight());
+        super.paintComponent(g);
+    }
+    
+    public Color getHoverBackgroundColor() {
+        return hoverBackgroundColor;
+    }
+
+    public void setHoverBackgroundColor(Color hoverBackgroundColor) {
+        this.hoverBackgroundColor = hoverBackgroundColor;
+    }
+
+    public Color getPressedBackgroundColor() {
+        return pressedBackgroundColor;
+    }
+
+    public void setPressedBackgroundColor(Color pressedBackgroundColor) {
+        this.pressedBackgroundColor = pressedBackgroundColor;
     }
     
 }

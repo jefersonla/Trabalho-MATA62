@@ -17,24 +17,20 @@ public class Main {
     public static void main(String[] args) {
         final AbstractGame chess_game = ChessGame.getInstance();
 
-        EventQueue.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    /* Try to get the look and feel of the platform */
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                    
-                    /* Display the created interface */
-                    chess_game.display();
-                                        
-                } catch (   ClassNotFoundException |
-                            InstantiationException |
-                            IllegalAccessException |
-                            UnsupportedLookAndFeelException ex) {
-                    System.out.println("[BUG!] - Error on change UI MANAGER!");
-                    System.out.println(ex.toString());
-                }
+        EventQueue.invokeLater(() -> {
+            try {
+                /* Try to get the look and feel of the platform */
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                
+                /* Display the created interface */
+                chess_game.display();
+                
+            } catch (   ClassNotFoundException |
+                    InstantiationException |
+                    IllegalAccessException |
+                    UnsupportedLookAndFeelException ex) {
+                System.out.println("[BUG!] - Error on change UI MANAGER!");
+                System.out.println(ex.toString());
             }
         });
     }

@@ -21,7 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.gui;
+package br.ufba.dcc.mata62.ufbaboards.boards;
+
+import br.ufba.dcc.mata62.ufbaboards.boards.BoardPiece;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 /**
  *
@@ -32,8 +36,18 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
     /**
      * Creates new form BoardPanel
      */
-    public BoardMatrixPanel() {
+    public BoardMatrixPanel(JButton[][] xc) { 
         initComponents();
+        
+        BoardPiece myButton;
+        myButton =  new BoardPiece(   new ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/jogoxadrez/pieces/resources/white_pawn.png")),
+                    new java.awt.Color(51, 102, 255),
+                    new java.awt.Color(204, 204, 255));
+        
+        myButton.setBackground(new java.awt.Color(204, 204, 255));
+        myButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        myButton.setPreferredSize(new java.awt.Dimension(54, 54));
+        add(myButton);
     }
 
     /**
@@ -45,15 +59,32 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+
         setMaximumSize(new java.awt.Dimension(432, 432));
         setMinimumSize(new java.awt.Dimension(432, 432));
         setName("boardGamePanel"); // NOI18N
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+
+        jButton1.setBackground(new java.awt.Color(51, 102, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/jogoxadrez/pieces/resources/white_pawn.png"))); // NOI18N
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.setPreferredSize(new java.awt.Dimension(54, 54));
+        add(jButton1);
+
+        jButton3.setBackground(new java.awt.Color(204, 204, 255));
+        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton3.setPreferredSize(new java.awt.Dimension(54, 54));
+        add(jButton3);
+
         getAccessibleContext().setAccessibleName("Board Game Panel");
         getAccessibleContext().setAccessibleDescription("Board Game Panel");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }

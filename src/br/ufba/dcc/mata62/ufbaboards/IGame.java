@@ -28,5 +28,6 @@ package br.ufba.dcc.mata62.ufbaboards;
  * @author jeferson
  */
 public interface IGame {
-    
+    public AbstractGame getGameInstance(String game);
+    public void playGame(AbstractGame newGame);
 }
