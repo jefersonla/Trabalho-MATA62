@@ -28,13 +28,13 @@ public class EntradaJogo extends javax.swing.JPanel {
 
         // Set some external properties
         /* Logo */
-        jLabel3.setIcon(new ImageIcon(this.getClass().getResource("/resources/ufba_boards_logo.png")));
+        jLabel3.setIcon(new ImageIcon(this.getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/ufba_boards_logo.png")));
 
         /* Title */
         fp.setTitle("UFBA Boards v 1.0");
 
         /* Interface icon */
-        fp.setIconImage(new ImageIcon(this.getClass().getResource("/resources/ufba_icon.png")).getImage());
+        fp.setIconImage(new ImageIcon(this.getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/ufba_icon.png")).getImage());
 
         /* Centered Frame */
         fp.setLocationRelativeTo(null);
@@ -167,8 +167,11 @@ public class EntradaJogo extends javax.swing.JPanel {
             fp.enableXadrexMenu();
         }
     }//GEN-LAST:event_btEnviarActionPerformed
-
-
+     
+    public void changePresentationName(String name){
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnviar;
     private javax.swing.JLabel jLabel1;

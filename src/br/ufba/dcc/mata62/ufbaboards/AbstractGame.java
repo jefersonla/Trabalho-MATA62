@@ -25,14 +25,14 @@ package br.ufba.dcc.mata62.ufbaboards;
 
 import br.ufba.dcc.mata62.ufbaboards.persistence.IPersistence;
 import br.ufba.dcc.mata62.ufbaboards.boards.BoardFactory;
+import br.ufba.dcc.mata62.ufbaboards.gui.UfbaBoardFrame;
 import br.ufba.dcc.mata62.ufbaboards.states.GameState;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.FramePrincipal;
 
 /**
  *
  * @author jeferson
  */
-public abstract class AbstractGame extends FramePrincipal implements IGame {
+public abstract class AbstractGame extends UfbaBoardFrame implements IGame {
     private IGame game;
     private GameState state;
     private BoardFactory boardFactory;

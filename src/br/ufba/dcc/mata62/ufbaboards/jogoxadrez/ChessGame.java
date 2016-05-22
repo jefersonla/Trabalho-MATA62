@@ -24,7 +24,9 @@
 package br.ufba.dcc.mata62.ufbaboards.jogoxadrez;
 
 import br.ufba.dcc.mata62.ufbaboards.AbstractGame;
+import br.ufba.dcc.mata62.ufbaboards.gui.TwoPlayersPanel;
 import br.ufba.dcc.mata62.ufbaboards.persistence.SQLitePersistence;
+import java.awt.CardLayout;
 
 /**
  *
@@ -35,6 +37,11 @@ public class ChessGame extends AbstractGame {
     
     private ChessGame(){
         super.persistence = new SQLitePersistence();
+        
+        /* Show Entry Panel */
+        CardLayout appPanelLayout = (CardLayout) appPanel.getLayout();
+        appPanel.add(new TwoPlayersPanel("ChessGame V 1.0"), "entryPanel");
+        appPanelLayout.show(appPanel, "entryPanel");
     }
     
     public static ChessGame getInstance(){

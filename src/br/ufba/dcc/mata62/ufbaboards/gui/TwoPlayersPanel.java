@@ -31,9 +31,13 @@ public class TwoPlayersPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UfbaBoardPanel
+     * @param gameName
      */
-    public TwoPlayersPanel() {
+    public TwoPlayersPanel(String gameName) {
         initComponents();
+        
+        /* Set Game Name */
+        gameNameLabel.setText(gameName);
     }
 
     /**
@@ -51,7 +55,7 @@ public class TwoPlayersPanel extends javax.swing.JPanel {
         player1Input = new javax.swing.JTextField();
         player2Label = new javax.swing.JLabel();
         player2Input = new javax.swing.JTextField();
-        javax.swing.JLabel gameNameLabel = new javax.swing.JLabel();
+        gameNameLabel = new javax.swing.JLabel();
         startGameButton = new javax.swing.JToggleButton();
 
         presentationLogoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/ufba_boards_logo.png"))); // NOI18N
@@ -81,9 +85,8 @@ public class TwoPlayersPanel extends javax.swing.JPanel {
 
         player2Input.setToolTipText("Player2 Name");
 
-        gameNameLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        gameNameLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         gameNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        gameNameLabel.setText("Chess Game v1.0");
         gameNameLabel.setToolTipText("Game Name");
 
         startGameButton.setMnemonic('t');
@@ -154,9 +157,9 @@ public class TwoPlayersPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_startGameButtonActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apresentationLabel;
+    private javax.swing.JLabel gameNameLabel;
     private javax.swing.JTextField player1Input;
     private javax.swing.JLabel player1Label;
     private javax.swing.JTextField player2Input;

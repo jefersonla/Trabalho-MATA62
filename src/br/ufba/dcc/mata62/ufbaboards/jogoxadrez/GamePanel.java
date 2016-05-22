@@ -21,18 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.gui;
+package br.ufba.dcc.mata62.ufbaboards.jogoxadrez;
+
+import br.ufba.dcc.mata62.ufbaboards.gui.*;
 
 /**
  *
  * @author jeferson
  */
-public class UfbaBoardPanel extends javax.swing.JPanel {
+public class GamePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UfbaBoardPanel
      */
-    public UfbaBoardPanel() {
+    public GamePanel() {
         initComponents();
     }
 
@@ -48,6 +50,7 @@ public class UfbaBoardPanel extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(660, 480));
         setMinimumSize(new java.awt.Dimension(660, 480));
         setName("appPanel"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(660, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

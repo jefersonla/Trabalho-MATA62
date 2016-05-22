@@ -23,7 +23,9 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
+import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -64,31 +66,24 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         redoMenuItem = new javax.swing.JMenuItem();
         optionsSeparator = new javax.swing.JPopupMenu.Separator();
         statisticsMenuItem = new javax.swing.JMenuItem();
+        changePlayersMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         gameHelpMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UFBA Boards");
-        setIconImage(new ImageIcon(this.getClass().getResource("/resources/ufba_icon.png")).getImage());
+        setIconImage(new ImageIcon(this.getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/ufba_icon.png")).getImage());
         setMaximumSize(new java.awt.Dimension(1024, 1024));
         setMinimumSize(new java.awt.Dimension(400, 300));
         setName("MainFrame"); // NOI18N
         setResizable(false);
 
         appPanel.setToolTipText("");
+        appPanel.setMaximumSize(new java.awt.Dimension(660, 480));
+        appPanel.setMinimumSize(new java.awt.Dimension(660, 480));
         appPanel.setName("appPanel"); // NOI18N
-
-        javax.swing.GroupLayout appPanelLayout = new javax.swing.GroupLayout(appPanel);
-        appPanel.setLayout(appPanelLayout);
-        appPanelLayout.setHorizontalGroup(
-            appPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
-        );
-        appPanelLayout.setVerticalGroup(
-            appPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
-        );
+        appPanel.setLayout(new java.awt.CardLayout());
 
         appMenu.setToolTipText("UFBABoards Menu");
         appMenu.setMaximumSize(new java.awt.Dimension(76, 1024));
@@ -192,13 +187,28 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         statisticsMenuItem.setEnabled(false);
         optionsMenu.add(statisticsMenuItem);
 
+        changePlayersMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        changePlayersMenuItem.setMnemonic('p');
+        changePlayersMenuItem.setText("Change Players");
+        changePlayersMenuItem.setToolTipText("Change Players Name");
+        changePlayersMenuItem.setEnabled(false);
+        changePlayersMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changePlayersMenuItemActionPerformed(evt);
+            }
+        });
+        optionsMenu.add(changePlayersMenuItem);
+
         appMenu.add(optionsMenu);
 
+        helpMenu.setMnemonic('h');
         helpMenu.setText("Help");
         helpMenu.setToolTipText("Game Help");
 
         gameHelpMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_MASK));
-        gameHelpMenuItem.setText("GameHelp");
+        gameHelpMenuItem.setMnemonic('e');
+        gameHelpMenuItem.setText("Game Help");
+        gameHelpMenuItem.setToolTipText("Game Help");
         gameHelpMenuItem.setEnabled(false);
         gameHelpMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +217,9 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         });
         helpMenu.add(gameHelpMenuItem);
 
+        aboutMenuItem.setMnemonic('a');
         aboutMenuItem.setText("About");
+        aboutMenuItem.setToolTipText("About this game");
         aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutMenuItemActionPerformed(evt);
@@ -225,13 +237,14 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(appPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(appPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(appPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(appPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        this.setLocationRelativeTo(null);
         appPanel.getAccessibleContext().setAccessibleName("App Main Panel");
         appPanel.getAccessibleContext().setAccessibleDescription("App Main Panel");
 
@@ -242,7 +255,8 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
@@ -269,10 +283,15 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_newSpecialGameMenuItemActionPerformed
 
+    private void changePlayersMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePlayersMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_changePlayersMenuItemActionPerformed
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuBar appMenu;
-    private javax.swing.JPanel appPanel;
+    protected javax.swing.JPanel appPanel;
+    private javax.swing.JMenuItem changePlayersMenuItem;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenuItem gameHelpMenuItem;
     private javax.swing.JMenu gameMenu;
