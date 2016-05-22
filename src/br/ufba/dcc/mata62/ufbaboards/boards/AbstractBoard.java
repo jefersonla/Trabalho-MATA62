@@ -31,8 +31,14 @@ import javax.swing.JPanel;
  */
 public class AbstractBoard extends BoardPanel {
 
-    public AbstractBoard(JPanel newBoardMatrix, JPanel newleftRightNames, JPanel newtopBottomNames) {
+    protected BoardMatrixPanel boardMatrix;
+    
+    public AbstractBoard(   BoardMatrixPanel newBoardMatrix, 
+                            BoardLabelsVertical newleftRightNames,
+                            BoardLabelsHorizontal newtopBottomNames) {
         super(newBoardMatrix, newleftRightNames, newtopBottomNames);
+        
+        boardMatrix = newBoardMatrix;
     }
     
 }

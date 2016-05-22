@@ -41,16 +41,22 @@ public class ChessGame extends AbstractGame {
     private String player2Name;
     
     private ChessGame(){
+        /* Call super constructor */
+        super();
+        
+        /* Create an optional persistence */
         super.persistence = new SQLitePersistence();
         
         /* Get App Panel*/
-        CardLayout appPanelLayout = (CardLayout) appPanel.getLayout();
+        //CardLayout appPanelLayout = (CardLayout) appPanel.getLayout();
         
         /* Add a Entry Panel*/
-        appPanel.add(new TwoPlayersStartPanel("ChessGame V 1.0", appPanel), "entryPanel");
+        //appPanel.add(new TwoPlayersStartPanel("ChessGame V 1.0", appPanel), "entryPanel");
         
         /* Show Entry Panel */
-        appPanelLayout.show(appPanel, "entryPanel");
+        //appPanelLayout.show(appPanel, "entryPanel");
+        
+        gamePanel1.addNewMatrixBoardPanel(boardFactory.getBoard("chess"));
     }
     
     public void setPlayersName(String player1Name, String player2Name){
@@ -63,6 +69,6 @@ public class ChessGame extends AbstractGame {
             instance = new ChessGame();
         
         return instance;
-    }    
+    }
     
 }

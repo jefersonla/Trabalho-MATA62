@@ -23,6 +23,8 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.boards.ChessBoard;
+
 /**
  *
  * @author jeferson
@@ -30,7 +32,13 @@ package br.ufba.dcc.mata62.ufbaboards.boards;
 public class BoardFactory {
     private AbstractBoard board;
 
-    public BoardFactory() {
-    }
+    public BoardFactory() {}
     
+    public AbstractBoard getBoard(String boardName){
+        if(boardName.equals("chess")){
+            return new ChessBoard();
+        }
+        
+        return null;
+    }
 }

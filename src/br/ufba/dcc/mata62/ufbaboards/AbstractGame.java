@@ -36,7 +36,7 @@ import br.ufba.dcc.mata62.ufbaboards.states.GameState;
 public abstract class AbstractGame extends UfbaBoardFrame implements IGame {
     private IGame game;
     private GameState state;
-    private BoardFactory boardFactory;
+    protected BoardFactory boardFactory;
     protected IPersistence persistence;
     
     public AbstractGame(){

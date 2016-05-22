@@ -24,7 +24,9 @@
 package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.boards;
 
 import br.ufba.dcc.mata62.ufbaboards.boards.AbstractBoard;
-import javax.swing.JPanel;
+import br.ufba.dcc.mata62.ufbaboards.boards.BoardLabelsHorizontal;
+import br.ufba.dcc.mata62.ufbaboards.boards.BoardLabelsVertical;
+import br.ufba.dcc.mata62.ufbaboards.boards.BoardMatrixPanel;
 
 /**
  *
@@ -32,8 +34,10 @@ import javax.swing.JPanel;
  */
 public class ChessBoard extends AbstractBoard{
     
-    public ChessBoard(JPanel newBoardMatrix, JPanel newleftRightNames, JPanel newtopBottomNames) {
-        super(newBoardMatrix, newleftRightNames, newtopBottomNames);
+    public ChessBoard() {
+        super(  new BoardMatrixPanel(8),
+                new BoardLabelsVertical(new String[]{"8", "7", "6", "5", "4", "3", "2", "1"}),
+                new BoardLabelsHorizontal(new String[]{"A", "B", "C", "D", "E", "F", "G", "H"}));
     }
     
 }
