@@ -1,7 +1,5 @@
 package br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez;
 
-import br.ufba.dcc.mata62.ufbaboards.gui.EntradaJogo;
-import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.boards.Tabuleiro;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;

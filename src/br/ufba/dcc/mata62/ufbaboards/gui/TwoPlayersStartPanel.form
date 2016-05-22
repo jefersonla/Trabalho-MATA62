@@ -147,10 +147,6 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="toolTipText" type="java.lang.String" value="Game Name"/>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Game Name"/>
-      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="startGameButton">
       <Properties>

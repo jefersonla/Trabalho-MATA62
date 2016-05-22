@@ -1,3 +1,5 @@
+package br.ufba.dcc.mata62.ufbaboards.gui;
+
 /*
  * The MIT License
  *
@@ -21,9 +23,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.jogoxadrez;
-
-import br.ufba.dcc.mata62.ufbaboards.gui.*;
 
 /**
  *
@@ -47,21 +46,56 @@ public class GamePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        boardPanel = new javax.swing.JPanel();
+        sidebarPanel = new javax.swing.JPanel();
+
         setMaximumSize(new java.awt.Dimension(660, 480));
         setMinimumSize(new java.awt.Dimension(660, 480));
         setName("appPanel"); // NOI18N
         setPreferredSize(new java.awt.Dimension(660, 480));
 
+        boardPanel.setToolTipText("");
+        boardPanel.setMaximumSize(new java.awt.Dimension(480, 480));
+        boardPanel.setMinimumSize(new java.awt.Dimension(480, 480));
+        boardPanel.setName("boardPanel"); // NOI18N
+        boardPanel.setPreferredSize(new java.awt.Dimension(480, 480));
+        boardPanel.setLayout(new java.awt.CardLayout());
+
+        sidebarPanel.setMaximumSize(new java.awt.Dimension(168, 456));
+        sidebarPanel.setMinimumSize(new java.awt.Dimension(168, 456));
+
+        javax.swing.GroupLayout sidebarPanelLayout = new javax.swing.GroupLayout(sidebarPanel);
+        sidebarPanel.setLayout(sidebarPanelLayout);
+        sidebarPanelLayout.setHorizontalGroup(
+            sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 168, Short.MAX_VALUE)
+        );
+        sidebarPanelLayout.setVerticalGroup(
+            sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(boardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sidebarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(boardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sidebarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
+
+        boardPanel.getAccessibleContext().setAccessibleName("BoardPanel");
+        boardPanel.getAccessibleContext().setAccessibleDescription("Board Panel");
 
         getAccessibleContext().setAccessibleName("UFBABoardPanel");
         getAccessibleContext().setAccessibleDescription("UFBABoard default panel");
@@ -69,5 +103,7 @@ public class GamePanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel boardPanel;
+    private javax.swing.JPanel sidebarPanel;
     // End of variables declaration//GEN-END:variables
 }

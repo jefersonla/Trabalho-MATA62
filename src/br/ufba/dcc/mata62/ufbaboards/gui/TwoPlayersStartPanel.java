@@ -27,13 +27,13 @@ package br.ufba.dcc.mata62.ufbaboards.gui;
  *
  * @author jeferson
  */
-public class TwoPlayersPanel extends javax.swing.JPanel {
+public class TwoPlayersStartPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UfbaBoardPanel
      * @param gameName
      */
-    public TwoPlayersPanel(String gameName) {
+    public TwoPlayersStartPanel(String gameName) {
         initComponents();
         
         /* Set Game Name */
@@ -145,9 +145,6 @@ public class TwoPlayersPanel extends javax.swing.JPanel {
                     .addComponent(gameNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-
-        gameNameLabel.getAccessibleContext().setAccessibleName("");
-        gameNameLabel.getAccessibleContext().setAccessibleDescription("Game Name");
 
         getAccessibleContext().setAccessibleName("UFBABoardPanel");
         getAccessibleContext().setAccessibleDescription("UFBABoard default panel");

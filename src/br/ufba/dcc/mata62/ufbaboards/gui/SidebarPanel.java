@@ -21,18 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.boards;
+package br.ufba.dcc.mata62.ufbaboards.gui;
+
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.*;
 
 /**
  *
  * @author jeferson
  */
-public class BoardPanel extends javax.swing.JPanel {
+public class SidebarPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form BoardPanel
+     * Creates new form ChessSidebarPanel
      */
-    public BoardPanel() {
+    public SidebarPanel() {
         initComponents();
     }
 
@@ -45,23 +47,24 @@ public class BoardPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setMaximumSize(new java.awt.Dimension(432, 432));
-        setMinimumSize(new java.awt.Dimension(432, 432));
-        setName("boardGamePanel"); // NOI18N
+        setMaximumSize(new java.awt.Dimension(168, 480));
+        setMinimumSize(new java.awt.Dimension(168, 480));
+        setName("sidebarPanel"); // NOI18N
+        setVerifyInputWhenFocusTarget(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+            .addGap(0, 168, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
 
-        getAccessibleContext().setAccessibleName("Board Game Panel");
-        getAccessibleContext().setAccessibleDescription("Board Game Panel");
+        getAccessibleContext().setAccessibleName("SidebarPanel");
+        getAccessibleContext().setAccessibleDescription("Sidebar Panel");
     }// </editor-fold>//GEN-END:initComponents
 
 

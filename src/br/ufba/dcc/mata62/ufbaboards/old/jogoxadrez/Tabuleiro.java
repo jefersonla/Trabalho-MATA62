@@ -1,4 +1,4 @@
-package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.boards;
+package br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez;
 
 import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.FramePrincipal;
 import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaPeaoPreto;

@@ -3,7 +3,7 @@
  *
  * Created on 17 de Março de 2009, 14:42
  */
-package br.ufba.dcc.mata62.ufbaboards.gui;
+package br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez;
 
 import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.FramePrincipal;
 import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.Jogador;

@@ -23,9 +23,7 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
-import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 
 /**
  *
