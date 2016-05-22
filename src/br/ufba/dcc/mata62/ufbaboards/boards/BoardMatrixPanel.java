@@ -23,31 +23,51 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
-import br.ufba.dcc.mata62.ufbaboards.boards.BoardPiece;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import br.ufba.dcc.mata62.ufbaboards.pieces.BoardPiece;
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.BorderFactory;
 
 /**
  *
  * @author jeferson
  */
 public class BoardMatrixPanel extends javax.swing.JPanel {
-
+    protected BoardPiece[][] piecesMatrix;
+    
     /**
      * Creates new form BoardPanel
+     * @param size
      */
-    public BoardMatrixPanel(JButton[][] xc) { 
+    public BoardMatrixPanel(int size) { 
         initComponents();
         
-        BoardPiece myButton;
-        myButton =  new BoardPiece(   new ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/jogoxadrez/pieces/resources/white_pawn.png")),
-                    new java.awt.Color(51, 102, 255),
-                    new java.awt.Color(204, 204, 255));
+        /* Create matrix of pieces */
+        piecesMatrix = new BoardPiece[size][size];
         
-        myButton.setBackground(new java.awt.Color(204, 204, 255));
-        myButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        myButton.setPreferredSize(new java.awt.Dimension(54, 54));
-        add(myButton);
+        int pieceSide = 432 / size; 
+        Dimension pieceDimension = new Dimension(pieceSide, pieceSide);
+        
+        /* Populate Panel */
+        for(int i = 0; i < size; i++)
+            for(int j = 0; j < size; j++){
+                /* Initialize the board Piece */
+                piecesMatrix[i][j] = new BoardPiece(new Color(153, 255, 153), new Color(102, 204, 255));
+                
+                /* Select Heavy Blue Pieces */
+                if((i % 2) == (j % 2))                    
+                    piecesMatrix[i][j].setBackground(new Color(51, 102, 255));
+                /* Select Light Blue Pieces */
+                else                    
+                    piecesMatrix[i][j].setBackground(new Color(204, 204, 255));
+                
+                /* Define black thin border */
+                piecesMatrix[i][j].setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
+                piecesMatrix[i][j].setPreferredSize(pieceDimension);
+                
+                /* Add the piece to the panel */
+                add(piecesMatrix[i][j]);
+            }
     }
 
     /**
@@ -59,32 +79,15 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-
         setMaximumSize(new java.awt.Dimension(432, 432));
         setMinimumSize(new java.awt.Dimension(432, 432));
         setName("boardGamePanel"); // NOI18N
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
-
-        jButton1.setBackground(new java.awt.Color(51, 102, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/jogoxadrez/pieces/resources/white_pawn.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton1.setPreferredSize(new java.awt.Dimension(54, 54));
-        add(jButton1);
-
-        jButton3.setBackground(new java.awt.Color(204, 204, 255));
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton3.setPreferredSize(new java.awt.Dimension(54, 54));
-        add(jButton3);
-
         getAccessibleContext().setAccessibleName("Board Game Panel");
         getAccessibleContext().setAccessibleDescription("Board Game Panel");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }

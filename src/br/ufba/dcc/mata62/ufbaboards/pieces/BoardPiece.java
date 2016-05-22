@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.boards;
+package br.ufba.dcc.mata62.ufbaboards.pieces;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -36,11 +36,10 @@ public class BoardPiece extends JButton{
     private Color hoverBackgroundColor;
     private Color pressedBackgroundColor;    
     
-    public BoardPiece(Icon iconResource, Color hoverColor, Color pressedColor) {
-        super(iconResource);
-        
+    public BoardPiece(Color hoverColor, Color pressedColor) {        
         hoverBackgroundColor = hoverColor;
         pressedBackgroundColor = pressedColor;
+        setUI(new BoardPieceUI());
     }
     
     @Override
