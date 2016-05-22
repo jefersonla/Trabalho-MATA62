@@ -81,6 +81,7 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         appPanel.setMaximumSize(new java.awt.Dimension(660, 480));
         appPanel.setMinimumSize(new java.awt.Dimension(660, 480));
         appPanel.setName("appPanel"); // NOI18N
+        appPanel.setVerifyInputWhenFocusTarget(false);
         appPanel.setLayout(new java.awt.CardLayout());
 
         appMenu.setToolTipText("UFBABoards Menu");

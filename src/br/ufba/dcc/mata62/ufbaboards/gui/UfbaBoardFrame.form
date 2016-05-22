@@ -261,6 +261,7 @@
           <Dimension value="[660, 480]"/>
         </Property>
         <Property name="name" type="java.lang.String" value="appPanel" noResource="true"/>
+        <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="App Main Panel"/>
