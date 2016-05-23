@@ -102,19 +102,9 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Player 1 Turn"/>
         <Property name="enabled" type="boolean" value="false"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[83, 95]"/>
-        </Property>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[83, 95]"/>
-        </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[83, 95]"/>
-        </Property>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Player1Turn"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Player 1 Turn"/>
       </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="p2PlayerTurn">
@@ -125,15 +115,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Player 2 Turn"/>
         <Property name="enabled" type="boolean" value="false"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[83, 95]"/>
-        </Property>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[83, 95]"/>
-        </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[83, 95]"/>
-        </Property>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Player2Turn"/>
@@ -217,6 +198,9 @@
           <Image iconType="3" name="/br/ufba/dcc/mata62/ufbaboards/resources/pause_icon.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeTimerStateActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="timerCounter">
       <Properties>
@@ -269,6 +253,9 @@
           <Insets value="[0, 0, 0, 0]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="redoMovementButtonActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="movementsScrollPanel">
       <AuxValues>

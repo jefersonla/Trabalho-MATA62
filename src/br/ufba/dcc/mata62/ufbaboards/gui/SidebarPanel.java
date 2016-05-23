@@ -23,6 +23,8 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
+
 /**
  *
  * @author jeferson
@@ -50,6 +52,21 @@ public class SidebarPanel extends javax.swing.JPanel {
     
     public String getPlayer2Name(){
         return player2Name.getText();
+    }
+    
+    public void enablePlayersLabel(){
+        player1Name.setEnabled(true);
+        player2Name.setEnabled(true);
+    }
+    
+    public void changePlayer1Turn(boolean state){
+        p1PlayerTurn.setEnabled(state);
+        player1Name.setEnabled(state);
+    }
+    
+    public void changePlayer2Turn(boolean state){
+        p2PlayerTurn.setEnabled(state);
+        player2Name.setEnabled(state);
     }
 
     /**
@@ -86,17 +103,11 @@ public class SidebarPanel extends javax.swing.JPanel {
         p1PlayerTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/p1_icon.png"))); // NOI18N
         p1PlayerTurn.setToolTipText("Player 1 Turn");
         p1PlayerTurn.setEnabled(false);
-        p1PlayerTurn.setMaximumSize(new java.awt.Dimension(83, 95));
-        p1PlayerTurn.setMinimumSize(new java.awt.Dimension(83, 95));
-        p1PlayerTurn.setPreferredSize(new java.awt.Dimension(83, 95));
 
         p2PlayerTurn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         p2PlayerTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/p2_icon.png"))); // NOI18N
         p2PlayerTurn.setToolTipText("Player 2 Turn");
         p2PlayerTurn.setEnabled(false);
-        p2PlayerTurn.setMaximumSize(new java.awt.Dimension(83, 95));
-        p2PlayerTurn.setMinimumSize(new java.awt.Dimension(83, 95));
-        p2PlayerTurn.setPreferredSize(new java.awt.Dimension(83, 95));
 
         player1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         player1Label.setText("Player 1");
@@ -124,6 +135,11 @@ public class SidebarPanel extends javax.swing.JPanel {
         changeTimerState.setMinimumSize(new java.awt.Dimension(33, 33));
         changeTimerState.setPreferredSize(new java.awt.Dimension(33, 33));
         changeTimerState.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/pause_icon.png"))); // NOI18N
+        changeTimerState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeTimerStateActionPerformed(evt);
+            }
+        });
 
         timerCounter.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         timerCounter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -148,6 +164,11 @@ public class SidebarPanel extends javax.swing.JPanel {
         redoMovementButton.setText("Redo");
         redoMovementButton.setEnabled(false);
         redoMovementButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        redoMovementButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                redoMovementButtonActionPerformed(evt);
+            }
+        });
 
         movementsScrollList.setFont(new java.awt.Font("Dialog", 1, 9)); // NOI18N
         movementsScrollList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -178,16 +199,16 @@ public class SidebarPanel extends javax.swing.JPanel {
                 .addComponent(redoMovementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(p1PlayerTurn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(p1PlayerTurn)
                 .addGap(2, 2, 2)
-                .addComponent(p2PlayerTurn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(p2PlayerTurn))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(p2PlayerTurn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(p1PlayerTurn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(p2PlayerTurn)
+                    .addComponent(p1PlayerTurn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(player1Label)
                 .addGap(1, 1, 1)
@@ -213,7 +234,6 @@ public class SidebarPanel extends javax.swing.JPanel {
         );
 
         p1PlayerTurn.getAccessibleContext().setAccessibleName("Player1Turn");
-        p1PlayerTurn.getAccessibleContext().setAccessibleDescription("Player 1 Turn");
         p2PlayerTurn.getAccessibleContext().setAccessibleName("Player2Turn");
         player1Label.getAccessibleContext().setAccessibleName("Player1Label");
         player1Label.getAccessibleContext().setAccessibleDescription("Player 1 Label");
@@ -229,8 +249,22 @@ public class SidebarPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void undoMovementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoMovementButtonActionPerformed
-        // TODO add your handling code here:
+        ChessGame chessGame = ChessGame.getInstance();
+        
+        
     }//GEN-LAST:event_undoMovementButtonActionPerformed
+
+    private void changeTimerStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeTimerStateActionPerformed
+        ChessGame chessGame = ChessGame.getInstance();
+        
+        
+    }//GEN-LAST:event_changeTimerStateActionPerformed
+
+    private void redoMovementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoMovementButtonActionPerformed
+        ChessGame chessGame = ChessGame.getInstance();
+        
+        
+    }//GEN-LAST:event_redoMovementButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
