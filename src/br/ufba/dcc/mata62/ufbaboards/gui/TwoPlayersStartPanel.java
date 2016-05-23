@@ -168,7 +168,7 @@ public class TwoPlayersStartPanel extends javax.swing.JPanel {
     private void startGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameButtonActionPerformed
         /* Check if players name have more than 4 characters */
         if((player1Input.getText().length() < 4) || (player2Input.getText().length() < 4)){
-            JOptionPane.showMessageDialog(  this,
+            JOptionPane.showMessageDialog(  this.getParent().getParent(),
                                             "Player name should have, more than 4 characters",
                                             "Player Name Warning!",
                                             JOptionPane.WARNING_MESSAGE);

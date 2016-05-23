@@ -24,6 +24,7 @@
 package br.ufba.dcc.mata62.ufbaboards.jogoxadrez;
 
 import br.ufba.dcc.mata62.ufbaboards.AbstractGame;
+import br.ufba.dcc.mata62.ufbaboards.gui.SidebarPanel;
 import br.ufba.dcc.mata62.ufbaboards.gui.TwoPlayersStartPanel;
 import br.ufba.dcc.mata62.ufbaboards.persistence.SQLitePersistence;
 import java.awt.CardLayout;
@@ -58,11 +59,19 @@ public class ChessGame extends AbstractGame {
         
         /* Add an empty Chess Board Matrix */
         gamePanel1.addNewMatrixBoardPanel(boardFactory.getBoard("chess"));
+        
+        gamePanel1.addNewSidebarPanel(new SidebarPanel());
+        
+        setGameName("ChessGame V 1.0");
     }
     
     public void setPlayersName(String player1Name, String player2Name){
         this.player1Name = player1Name;
         this.player2Name = player2Name;
+        
+        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        tmpSidebar.setPlayer1Name("<html><center>" + player1Name + "</center></html>");
+        tmpSidebar.setPlayer2Name("<html><center>" + player2Name + "</center></html>");
     }
     
     public static ChessGame getInstance(){

@@ -23,19 +23,33 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
-import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.*;
-
 /**
  *
  * @author jeferson
  */
 public class SidebarPanel extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form ChessSidebarPanel
      */
     public SidebarPanel() {
         initComponents();
+    }
+    
+    public void setPlayer1Name(String name){
+        player1Name.setText(name);
+    }
+    
+    public void setPlayer2Name(String name){
+        player2Name.setText(name);
+    }
+    
+    public String getPlayer1Name(){
+        return player1Name.getText();
+    }
+    
+    public String getPlayer2Name(){
+        return player2Name.getText();
     }
 
     /**
@@ -47,19 +61,20 @@ public class SidebarPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jLabel8 = new javax.swing.JLabel();
+        p1PlayerTurn = new javax.swing.JLabel();
+        p2PlayerTurn = new javax.swing.JLabel();
+        javax.swing.JLabel player1Label = new javax.swing.JLabel();
+        player1Name = new javax.swing.JLabel();
+        javax.swing.JLabel player2Label = new javax.swing.JLabel();
+        player2Name = new javax.swing.JLabel();
+        javax.swing.JLabel timerLabel = new javax.swing.JLabel();
+        changeTimerState = new javax.swing.JToggleButton();
+        timerCounter = new javax.swing.JLabel();
+        javax.swing.JLabel movementsLabel = new javax.swing.JLabel();
+        undoMovementButton = new javax.swing.JButton();
+        redoMovementButton = new javax.swing.JButton();
+        movementsScrollPanel = new javax.swing.JScrollPane();
+        movementsScrollList = new javax.swing.JList<>();
 
         setMaximumSize(new java.awt.Dimension(168, 480));
         setMinimumSize(new java.awt.Dimension(168, 480));
@@ -67,124 +82,166 @@ public class SidebarPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(168, 480));
         setVerifyInputWhenFocusTarget(false);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Player 1");
+        p1PlayerTurn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        p1PlayerTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/p1_icon.png"))); // NOI18N
+        p1PlayerTurn.setToolTipText("Player 1 Turn");
+        p1PlayerTurn.setEnabled(false);
+        p1PlayerTurn.setMaximumSize(new java.awt.Dimension(83, 95));
+        p1PlayerTurn.setMinimumSize(new java.awt.Dimension(83, 95));
+        p1PlayerTurn.setPreferredSize(new java.awt.Dimension(83, 95));
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setPreferredSize(new java.awt.Dimension(168, 95));
+        p2PlayerTurn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        p2PlayerTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/p2_icon.png"))); // NOI18N
+        p2PlayerTurn.setToolTipText("Player 2 Turn");
+        p2PlayerTurn.setEnabled(false);
+        p2PlayerTurn.setMaximumSize(new java.awt.Dimension(83, 95));
+        p2PlayerTurn.setMinimumSize(new java.awt.Dimension(83, 95));
+        p2PlayerTurn.setPreferredSize(new java.awt.Dimension(83, 95));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("<html><center>Jeferson Lima de Almeida</center></html>");
+        player1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        player1Label.setText("Player 1");
+        player1Label.setToolTipText("");
+        player1Label.setEnabled(false);
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Player 2");
+        player1Name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        player1Name.setText("<html><center> ... </center></html>");
+        player1Name.setEnabled(false);
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("<html><center>Alana Bispo de Souza Lima de Almeida</center></html>");
+        player2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        player2Label.setText("Player 2");
+        player2Label.setEnabled(false);
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Timer");
+        player2Name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        player2Name.setText("<html><center> ... </center></html>");
+        player2Name.setEnabled(false);
 
-        jToggleButton1.setMaximumSize(new java.awt.Dimension(33, 33));
-        jToggleButton1.setMinimumSize(new java.awt.Dimension(34, 10));
-        jToggleButton1.setPreferredSize(new java.awt.Dimension(33, 33));
+        timerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        timerLabel.setText("Timer");
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("00:00:00");
+        changeTimerState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/play_icon.png"))); // NOI18N
+        changeTimerState.setMaximumSize(new java.awt.Dimension(33, 33));
+        changeTimerState.setMinimumSize(new java.awt.Dimension(33, 33));
+        changeTimerState.setPreferredSize(new java.awt.Dimension(33, 33));
+        changeTimerState.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/pause_icon.png"))); // NOI18N
 
-        jButton1.setText("Undo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        timerCounter.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        timerCounter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        timerCounter.setText("00:00:00");
+        timerCounter.setEnabled(false);
+
+        movementsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        movementsLabel.setText("Movements");
+
+        undoMovementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/undo_icon.png"))); // NOI18N
+        undoMovementButton.setText("Undo");
+        undoMovementButton.setEnabled(false);
+        undoMovementButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        undoMovementButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        undoMovementButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                undoMovementButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Redo");
+        redoMovementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/redo_icon.png"))); // NOI18N
+        redoMovementButton.setText("Redo");
+        redoMovementButton.setEnabled(false);
+        redoMovementButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        movementsScrollList.setFont(new java.awt.Font("Dialog", 1, 9)); // NOI18N
+        movementsScrollList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "001 00:00:00 wKing [A 3]", "002 00:01:00 bBishop [A 5]" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
-
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Movements");
+        movementsScrollPanel.setViewportView(movementsScrollList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(player1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(player1Name)
+            .addComponent(player2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(player2Name, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(timerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(changeTimerState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(timerCounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(movementsScrollPanel)
+            .addComponent(movementsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(undoMovementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(redoMovementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(p1PlayerTurn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(p2PlayerTurn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(p2PlayerTurn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p1PlayerTurn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(player1Label)
                 .addGap(1, 1, 1)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(player1Name, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(player2Label)
                 .addGap(1, 1, 1)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(player2Name, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(timerLabel)
                 .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(changeTimerState, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(timerCounter, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
+                .addComponent(movementsLabel)
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(undoMovementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(redoMovementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(movementsScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
         );
+
+        p1PlayerTurn.getAccessibleContext().setAccessibleName("Player1Turn");
+        p1PlayerTurn.getAccessibleContext().setAccessibleDescription("Player 1 Turn");
+        p2PlayerTurn.getAccessibleContext().setAccessibleName("Player2Turn");
+        player1Label.getAccessibleContext().setAccessibleName("Player1Label");
+        player1Label.getAccessibleContext().setAccessibleDescription("Player 1 Label");
+        player2Label.getAccessibleContext().setAccessibleName("Player2Label");
+        player2Label.getAccessibleContext().setAccessibleDescription("Player 2 Label");
+        timerLabel.getAccessibleContext().setAccessibleName("TimerLabel");
+        timerLabel.getAccessibleContext().setAccessibleDescription("Timer Label");
+        movementsLabel.getAccessibleContext().setAccessibleName("MovementsLabel");
+        movementsLabel.getAccessibleContext().setAccessibleDescription("MovementsLabel");
 
         getAccessibleContext().setAccessibleName("SidebarPanel");
         getAccessibleContext().setAccessibleDescription("Sidebar Panel");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void undoMovementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoMovementButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_undoMovementButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton changeTimerState;
+    private javax.swing.JList<String> movementsScrollList;
+    private javax.swing.JScrollPane movementsScrollPanel;
+    private javax.swing.JLabel p1PlayerTurn;
+    private javax.swing.JLabel p2PlayerTurn;
+    private javax.swing.JLabel player1Name;
+    private javax.swing.JLabel player2Name;
+    private javax.swing.JButton redoMovementButton;
+    private javax.swing.JLabel timerCounter;
+    private javax.swing.JButton undoMovementButton;
     // End of variables declaration//GEN-END:variables
 }

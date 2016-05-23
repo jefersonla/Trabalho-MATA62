@@ -91,6 +91,10 @@ public class GamePanel extends javax.swing.JPanel {
         sidebarPanelLayout.show(sidebarPanel, "sidebarPanel");
     }
     
+    public JPanel getSidebarPanel(){
+        return actualSidebarPanel;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

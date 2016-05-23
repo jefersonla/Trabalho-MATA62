@@ -25,6 +25,7 @@ package br.ufba.dcc.mata62.ufbaboards.gui;
 
 import java.awt.CardLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -32,13 +33,17 @@ import javax.swing.JPanel;
  * @author jeferson
  */
 public class UfbaBoardFrame extends javax.swing.JFrame {
-
+    private String gameName;
+    public static final String VERSION = "1.0";
+    
     /**
      * Creates new form UfbaBoardFrame
      */
     public UfbaBoardFrame() {
         /* Init Components */
         initComponents();
+        
+        gameName = "";
     }
     
     public void addNewGamePanel(JPanel newGamePanel, String gamePanelName){
@@ -52,6 +57,10 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         appPanelLayout.show(appPanel, gamePanelName);
     }
         
+    public void setGameName(String gameName){
+        this.gameName = gameName;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,8 +95,8 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UFBA Boards");
         setIconImage(new ImageIcon(this.getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/ufba_icon.png")).getImage());
-        setMaximumSize(new java.awt.Dimension(1024, 1024));
-        setMinimumSize(new java.awt.Dimension(400, 300));
+        setMaximumSize(new java.awt.Dimension(660, 501));
+        setMinimumSize(new java.awt.Dimension(660, 501));
         setName("MainFrame"); // NOI18N
         setResizable(false);
 
@@ -263,7 +272,6 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         appPanel.getAccessibleContext().setAccessibleDescription("App Main Panel");
 
         getAccessibleContext().setAccessibleDescription("UFBA Boards Main Frame");
-        getAccessibleContext().setAccessibleParent(this);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -274,7 +282,21 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(  this,
+                                        "<html> "
+                                            + "<center>"
+                                                + "<h1> UFBA Boards V " + VERSION + "</h1>"
+                                                + "<p></p>"
+                                                + "<p>UFBA Boards is a creation of Jeferson Lima</p>"
+                                                + "<p>a Computer Science student at UFBA.</p>"
+                                                + "<p>UFBA Boards is released under the MIT LICENSE.</p>"
+                                                + "<p></p><p></p>"
+                                                + "<b> Copyright 2016 Jeferson Lima. </b>"
+                                            + "</center>"
+                                        + "</html>",
+                                        "About UFBA Boards - " + gameName,
+                                        JOptionPane.DEFAULT_OPTION,
+                                        new ImageIcon(this.getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/ufba_icon.png")));
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void gameHelpMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameHelpMenuItemActionPerformed
