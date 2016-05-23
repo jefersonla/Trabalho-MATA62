@@ -28,6 +28,7 @@ import br.ufba.dcc.mata62.ufbaboards.gui.SidebarPanel;
 import br.ufba.dcc.mata62.ufbaboards.gui.TwoPlayersStartPanel;
 import br.ufba.dcc.mata62.ufbaboards.gui.UfbaBoardFrame;
 import br.ufba.dcc.mata62.ufbaboards.persistence.SQLitePersistence;
+import br.ufba.dcc.mata62.ufbaboards.states.Finished;
 import br.ufba.dcc.mata62.ufbaboards.utils.GameTimer;
 import java.awt.CardLayout;
 import java.awt.Label;
@@ -70,12 +71,23 @@ public class ChessGame extends AbstractGame {
         /* Add an empty Chess Board Matrix */
         gamePanel1.addNewMatrixBoardPanel(boardFactory.getBoard("chess"));
         
+        /* Add a sidebar panel */
         gamePanel1.addNewSidebarPanel(new SidebarPanel());
         
+        /* Set Game Name */
         setGameName("ChessGame V 1.0");
         
         /* Add a new timer */
         timer = new GameTimer();
+    }
+    
+    public void disableItens(){
+        disableMultipleItens(new String[]{  UfbaBoardFrame.REDOMENU,
+                                            UfbaBoardFrame.UNDOMENU,
+        });
+        
+        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        tmpSidebar.disableItens();
     }
     
     public void setTimer(int sec, int min, int hour){
@@ -109,9 +121,7 @@ public class ChessGame extends AbstractGame {
                                             UfbaBoardFrame.RESTARTMENU,
                                             UfbaBoardFrame.STATISTICSMENU});
         
-        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
-        
-        timer.startTimer();
+        state = new Finished();
     }
     
     public static ChessGame getInstance(){
@@ -153,6 +163,7 @@ public class ChessGame extends AbstractGame {
         changePlayersPanel.add(new Label("Player 2: "));
         changePlayersPanel.add(player2TmpName);
         
+        /* If one of the player names have less than 4 character*/
         int res;
         do{
             res = JOptionPane.showConfirmDialog(this, changePlayersPanel, "Change Players Name", JOptionPane.OK_CANCEL_OPTION);
@@ -164,6 +175,8 @@ public class ChessGame extends AbstractGame {
                                                 JOptionPane.WARNING_MESSAGE);
         } while(res == JOptionPane.OK_OPTION &&
                 (player1TmpName.getText().length() < 4 || player2TmpName.getText().length() < 4));
+        
+        /* If people really want change a player name, do that */
         if(res == JOptionPane.OK_OPTION){
             setPlayersName(player1TmpName.getText(), player2TmpName.getText());
         }

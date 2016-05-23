@@ -23,12 +23,19 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.states;
 
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
+
 /**
  *
  * @author jeferson
  */
 public class Finished implements GameState{
 
+    public Finished(){
+        ChessGame chessGame = ChessGame.getInstance();
+        chessGame.disableItens();
+    }
+    
     @Override
     public void startGame() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -41,7 +48,7 @@ public class Finished implements GameState{
 
     @Override
     public void stopGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

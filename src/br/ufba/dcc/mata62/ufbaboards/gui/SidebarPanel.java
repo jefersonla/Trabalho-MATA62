@@ -63,16 +63,38 @@ public class SidebarPanel extends javax.swing.JPanel {
         player2Name.setEnabled(true);
     }
     
-    public void changePlayer1Turn(boolean state){
+    public void changePlayer1State(boolean state){
         p1PlayerTurn.setEnabled(state);
         player1Name.setEnabled(state);
     }
     
-    public void changePlayer2Turn(boolean state){
+    public void changePlayer2State(boolean state){
         p2PlayerTurn.setEnabled(state);
         player2Name.setEnabled(state);
     }
-
+    
+    public void changePlayerTurn(){
+        boolean actualState = p1PlayerTurn.isEnabled();
+        p2PlayerTurn.setEnabled(actualState);
+        p1PlayerTurn.setEnabled(!actualState);
+    }
+    
+    public void setRedoButtonState(boolean state){
+        redoMovementButton.setEnabled(state);
+    }
+    
+    public void setUndoButtonState(boolean state){
+        undoMovementButton.setEnabled(true);
+    }
+    
+    public void disableItens(){
+        changePlayer1State(false);
+        changePlayer2State(false);
+        changeTimerState.setEnabled(false);
+        undoMovementButton.setEnabled(false);
+        redoMovementButton.setEnabled(false);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,7 +138,6 @@ public class SidebarPanel extends javax.swing.JPanel {
         player1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         player1Label.setText("Player 1");
         player1Label.setToolTipText("");
-        player1Label.setEnabled(false);
 
         player1Name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         player1Name.setText("<html><center> ... </center></html>");
@@ -124,7 +145,6 @@ public class SidebarPanel extends javax.swing.JPanel {
 
         player2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         player2Label.setText("Player 2");
-        player2Label.setEnabled(false);
 
         player2Name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         player2Name.setText("<html><center> ... </center></html>");

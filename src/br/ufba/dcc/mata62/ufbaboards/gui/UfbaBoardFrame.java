@@ -122,6 +122,11 @@ public abstract class UfbaBoardFrame extends javax.swing.JFrame {
         for(String item : itens)
             changeMenuState(item, true);
     }
+
+    public void disableMultipleItens(String[] itens){
+        for(String item : itens)
+            changeMenuState(item, false);
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
