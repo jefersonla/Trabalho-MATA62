@@ -26,8 +26,14 @@ package br.ufba.dcc.mata62.ufbaboards.jogoxadrez;
 import br.ufba.dcc.mata62.ufbaboards.AbstractGame;
 import br.ufba.dcc.mata62.ufbaboards.gui.SidebarPanel;
 import br.ufba.dcc.mata62.ufbaboards.gui.TwoPlayersStartPanel;
+import br.ufba.dcc.mata62.ufbaboards.gui.UfbaBoardFrame;
 import br.ufba.dcc.mata62.ufbaboards.persistence.SQLitePersistence;
 import java.awt.CardLayout;
+import java.awt.Label;
+import javax.swing.Box;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -65,6 +71,14 @@ public class ChessGame extends AbstractGame {
         setGameName("ChessGame V 1.0");
     }
     
+    public String getPlayer1Name(){
+        return player1Name;
+    }
+    
+    public String getPlayer2Name(){
+        return player2Name;
+    }
+    
     public void setPlayersName(String player1Name, String player2Name){
         this.player1Name = player1Name;
         this.player2Name = player2Name;
@@ -74,11 +88,79 @@ public class ChessGame extends AbstractGame {
         tmpSidebar.setPlayer2Name("<html><center>" + player2Name + "</center></html>");
     }
     
+    public void unblockInterface(String player1Name, String player2Name){
+        setPlayersName(player1Name, player2Name);
+        
+        enableMultipleItens(new String[]{   UfbaBoardFrame.CHANGEPLAYERMENU, 
+                                            UfbaBoardFrame.NEWGAMEMENU,
+                                            UfbaBoardFrame.NEWSPECIALMENU,
+                                            UfbaBoardFrame.RESTARTMENU,
+                                            UfbaBoardFrame.STATISTICSMENU});
+    }
+    
     public static ChessGame getInstance(){
         if(instance == null)
             instance = new ChessGame();
         
         return instance;
     }
-    
+
+    @Override
+    protected void gameHelpMenuAction() {
+    }
+
+    @Override
+    protected void undoItemAction() {
+    }
+
+    @Override
+    protected void redoItemAction() {
+    }
+
+    @Override
+    protected void newGameMenuAction() {
+    }
+
+    @Override
+    protected void newSpecialGameAction() {
+    }
+
+    @Override
+    protected void changePlayersMenuAction() {
+        JTextField player1TmpName = new JTextField(player1Name,10);
+        JTextField player2TmpName = new JTextField(player2Name,10);
+        JPanel changePlayersPanel = new JPanel();
+        
+        changePlayersPanel.add(new Label("Player 1: "));
+        changePlayersPanel.add(player1TmpName);
+        changePlayersPanel.add(Box.createHorizontalStrut(20));
+        changePlayersPanel.add(new Label("Player 2: "));
+        changePlayersPanel.add(player2TmpName);
+        
+        int res;
+        do{
+            res = JOptionPane.showConfirmDialog(this, changePlayersPanel, "Change Players Name", JOptionPane.OK_CANCEL_OPTION);
+            if(res == JOptionPane.OK_OPTION &&
+                (player1TmpName.getText().length() < 4 || player2TmpName.getText().length() < 4))
+                JOptionPane.showMessageDialog(  this,
+                                                "Player name should have, more than 4 characters",
+                                                "Player Name Warning!",
+                                                JOptionPane.WARNING_MESSAGE);
+        } while(res == JOptionPane.OK_OPTION &&
+                (player1TmpName.getText().length() < 4 || player2TmpName.getText().length() < 4));
+        if(res == JOptionPane.OK_OPTION){
+            setPlayersName(player1TmpName.getText(), player2TmpName.getText());
+        }
+    }
+
+    @Override
+    protected void statisticsMenuAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void restartGameMenuAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+        
 }

@@ -176,7 +176,7 @@ public class TwoPlayersStartPanel extends javax.swing.JPanel {
         }
         
         /* Store players name */
-        ChessGame.getInstance().setPlayersName(player1Input.getText(), player2Input.getText());
+        ChessGame.getInstance().unblockInterface(player1Input.getText(), player2Input.getText());
         
         /* Remove this panel */
         appPanel.remove(this);

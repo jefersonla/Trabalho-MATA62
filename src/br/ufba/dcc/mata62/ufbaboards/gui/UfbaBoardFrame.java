@@ -32,7 +32,18 @@ import javax.swing.JPanel;
  *
  * @author jeferson
  */
-public class UfbaBoardFrame extends javax.swing.JFrame {
+public abstract class UfbaBoardFrame extends javax.swing.JFrame {
+    /* Some constants */
+    public static final String GAMEHELPMENU = "gamehelp_item";
+    public static final String UNDOMENU = "undo_item";
+    public static final String REDOMENU = "redo_item";
+    public static final String NEWGAMEMENU = "newgame_item";
+    public static final String NEWSPECIALMENU = "newspecial_item";
+    public static final String CHANGEPLAYERMENU = "changeplayer_item";
+    public static final String STATISTICSMENU = "statistics_item";
+    public static final String RESTARTMENU = "restartgame_item";
+    
+    /* Attributes */
     private String gameName;
     public static final String VERSION = "1.0";
     
@@ -44,6 +55,9 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         initComponents();
         
         gameName = "";
+        char z = 'a';
+        
+        
     }
     
     public void addNewGamePanel(JPanel newGamePanel, String gamePanelName){
@@ -56,9 +70,60 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         /* Show Entry Panel */
         appPanelLayout.show(appPanel, gamePanelName);
     }
+    
+    protected abstract void gameHelpMenuAction();
+    protected abstract void undoItemAction();
+    protected abstract void redoItemAction();
+    protected abstract void newGameMenuAction();
+    protected abstract void newSpecialGameAction();
+    protected abstract void changePlayersMenuAction();
+    protected abstract void statisticsMenuAction();
+    protected abstract void restartGameMenuAction();
         
     public void setGameName(String gameName){
         this.gameName = gameName;
+    }
+    
+    public void changeMenuState(String item, boolean state){
+        switch(item){
+            case GAMEHELPMENU:
+                gameHelpMenuItem.setEnabled(state);
+                break;
+            case UNDOMENU:
+                gameHelpMenuItem.setEnabled(state);
+                break;
+            case REDOMENU:
+                redoMenuItem.setEnabled(state);
+                break;
+            case NEWGAMEMENU:
+                newGameMenuItem.setEnabled(state);
+                break;
+            case NEWSPECIALMENU:
+                newSpecialGameMenuItem.setEnabled(state);
+                break;
+            case CHANGEPLAYERMENU:
+                changePlayersMenuItem.setEnabled(state);
+                break;
+            case STATISTICSMENU:
+                statisticsMenuItem.setEnabled(state);
+                break;
+            case RESTARTMENU:
+                restartGameMenuItem.setEnabled(state);
+                break;
+        }
+    }
+    
+    public void enableMenuState(String item){
+        changeMenuState(item, true);
+    }
+    
+    public void disableMenuState(String item){
+        changeMenuState(item, false);
+    }
+    
+    public void enableMultipleItens(String[] itens){
+        for(String item : itens)
+            changeMenuState(item, true);
     }
     
     /**
@@ -151,6 +216,11 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         restartGameMenuItem.setText("Restart Game");
         restartGameMenuItem.setToolTipText("Restart the current game");
         restartGameMenuItem.setEnabled(false);
+        restartGameMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restartGameMenuItemActionPerformed(evt);
+            }
+        });
         gameMenu.add(restartGameMenuItem);
 
         saveGameMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
@@ -208,6 +278,11 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
         statisticsMenuItem.setText("Statistics");
         statisticsMenuItem.setToolTipText("Statistics of the current game");
         statisticsMenuItem.setEnabled(false);
+        statisticsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statisticsMenuItemActionPerformed(evt);
+            }
+        });
         optionsMenu.add(statisticsMenuItem);
 
         changePlayersMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
@@ -300,28 +375,36 @@ public class UfbaBoardFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void gameHelpMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameHelpMenuItemActionPerformed
-        // TODO add your handling code here:
+        gameHelpMenuAction();
     }//GEN-LAST:event_gameHelpMenuItemActionPerformed
 
     private void undoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoMenuItemActionPerformed
-        // TODO add your handling code here:
+        undoItemAction();
     }//GEN-LAST:event_undoMenuItemActionPerformed
 
     private void redoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoMenuItemActionPerformed
-        // TODO add your handling code here:
+        redoItemAction();
     }//GEN-LAST:event_redoMenuItemActionPerformed
 
     private void newGameMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameMenuItemActionPerformed
-        // TODO add your handling code here:
+        newGameMenuAction();
     }//GEN-LAST:event_newGameMenuItemActionPerformed
 
     private void newSpecialGameMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newSpecialGameMenuItemActionPerformed
-        // TODO add your handling code here:
+        newSpecialGameAction();
     }//GEN-LAST:event_newSpecialGameMenuItemActionPerformed
 
     private void changePlayersMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePlayersMenuItemActionPerformed
-        // TODO add your handling code here:
+        changePlayersMenuAction();
     }//GEN-LAST:event_changePlayersMenuItemActionPerformed
+
+    private void statisticsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statisticsMenuItemActionPerformed
+        statisticsMenuAction();
+    }//GEN-LAST:event_statisticsMenuItemActionPerformed
+
+    private void restartGameMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restartGameMenuItemActionPerformed
+        restartGameMenuAction();
+    }//GEN-LAST:event_restartGameMenuItemActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;

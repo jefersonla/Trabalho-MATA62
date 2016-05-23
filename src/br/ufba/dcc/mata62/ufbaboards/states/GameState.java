@@ -28,5 +28,7 @@ package br.ufba.dcc.mata62.ufbaboards.states;
  * @author jeferson
  */
 public interface GameState {
-    
+    public void startGame();
+    public void pauseGame();
+    public void stopGame();
 }

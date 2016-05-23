@@ -27,6 +27,21 @@ package br.ufba.dcc.mata62.ufbaboards.states;
  *
  * @author jeferson
  */
-public class Finished {
+public class Finished implements GameState{
+
+    @Override
+    public void startGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void pauseGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void stopGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

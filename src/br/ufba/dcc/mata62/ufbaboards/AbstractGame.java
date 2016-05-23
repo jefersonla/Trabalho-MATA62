@@ -52,6 +52,10 @@ public abstract class AbstractGame extends UfbaBoardFrame implements IGame {
         return null;
     }
     
+    public GameState getGameState(){
+        return state;
+    }
+    
     @Override
     public void playGame(AbstractGame newGame) {
         // Falta Implementar

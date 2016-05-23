@@ -119,6 +119,7 @@ public class SidebarPanel extends javax.swing.JPanel {
         timerLabel.setText("Timer");
 
         changeTimerState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/play_icon.png"))); // NOI18N
+        changeTimerState.setEnabled(false);
         changeTimerState.setMaximumSize(new java.awt.Dimension(33, 33));
         changeTimerState.setMinimumSize(new java.awt.Dimension(33, 33));
         changeTimerState.setPreferredSize(new java.awt.Dimension(33, 33));
