@@ -55,9 +55,6 @@ public abstract class UfbaBoardFrame extends javax.swing.JFrame {
         initComponents();
         
         gameName = "";
-        char z = 'a';
-        
-        
     }
     
     public void addNewGamePanel(JPanel newGamePanel, String gamePanelName){

@@ -28,6 +28,7 @@ import br.ufba.dcc.mata62.ufbaboards.gui.SidebarPanel;
 import br.ufba.dcc.mata62.ufbaboards.gui.TwoPlayersStartPanel;
 import br.ufba.dcc.mata62.ufbaboards.gui.UfbaBoardFrame;
 import br.ufba.dcc.mata62.ufbaboards.persistence.SQLitePersistence;
+import br.ufba.dcc.mata62.ufbaboards.utils.GameTimer;
 import java.awt.CardLayout;
 import java.awt.Label;
 import javax.swing.Box;
@@ -46,6 +47,9 @@ public class ChessGame extends AbstractGame {
     /* Private attributes */
     private String player1Name;
     private String player2Name;
+    
+    /* Timer Action Listener */
+    GameTimer timer;
     
     private ChessGame(){
         /* Call super constructor */
@@ -69,6 +73,14 @@ public class ChessGame extends AbstractGame {
         gamePanel1.addNewSidebarPanel(new SidebarPanel());
         
         setGameName("ChessGame V 1.0");
+        
+        /* Add a new timer */
+        timer = new GameTimer();
+    }
+    
+    public void setTimer(int sec, int min, int hour){
+        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        tmpSidebar.setActualTimer(sec, min, hour);
     }
     
     public String getPlayer1Name(){
@@ -96,6 +108,10 @@ public class ChessGame extends AbstractGame {
                                             UfbaBoardFrame.NEWSPECIALMENU,
                                             UfbaBoardFrame.RESTARTMENU,
                                             UfbaBoardFrame.STATISTICSMENU});
+        
+        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        
+        timer.startTimer();
     }
     
     public static ChessGame getInstance(){

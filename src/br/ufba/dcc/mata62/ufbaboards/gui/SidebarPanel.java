@@ -38,6 +38,10 @@ public class SidebarPanel extends javax.swing.JPanel {
         initComponents();
     }
     
+    public void setActualTimer(int sec, int min, int hour){
+        timerCounter.setText(String.format("%02d:%02d:%02d", hour, min, sec));
+    }
+    
     public void setPlayer1Name(String name){
         player1Name.setText(name);
     }
@@ -91,7 +95,7 @@ public class SidebarPanel extends javax.swing.JPanel {
         undoMovementButton = new javax.swing.JButton();
         redoMovementButton = new javax.swing.JButton();
         movementsScrollPanel = new javax.swing.JScrollPane();
-        movementsScrollList = new javax.swing.JList<>();
+        movementsScrollList = new javax.swing.JList<String>();
 
         setMaximumSize(new java.awt.Dimension(168, 480));
         setMinimumSize(new java.awt.Dimension(168, 480));
@@ -144,7 +148,6 @@ public class SidebarPanel extends javax.swing.JPanel {
         timerCounter.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         timerCounter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         timerCounter.setText("00:00:00");
-        timerCounter.setEnabled(false);
 
         movementsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         movementsLabel.setText("Movements");
@@ -153,7 +156,6 @@ public class SidebarPanel extends javax.swing.JPanel {
         undoMovementButton.setText("Undo");
         undoMovementButton.setEnabled(false);
         undoMovementButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        undoMovementButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         undoMovementButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 undoMovementButtonActionPerformed(evt);
@@ -163,7 +165,6 @@ public class SidebarPanel extends javax.swing.JPanel {
         redoMovementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/redo_icon.png"))); // NOI18N
         redoMovementButton.setText("Redo");
         redoMovementButton.setEnabled(false);
-        redoMovementButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         redoMovementButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 redoMovementButtonActionPerformed(evt);
@@ -171,10 +172,10 @@ public class SidebarPanel extends javax.swing.JPanel {
         });
 
         movementsScrollList.setFont(new java.awt.Font("Dialog", 1, 9)); // NOI18N
-        movementsScrollList.setModel(new javax.swing.AbstractListModel<String>() {
+        movementsScrollList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "001 00:00:00 wKing [A 3]", "002 00:01:00 bBishop [A 5]" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         movementsScrollPanel.setViewportView(movementsScrollList);
 
