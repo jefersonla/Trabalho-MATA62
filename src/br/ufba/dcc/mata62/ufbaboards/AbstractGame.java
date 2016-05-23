@@ -43,7 +43,7 @@ public abstract class AbstractGame extends UfbaBoardFrame implements IGame {
         state = null;
         boardFactory = new BoardFactory();
     }
-    
+        
     @Override
     public AbstractGame getGameInstance(String game){
         if(game.equals("chess"))
@@ -55,13 +55,17 @@ public abstract class AbstractGame extends UfbaBoardFrame implements IGame {
     public GameState getGameState(){
         return state;
     }
+        
+    public void setGameState(GameState state){
+        this.state = state;
+    }
+    
+    public void display(){
+        this.setVisible(true);
+    }
     
     @Override
     public void playGame(AbstractGame newGame) {
         // Falta Implementar
-    }
-       
-    public void display(){
-        this.setVisible(true);
     }
 }

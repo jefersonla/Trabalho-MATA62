@@ -30,5 +30,6 @@ package br.ufba.dcc.mata62.ufbaboards.states;
 public interface GameState {
     public void startGame();
     public void pauseGame();
+    public void continueGame();
     public void stopGame();
 }

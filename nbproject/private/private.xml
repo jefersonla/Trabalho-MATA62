@@ -3,6 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/vodka/NetBeansProjects/Trabalho-MATA62/src/br/ufba/dcc/mata62/ufbaboards/jogoxadrez/ChessGame.java</file>
+            <file>file:/home/vodka/NetBeansProjects/Trabalho-MATA62/src/br/ufba/dcc/mata62/ufbaboards/states/Finished.java</file>
+            <file>file:/home/vodka/NetBeansProjects/Trabalho-MATA62/src/br/ufba/dcc/mata62/ufbaboards/boards/BoardLabelsHorizontal.java</file>
+            <file>file:/home/vodka/NetBeansProjects/Trabalho-MATA62/src/br/ufba/dcc/mata62/ufbaboards/jogoxadrez/boards/ChessBoard.java</file>
+            <file>file:/home/vodka/NetBeansProjects/Trabalho-MATA62/src/br/ufba/dcc/mata62/ufbaboards/utils/GameTimer.java</file>
+            <file>file:/home/vodka/NetBeansProjects/Trabalho-MATA62/src/br/ufba/dcc/mata62/ufbaboards/boards/BoardLabelsVertical.java</file>
+            <file>file:/home/vodka/NetBeansProjects/Trabalho-MATA62/src/br/ufba/dcc/mata62/ufbaboards/gui/SidebarPanel.java</file>
+            <file>file:/home/vodka/NetBeansProjects/Trabalho-MATA62/src/br/ufba/dcc/mata62/ufbaboards/AbstractGame.java</file>
+            <file>file:/home/vodka/NetBeansProjects/Trabalho-MATA62/src/br/ufba/dcc/mata62/ufbaboards/gui/UfbaBoardFrame.java</file>
+        </group>
     </open-files>
 </project-private>

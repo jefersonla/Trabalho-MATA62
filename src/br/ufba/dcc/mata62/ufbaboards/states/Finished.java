@@ -33,22 +33,30 @@ public class Finished implements GameState{
 
     public Finished(){
         ChessGame chessGame = ChessGame.getInstance();
-        chessGame.disableItens();
+        chessGame.disableSidebarItens();
+        chessGame.stopTimer();
     }
     
     @Override
     public void startGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ChessGame chessGame = ChessGame.getInstance();
+        chessGame.setGameState(new InProgress());
+        chessGame.restartTimer();
     }
 
     @Override
     public void pauseGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("You can't pause a game that is already finished!");
     }
 
     @Override
+    public void continueGame() {
+        throw new UnsupportedOperationException("You can't continue a game that is already finished!");
+    }
+    
+    @Override
     public void stopGame() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("You can't stop a game that is already finished!");
     }
     
 }

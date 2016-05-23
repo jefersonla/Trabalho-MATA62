@@ -81,13 +81,31 @@ public class ChessGame extends AbstractGame {
         timer = new GameTimer();
     }
     
-    public void disableItens(){
-        disableMultipleItens(new String[]{  UfbaBoardFrame.REDOMENU,
-                                            UfbaBoardFrame.UNDOMENU,
-        });
-        
+    public void stopTimer(){
+        timer.pauseTimer();
+    }
+    
+    public void startTimer(){
+        timer.startTimer();
+    }
+    
+    public void restartTimer(){
+        timer.resetTimer();
+    }
+    
+    public void setTimerButtonState(boolean state){
+        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        tmpSidebar.setTimerButtonState(state);
+    }
+    
+    public void disableSidebarItens(){        
         SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
         tmpSidebar.disableItens();
+    }
+    
+    public void enableSidebarItens(){
+        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        tmpSidebar.enableItens();
     }
     
     public void setTimer(int sec, int min, int hour){
@@ -130,25 +148,30 @@ public class ChessGame extends AbstractGame {
         
         return instance;
     }
-
+    
     @Override
     protected void gameHelpMenuAction() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     protected void undoItemAction() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     protected void redoItemAction() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     protected void newGameMenuAction() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     protected void newSpecialGameAction() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
@@ -184,12 +207,25 @@ public class ChessGame extends AbstractGame {
 
     @Override
     protected void statisticsMenuAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JOptionPane.showMessageDialog(  this,
+                                        "<html> "
+                                            + "<center>"
+                                                + "<h1> UFBA Boards V " + VERSION + "</h1>"
+                                                + "<p></p>"
+                                                + "<p>UFBA Boards is a creation of Jeferson Lima</p>"
+                                                + "<p>a Computer Science student at UFBA.</p>"
+                                                + "<p>UFBA Boards is released under the MIT LICENSE.</p>"
+                                                + "<p></p><p></p>"
+                                                + "<b> Copyright 2016 Jeferson Lima. </b>"
+                                            + "</center>"
+                                        + "</html>",
+                                        "About UFBA Boards - " + gameName,
+                                        JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
     protected void restartGameMenuAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
         
 }

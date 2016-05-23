@@ -23,25 +23,40 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.states;
 
+import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
+
 /**
  *
  * @author jeferson
  */
 public class InProgress implements GameState{
 
+    public InProgress(){
+        ChessGame chessGame = ChessGame.getInstance();
+        chessGame.enableSidebarItens();
+        chessGame.startTimer();
+    }
+    
     @Override
     public void startGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ChessGame chessGame = ChessGame.getInstance();
+        chessGame.setGameState(new InProgress());
+        chessGame.restartTimer();
     }
 
     @Override
     public void pauseGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ChessGame.getInstance().setGameState(new Paused());
     }
 
     @Override
+    public void continueGame() {
+        throw new UnsupportedOperationException("You can't continue a game that is already in progress.");
+    }
+    
+    @Override
     public void stopGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ChessGame.getInstance().setGameState(new Finished());
     }
     
 }

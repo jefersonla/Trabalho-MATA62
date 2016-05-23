@@ -38,6 +38,10 @@ public class SidebarPanel extends javax.swing.JPanel {
         initComponents();
     }
     
+    public void setTimerButtonState(boolean state){
+        changeTimerState.setEnabled(state);
+    }
+    
     public void setActualTimer(int sec, int min, int hour){
         timerCounter.setText(String.format("%02d:%02d:%02d", hour, min, sec));
     }
@@ -93,6 +97,14 @@ public class SidebarPanel extends javax.swing.JPanel {
         changeTimerState.setEnabled(false);
         undoMovementButton.setEnabled(false);
         redoMovementButton.setEnabled(false);
+    }
+    
+    public void enableItens(){
+        changePlayer1State(true);
+        changePlayer2State(true);
+        changeTimerState.setEnabled(true);
+        undoMovementButton.setEnabled(true);
+        redoMovementButton.setEnabled(true);
     }
     
     /**
