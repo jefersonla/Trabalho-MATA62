@@ -25,9 +25,11 @@ package br.ufba.dcc.mata62.ufbaboards.chessgame.boards;
 
 import br.ufba.dcc.mata62.ufbaboards.boards.AbstractBoard;
 import br.ufba.dcc.mata62.ufbaboards.boards.BoardMatrixPanel;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.BlankPiece;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.ChessPiece;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.PieceFactory;
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
+import java.awt.Color;
 
 /**
  *
@@ -65,28 +67,39 @@ public class ChessBoard extends AbstractBoard{
     private AbstractPiece lastPiece;
     
     @Override
-    public void notifyObserver(AbstractPiece piece) {
-        boardMatrix.removeHighlight();
-        
+    public void notifyObserver(AbstractPiece piece) {             
         if(piece.isHighlighted()){
-            piece.setIcon(lastPiece.getIcon());
-            lastPiece.setIcon(null);
+            /* BUGGED */
+            //piece.setIcon(lastPiece.getIcon());
+            //lastPiece.setIcon(null);
             ChessPiece myPiece = (ChessPiece) piece;
             int actualX = myPiece.getXCoordinate();
             int actualY = myPiece.getYCoordinate();
             
-            myPiece = (ChessPiece) lastPiece;
-            int lastX = myPiece.getXCoordinate();
-            int lastY = myPiece.getYCoordinate();
+            ChessPiece movePiece = (ChessPiece) lastPiece;
+            int lastX = movePiece.getXCoordinate();
+            int lastY = movePiece.getYCoordinate();
             
-            boardMatrix.removePiece(lastPiece, lastX, lastY);
-            boardMatrix.addPiece(lastPiece, actualX, actualY);
-            System.out.println("Change");
+            /* Change some properties before change location */
+            movePiece.setXCoordinate(actualX);
+            movePiece.setYCoordinate(actualY);
+            
+            ChessPiece newPiece = new BlankPiece(lastX, lastY, movePiece.getDefaultColor());
+            newPiece.addObserver(this);
+            
+            /* Remove e adiciona uma peça em branco */
+            boardMatrix.removePiece(newPiece, movePiece, lastX, lastY);
+            /* Adiciona a nova peça, porém para adicionar a nova peça é preciso saber quem remover */
+            boardMatrix.addPiece(piece, movePiece, actualX, actualY);
+            System.out.println("Change to X: " + actualX + " Y: " + actualY);
+            boardMatrix.removeHighlight();
         }
         else{
+            boardMatrix.removeHighlight();
             lastPiece = piece;
             boardMatrix.highlightMovements(piece);
-            System.out.println("Change To the place "+);
+            
+            System.out.println("Clicked icon");
         }
     }
     

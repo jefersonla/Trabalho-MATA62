@@ -48,7 +48,7 @@ public class ChessPiece extends AbstractPiece {
     private PieceState state;
     
     /* Strategy */
-    private ChessPieceMovementStrategy strategy;
+    private final ChessPieceMovementStrategy strategy;
     
     /* Possible resources */
     protected ImageIcon pieceResource;
@@ -66,8 +66,10 @@ public class ChessPiece extends AbstractPiece {
         this.strategy = new BlankPieceMovementStrategy();
     }
     
-    public ChessPiece(String name, String color,
-            ChessPieceMovementStrategy strategy, int x, int y, Color defaultColor){
+    public ChessPiece(  String name, String color,
+                        ChessPieceMovementStrategy strategy,
+                        int x, int y,
+                        Color defaultColor){
         super(defaultColor);
         this.x = x;
         this.y = y;
@@ -100,6 +102,15 @@ public class ChessPiece extends AbstractPiece {
 
     public void setYCoordinate(int y) {
         this.y = y;
+    }
+    
+    public void setBackColor(Color color){
+        defaultColor = color;
+        setBackground(color);
+    }
+    
+    public Color getDefaultColor(){
+        return defaultColor;
     }
 
     @Override

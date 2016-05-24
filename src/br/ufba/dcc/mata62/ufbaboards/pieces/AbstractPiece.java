@@ -36,6 +36,7 @@ import java.util.ArrayList;
 public abstract class AbstractPiece extends BoardPiece implements PieceObserved{
     
     private final ArrayList<Observer> observers;
+    private boolean flag;
     
     public AbstractPiece(Color defaultColor) {
         super(new Color(153, 255, 153), new Color(102, 204, 255), defaultColor);
@@ -43,6 +44,8 @@ public abstract class AbstractPiece extends BoardPiece implements PieceObserved{
         addActionListener((ActionEvent evt) -> {
             notifica((AbstractPiece)evt.getSource());
         });
+        
+        flag = false;
     }
 
     @Override
@@ -57,23 +60,22 @@ public abstract class AbstractPiece extends BoardPiece implements PieceObserved{
 
     @Override
     public void notifica(AbstractPiece piece) {
-        for(Observer obs : observers)
+        observers.stream().forEach((obs) -> {
             obs.notifyObserver(piece);
+        });
     }
-    
-    public void setSelected() {
-        setBackground(Color.GREEN);
-    }
-    
+       
     public void deSelect() {
         setBackground(defaultColor);
+        flag = false;
     }
     
     public boolean isHighlighted(){
-        return getBackground() == Color.GREEN;
+        return flag;
     }
     
     public void highlightPiece(){
+        flag = true;
         setBackground(Color.GREEN);
     }
     

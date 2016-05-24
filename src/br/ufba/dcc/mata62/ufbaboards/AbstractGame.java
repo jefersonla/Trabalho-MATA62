@@ -27,6 +27,7 @@ import br.ufba.dcc.mata62.ufbaboards.persistence.IPersistence;
 import br.ufba.dcc.mata62.ufbaboards.boards.BoardFactory;
 import br.ufba.dcc.mata62.ufbaboards.gui.UfbaBoardFrame;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.ChessGame;
+import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.FramePrincipal;
 import br.ufba.dcc.mata62.ufbaboards.states.GameState;
 
 /**
@@ -48,6 +49,8 @@ public abstract class AbstractGame extends UfbaBoardFrame implements IGame {
     public AbstractGame getGameInstance(String game){
         if(game.equals("chess"))
             return ChessGame.getInstance();
+        /*else if(game.equals("chess-old"))
+            return new FramePrincipal();*/
         
         return null;
     }

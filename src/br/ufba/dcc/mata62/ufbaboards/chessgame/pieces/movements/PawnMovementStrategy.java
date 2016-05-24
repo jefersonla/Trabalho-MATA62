@@ -35,10 +35,10 @@ public class PawnMovementStrategy extends ChessPieceMovementStrategy{
     public PawnMovementStrategy(boolean inverted){
         super();
         isFirstMovement = true;
-        firstMovement = new CoordinatesMovement(inverted ? 2 : -2, 0, false, false);
+        firstMovement = new CoordinatesMovement(0, inverted ? 2 : -2, false, false);
         
-        possibleMovements.add(new CoordinatesMovement(inverted ? 1 : -1, 0, false, false));
-        possibleMovements.add(new CoordinatesMovement(inverted ? 2 : -2, 0, false, false));
+        possibleMovements.add(new CoordinatesMovement(0, inverted ? 1 : -1, false, false));
+        possibleMovements.add(new CoordinatesMovement(0, inverted ? 2 : -2, false, false));
     }
     
     public void removeMovement(){

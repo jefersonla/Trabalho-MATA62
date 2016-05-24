@@ -42,6 +42,31 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
     protected AbstractPiece[][] piecesMatrix;
     protected int tam;
     
+    public void removePiece(AbstractPiece newPiece, AbstractPiece piece, int x, int y){
+        int pieceIndex = (8 * y) + x; 
+        
+        piecesMatrix[y][x] = newPiece;
+        piecesMatrix[y][x].setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
+        piecesMatrix[y][x].setPreferredSize(new Dimension(54, 54));
+        this.add(piecesMatrix[y][x], pieceIndex);
+        this.remove(piece);
+    }
+    public void addPiece(AbstractPiece lastPiece, AbstractPiece newPiece, int x, int y){
+        int pieceIndex = (8 * y) + x;
+        
+        piecesMatrix[y][x] = newPiece;
+        
+        ChessPiece aff = (ChessPiece) newPiece;
+        
+        if((x % 2) == (y % 2))
+            aff.setBackColor(new Color(51, 102, 255));
+        else
+            aff.setBackColor(new Color(204, 204, 255));
+                
+        this.add(piecesMatrix[y][x], pieceIndex);
+        this.remove(lastPiece);
+    }
+    
     /**
      * Creates new form BoardPanel
      * @param size
@@ -62,12 +87,12 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             for(int j = 0; j < size; j++){                
                 /* Select Heavy Blue Pieces */
                 if((i % 2) == (j % 2)){   
-                    piecesMatrix[i][j] = new BlankPiece(i, j, new Color(51, 102, 255));
+                    piecesMatrix[i][j] = new BlankPiece(j, i, new Color(51, 102, 255));
                     piecesMatrix[i][j].setBackground(new Color(51, 102, 255));
                 }
                 /* Select Light Blue Pieces */
                 else{
-                    piecesMatrix[i][j] = new BlankPiece(i, j, new Color(204, 204, 255));
+                    piecesMatrix[i][j] = new BlankPiece(j, i, new Color(204, 204, 255));
                     piecesMatrix[i][j].setBackground(new Color(204, 204, 255));
                 }
                     
@@ -99,14 +124,14 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
                 /* Select Heavy Blue Pieces */
                 if((i % 2) == (j % 2)){
                     piecesMatrix[i][j] = PieceFactory.getNewPiece(  matrix[i][j],
-                                                colorPieces[i][j], i, j,
+                                                colorPieces[i][j], j, i,
                                                 new Color(51, 102, 255));
                     piecesMatrix[i][j].setBackground(new Color(51, 102, 255));
                 }
                 /* Select Light Blue Pieces */
                 else{
                     piecesMatrix[i][j] = PieceFactory.getNewPiece(  matrix[i][j],
-                                                                    colorPieces[i][j], i, j,
+                                                                    colorPieces[i][j], j, i,
                                                                     new Color(204, 204, 255));
                     piecesMatrix[i][j].setBackground(new Color(204, 204, 255));
                 }
@@ -144,8 +169,8 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             if(possibleMovement.isX_inf() && possibleMovement.isY_inf()){
                 while(((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
                     ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
-                    !piecesMatrix[actualX + wantedX][actualY + wantedY].isOcuped()){
-                    piecesMatrix[actualX + wantedX][actualY + wantedY].highlightPiece();
+                    !piecesMatrix[actualY + wantedY][actualX + wantedX].isOcuped()){
+                    piecesMatrix[actualY + wantedY][actualX + wantedX].highlightPiece();
                     wantedX += 1;
                     wantedY += 1;
                 }
@@ -153,24 +178,24 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             if(possibleMovement.isX_inf()){
                 while(((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
                     ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
-                    !piecesMatrix[actualX + wantedX][actualY + wantedY].isOcuped()){
-                    piecesMatrix[actualX + wantedX][actualY + wantedY].highlightPiece();
+                    !piecesMatrix[actualY + wantedY][actualX + wantedX].isOcuped()){
+                    piecesMatrix[actualY + wantedY][actualX + wantedX].highlightPiece();
                     wantedX += 1;
                 }
             }
             if(possibleMovement.isY_inf()){
                 while(((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
                     ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
-                    !piecesMatrix[actualX + wantedX][actualY + wantedY].isOcuped()){
-                    piecesMatrix[actualX + wantedX][actualY + wantedY].highlightPiece();
+                    !piecesMatrix[actualY + wantedY][actualX + wantedX].isOcuped()){
+                    piecesMatrix[actualY + wantedY][actualX + wantedX].highlightPiece();
                     wantedY += 1;
                 }
             }
             else{    
                 if( ((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
                     ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
-                    !piecesMatrix[actualX + wantedX][actualY + wantedY].isOcuped()) 
-                    piecesMatrix[actualX + wantedX][actualY + wantedY].highlightPiece();   
+                    !piecesMatrix[actualY + wantedY][actualX + wantedX].isOcuped()) 
+                    piecesMatrix[actualY + wantedY][actualX + wantedX].highlightPiece();   
             }
         } 
     }
