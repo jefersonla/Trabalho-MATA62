@@ -23,8 +23,6 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.jogoxadrez;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JLabel;
 import javax.swing.JToggleButton;
 
 /**
@@ -41,7 +39,7 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
     }
     
     public void setTimerButtonState(boolean state){
-        changeTimerState.setEnabled(state);
+        changeTimerStateButton.setEnabled(state);
     }
     
     public void setActualTimer(int sec, int min, int hour){
@@ -96,13 +94,17 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
     public void disableItens(){
         changePlayer1State(false);
         changePlayer2State(false);
-        changeTimerState.setEnabled(false);
+        changeTimerStateButton.setEnabled(false);
         undoMovementButton.setEnabled(false);
         redoMovementButton.setEnabled(false);
     }
     
     public void enableTimer(){
-        changeTimerState.setEnabled(true);
+        changeTimerStateButton.setEnabled(true);
+    }
+    
+    public void releaseTimerButton(){
+        changeTimerStateButton.setSelected(false);
     }
     
     /**
@@ -121,7 +123,7 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
         javax.swing.JLabel player2Label = new javax.swing.JLabel();
         player2Name = new javax.swing.JLabel();
         javax.swing.JLabel timerLabel = new javax.swing.JLabel();
-        changeTimerState = new javax.swing.JToggleButton();
+        changeTimerStateButton = new javax.swing.JToggleButton();
         timerCounter = new javax.swing.JLabel();
         javax.swing.JLabel movementsLabel = new javax.swing.JLabel();
         undoMovementButton = new javax.swing.JButton();
@@ -163,15 +165,15 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
         timerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         timerLabel.setText("Timer");
 
-        changeTimerState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/play_icon.png"))); // NOI18N
-        changeTimerState.setEnabled(false);
-        changeTimerState.setMaximumSize(new java.awt.Dimension(33, 33));
-        changeTimerState.setMinimumSize(new java.awt.Dimension(33, 33));
-        changeTimerState.setPreferredSize(new java.awt.Dimension(33, 33));
-        changeTimerState.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/pause_icon.png"))); // NOI18N
-        changeTimerState.addActionListener(new java.awt.event.ActionListener() {
+        changeTimerStateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/play_icon.png"))); // NOI18N
+        changeTimerStateButton.setEnabled(false);
+        changeTimerStateButton.setMaximumSize(new java.awt.Dimension(33, 33));
+        changeTimerStateButton.setMinimumSize(new java.awt.Dimension(33, 33));
+        changeTimerStateButton.setPreferredSize(new java.awt.Dimension(33, 33));
+        changeTimerStateButton.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufba/dcc/mata62/ufbaboards/resources/pause_icon.png"))); // NOI18N
+        changeTimerStateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                changeTimerStateActionPerformed(evt);
+                changeTimerStateButtonActionPerformed(evt);
             }
         });
 
@@ -220,7 +222,7 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
             .addComponent(player2Name, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(timerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(changeTimerState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(changeTimerStateButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(timerCounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(movementsScrollPanel)
@@ -253,7 +255,7 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
                 .addComponent(timerLabel)
                 .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(changeTimerState, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(changeTimerStateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(timerCounter, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(movementsLabel)
@@ -286,7 +288,7 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_undoMovementButtonActionPerformed
 
-    private void changeTimerStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeTimerStateActionPerformed
+    private void changeTimerStateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeTimerStateButtonActionPerformed
         ChessGame chessGame = ChessGame.getInstance();        
         JToggleButton toggleButton = (JToggleButton)evt.getSource();
         
@@ -294,7 +296,7 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
             chessGame.pauseGame();
         else
             chessGame.continueGame();
-    }//GEN-LAST:event_changeTimerStateActionPerformed
+    }//GEN-LAST:event_changeTimerStateButtonActionPerformed
 
     private void redoMovementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoMovementButtonActionPerformed
         ChessGame chessGame = ChessGame.getInstance();
@@ -304,7 +306,7 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton changeTimerState;
+    private javax.swing.JToggleButton changeTimerStateButton;
     private javax.swing.JList<String> movementsScrollList;
     private javax.swing.JScrollPane movementsScrollPanel;
     private javax.swing.JLabel p1PlayerTurn;

@@ -110,6 +110,10 @@ public abstract class UfbaBoardFrame extends javax.swing.JFrame {
         }
     }
     
+    public void removeGameMenu(){
+        gameMenuExtra.setVisible(false);
+    }
+    
     public void enableMenuState(String item){
         changeMenuState(item, true);
     }
@@ -126,6 +130,10 @@ public abstract class UfbaBoardFrame extends javax.swing.JFrame {
     public void disableMultipleItens(String[] itens){
         for(String item : itens)
             changeMenuState(item, false);
+    }
+    
+    public void setSpecialGameName(String specialgame){
+        newSpecialGameMenuItem.setText(specialgame);
     }
     
     /**

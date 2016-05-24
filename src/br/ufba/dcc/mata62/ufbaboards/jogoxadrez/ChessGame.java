@@ -81,6 +81,8 @@ public class ChessGame extends AbstractGame {
         
         /* Set Game Name */
         setGameName("ChessGame V 1.0");
+        setSpecialGameName("New Strategic Game");
+        removeGameMenu();
         
         /* Add a new timer */
         timer = new GameTimer();
@@ -186,28 +188,6 @@ public class ChessGame extends AbstractGame {
         
         return instance;
     }
-    
-    @Override
-    protected void gameHelpMenuAction() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    protected void undoItemAction() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    protected void redoItemAction() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    protected void newGameMenuAction() {
-        startGame();
-        ChessSidebarPanel tmpSidebar = (ChessSidebarPanel) gamePanel1.getSidebarPanel();
-        tmpSidebar.changePlayer1State(true);
-    }
 
     @Override
     protected void newSpecialGameAction() {
@@ -217,6 +197,24 @@ public class ChessGame extends AbstractGame {
     @Override
     protected void restartGameMenuAction() {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    @Override
+    protected void undoItemAction() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    protected void redoItemAction() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    @Override
+    protected void newGameMenuAction() {
+        startGame();
+        startTimer();
+        ChessSidebarPanel tmpSidebar = (ChessSidebarPanel) gamePanel1.getSidebarPanel();
+        tmpSidebar.changePlayer1State(true);
     }
     
     @Override
@@ -263,7 +261,7 @@ public class ChessGame extends AbstractGame {
                                             + "<p><strong> Games Lost :</strong> " + numberOfLosts + " </p>"
                                             + "<p></p>"
                                             + "<p><strong> Porcentage Records :</strong> "
-                                                + ((numberOfGames != 0) ? ((numberOfWins * 100) / numberOfGames) : "NaN") + "% </p>"
+                                                + ((numberOfGames != 0) ? ((numberOfWins * 100) / numberOfGames) : "0") + "% </p>"
                                             + "<p></p>"
                                         + "</html>",
                                         "Statistics UFBA Boards",
@@ -273,6 +271,8 @@ public class ChessGame extends AbstractGame {
     @Override
     public void startGame() {
         state.startGame();
+        ChessSidebarPanel tmpSidebar = (ChessSidebarPanel) gamePanel1.getSidebarPanel();
+        tmpSidebar.releaseTimerButton();
     }
 
     @Override
@@ -289,5 +289,10 @@ public class ChessGame extends AbstractGame {
     public void stopGame() {
         state.stopGame();
     }
-        
+    
+    /* Not used on this game */
+    @Override
+    protected void gameHelpMenuAction() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

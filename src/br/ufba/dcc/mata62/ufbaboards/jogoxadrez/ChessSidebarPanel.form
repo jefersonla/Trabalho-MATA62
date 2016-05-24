@@ -39,7 +39,7 @@
           <Component id="player2Name" alignment="0" pref="0" max="32767" attributes="0"/>
           <Component id="timerLabel" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <Component id="changeTimerState" min="-2" max="-2" attributes="0"/>
+              <Component id="changeTimerStateButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Component id="timerCounter" max="32767" attributes="0"/>
           </Group>
@@ -77,7 +77,7 @@
               <Component id="timerLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="changeTimerState" max="32767" attributes="0"/>
+                  <Component id="changeTimerStateButton" max="32767" attributes="0"/>
                   <Component id="timerCounter" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -177,7 +177,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="changeTimerState">
+    <Component class="javax.swing.JToggleButton" name="changeTimerStateButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/br/ufba/dcc/mata62/ufbaboards/resources/play_icon.png"/>
@@ -197,7 +197,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeTimerStateActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeTimerStateButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="timerCounter">
