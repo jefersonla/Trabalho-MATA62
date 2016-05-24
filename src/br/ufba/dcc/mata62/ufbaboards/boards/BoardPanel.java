@@ -50,6 +50,25 @@ public class BoardPanel extends javax.swing.JPanel {
         /* Init the components */
         initComponents();
         
+        /* Init panels */
+        initPanels(newLeftRightNames, newTopBottomNames);
+    }
+    
+        public BoardPanel(  BoardMatrixPanel newBoardMatrix,
+                            String[]   newLeftRightNames,
+                            String[]   newTopBottomNames) {
+        
+        /* Store Board Matrix */
+        boardMatrix = newBoardMatrix;
+                        
+        /* Init the components */
+        initComponents();
+        
+        /* Init panels */
+        initPanels(newLeftRightNames, newTopBottomNames);
+    }
+    
+    private void initPanels(String[] newLeftRightNames, String[] newTopBottomNames){
         /* Get all panel's layout */
         CardLayout matrixBoardLayout = (CardLayout) boardMatrixPanel.getLayout();
         CardLayout topNamesPanelLayout = (CardLayout) topNamesPanel.getLayout();
@@ -70,10 +89,6 @@ public class BoardPanel extends javax.swing.JPanel {
         bottomNamesPanelLayout.show(bottomNamesPanel, "bottomNamesPanel");
         leftNamesPanelLayout.show(leftNamesPanel, "leftNamesPanel");
         rightNamesPanelLayout.show(rightNamesPanel, "rightNamesPanel");
-    }
-    
-    private void populateItens(int firstIndex, AbstractPiece[][] itens){
-        
     }
 
     /**

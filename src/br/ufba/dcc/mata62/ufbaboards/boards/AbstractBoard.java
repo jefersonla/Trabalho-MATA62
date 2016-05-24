@@ -33,4 +33,10 @@ public class AbstractBoard extends BoardPanel {
         super(matrixSizePanel, leftRightNames, topBottomNames);
     }
     
+    public AbstractBoard(   BoardMatrixPanel newMatrixPanel,
+                            String[] leftRightNames,
+                            String[] topBottomNames){
+        super(newMatrixPanel, leftRightNames, topBottomNames);
+    }
+    
 }

@@ -23,7 +23,7 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.utils;
 
-import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.ChessGame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;

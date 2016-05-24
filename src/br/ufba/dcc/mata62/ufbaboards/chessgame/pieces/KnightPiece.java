@@ -21,12 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.pieces;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
+
+import java.awt.Color;
 
 /**
  *
  * @author jeferson
  */
-public class KingMovementStrategy {
+public class KnightPiece extends ChessPiece {
+    
+    public KnightPiece() {
+        super();
+    }
     
 }

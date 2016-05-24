@@ -27,6 +27,6 @@ package br.ufba.dcc.mata62.ufbaboards.pieces;
  *
  * @author jeferson
  */
-public class PieceState {
+public abstract class PieceState {
     
 }

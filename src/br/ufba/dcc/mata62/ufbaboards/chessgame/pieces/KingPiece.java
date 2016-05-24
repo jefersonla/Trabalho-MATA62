@@ -21,22 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.boards;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
-import br.ufba.dcc.mata62.ufbaboards.boards.AbstractBoard;
+import java.awt.Color;
 
 /**
  *
  * @author jeferson
  */
-public class ChessBoard extends AbstractBoard{
+public class KingPiece extends ChessPiece {
     
-    public ChessBoard() {
-        super(  8,
-                new String[]{"8", "7", "6", "5", "4", "3", "2", "1"},
-                new String[]{"A", "B", "C", "D", "E", "F", "G", "H"});
-        
-        //boardMatrix.populateItens(0, {});
+    public KingPiece() {
+        super();
     }
     
 }

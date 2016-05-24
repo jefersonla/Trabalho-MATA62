@@ -21,26 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.pieces;
-
-import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
-import javax.swing.Icon;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
 /**
  *
  * @author jeferson
  */
-public class ChessPiece extends AbstractPiece {
-    /* Indexes */
-    private int x;
-    private int y;
+public class QueenPiece extends ChessPiece {
     
-    public ChessPiece(){
+    public QueenPiece() {
         super();
-    }
-    
-    public ChessPiece(Icon icores){
-        super(icores);
     }
     
 }

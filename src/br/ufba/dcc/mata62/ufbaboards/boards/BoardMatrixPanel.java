@@ -23,6 +23,7 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.PieceFactory;
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
 import br.ufba.dcc.mata62.ufbaboards.pieces.BoardPiece;
 import java.awt.Color;
@@ -71,8 +72,40 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             }
     }
 
-    public BoardMatrixPanel(String[][] matrix){
+    public BoardMatrixPanel(String[][] matrix, String[][] colorPieces){
+        initComponents();
         
+        /* Create matrix of pieces */
+        int size = 8;
+        piecesMatrix = new AbstractPiece[size][size];
+        
+        int pieceSide = 54; 
+        Dimension pieceDimension = new Dimension(pieceSide, pieceSide);
+        
+        /* Populate Panel */
+        for(int i = 0; i < size; i++)
+            for(int j = 0; j < size; j++){
+                /* Initialize the board Piece */
+                piecesMatrix[i][j] = PieceFactory.getNewPiece(matrix[i][j], colorPieces[i][j]);
+                
+                /* Select Heavy Blue Pieces */
+                if((i % 2) == (j % 2))                    
+                    piecesMatrix[i][j].setBackground(new Color(51, 102, 255));
+                /* Select Light Blue Pieces */
+                else                    
+                    piecesMatrix[i][j].setBackground(new Color(204, 204, 255));
+                
+                /* Define black thin border */
+                piecesMatrix[i][j].setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
+                piecesMatrix[i][j].setPreferredSize(pieceDimension);
+                
+                /* Add the piece to the panel */
+                add(piecesMatrix[i][j]);
+            }
+    }
+
+    public BoardMatrixPanel() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     /**

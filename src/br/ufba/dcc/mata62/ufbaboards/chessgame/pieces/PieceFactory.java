@@ -21,15 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.pieces;
-
-import java.awt.Color;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
 /**
  *
  * @author jeferson
  */
-public abstract class PieceFactory {
+public class PieceFactory {
     /* Available constant pieces */
     public static final String BISHOP = "BISHOP";
     public static final String BLANK  = "BLANK";
@@ -37,26 +35,29 @@ public abstract class PieceFactory {
     public static final String KNIGHT = "KNIGHT";
     public static final String QUEEN  = "QUEEN";
     public static final String ROOK   = "ROOK";
+    public static final String PAWN   = "PAWN";
+    
+    private PieceFactory(){}
     
     /**
      * Return a piece of the desired type
      * @param tipo The type of the piece
      * @return the new piece or null if not found
      */
-    public static ChessPiece getNewPiece(String tipo){
+    public static ChessPiece getNewPiece(String tipo, String color){
         switch(tipo){
             case BISHOP:
-                return new BishopPiece();
+                return new BishopPiece(color);
             case BLANK:
-                return new BlankPiece();
+                return new BlankPiece(color);
             case KING:
-                return new KingPiece();
+                return new KingPiece(color);
             case KNIGHT:
-                return new KnightPiece();
+                return new KnightPiece(color);
             case QUEEN:
-                return new QueenPiece();
+                return new QueenPiece(color);
             case ROOK:
-                return new RookPiece();
+                return new RookPiece(color);
         }
         
         return null;

@@ -23,7 +23,7 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
-import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.boards.ChessBoard;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.boards.ChessBoard;
 
 /**
  *

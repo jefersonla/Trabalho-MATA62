@@ -21,18 +21,43 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.pieces;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
-import java.awt.Color;
+import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
+import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
+import javax.swing.Icon;
 
 /**
  *
  * @author jeferson
  */
-public class KingPiece extends ChessPiece {
+public class ChessPiece extends AbstractPiece {
+    /* Indexes */
+    private int x;
+    private int y;
     
-    public KingPiece() {
+    /* Selected */
+    boolean selected;
+    
+    /* State */
+    private PieceState state;
+    
+    /* Strategy */
+    private ChessPieceMovementStrategy strategy;
+    
+    /* Possible resources */
+    protected Icon pieceResource;
+    
+    public ChessPiece(){
         super();
+        this.state = new ChessPieceDead();
+    }
+    
+    public ChessPiece(Icon icores, ChessPieceMovementStrategy strategy){
+        super(icores);
+        this.pieceResource = icores;
+        this.strategy = strategy;
+        this.state = new ChessPieceAlive();
     }
     
 }

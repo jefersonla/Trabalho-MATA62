@@ -21,51 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
-import br.ufba.dcc.mata62.ufbaboards.persistence.IPersistence;
-import br.ufba.dcc.mata62.ufbaboards.boards.BoardFactory;
-import br.ufba.dcc.mata62.ufbaboards.gui.UfbaBoardFrame;
-import br.ufba.dcc.mata62.ufbaboards.chessgame.ChessGame;
-import br.ufba.dcc.mata62.ufbaboards.states.GameState;
+import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
 
 /**
  *
  * @author jeferson
  */
-public abstract class AbstractGame extends UfbaBoardFrame implements IGame {
-    private IGame game;
-    protected GameState state;
-    protected BoardFactory boardFactory;
-    protected IPersistence persistence;
+public class ChessPieceAlive extends PieceState {
     
-    public AbstractGame(){
-        state = null;
-        boardFactory = new BoardFactory();
-    }
-        
-    @Override
-    public AbstractGame getGameInstance(String game){
-        if(game.equals("chess"))
-            return ChessGame.getInstance();
-        
-        return null;
-    }
-    
-    public GameState getGameState(){
-        return state;
-    }
-        
-    public void setGameState(GameState state){
-        this.state = state;
-    }
-    
-    public void display(){
-        this.setVisible(true);
-    }
-    
-    @Override
-    public void playGame(AbstractGame newGame) {
-        // Falta Implementar
-    }
 }

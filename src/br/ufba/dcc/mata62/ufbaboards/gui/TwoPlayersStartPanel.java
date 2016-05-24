@@ -23,7 +23,7 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
-import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.ChessGame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
