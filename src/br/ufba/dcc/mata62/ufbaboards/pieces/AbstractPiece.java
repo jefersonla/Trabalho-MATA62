@@ -24,6 +24,7 @@
 package br.ufba.dcc.mata62.ufbaboards.pieces;
 
 import br.ufba.dcc.mata62.ufbaboards.boards.Observer;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.ChessPieceMovementStrategy;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -32,35 +33,45 @@ import java.util.ArrayList;
  *
  * @author jeferson
  */
-public class AbstractPiece extends BoardPiece implements PieceObserved{
+public abstract class AbstractPiece extends BoardPiece implements PieceObserved{
     
-    private ArrayList<Observer> observers;
+    private final ArrayList<Observer> observers;
     
     public AbstractPiece(Color defaultColor) {
         super(new Color(153, 255, 153), new Color(102, 204, 255), defaultColor);
         observers = new ArrayList<>();
-    }
-
-    public void ActionPerformed(ActionEvent evt){
-        
+        addActionListener((ActionEvent evt) -> {
+            notifica((AbstractPiece)evt.getSource());
+        });
     }
 
     @Override
     public void addObserver(Observer obs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void removeObserver(Observer obs) {
         observers.add(obs);
     }
 
     @Override
-    public void notifica() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void removeObserver(Observer obs) {
+        observers.remove(obs);
+    }
+
+    @Override
+    public void notifica(AbstractPiece piece) {
+        for(Observer obs : observers)
+            obs.notifyObserver(piece);
     }
     
-    public void setSelected(Color bg) {
-        super.setBackground(bg); //To change body of generated methods, choose Tools | Templates.
+    public void setSelected() {
+        setBackground(Color.GREEN);
     }
+    
+    public void deSelect() {
+        setBackground(defaultColor);
+    }
+    
+    public void highlightPiece(){
+        setBackground(Color.GREEN);
+    }
+    
+    public abstract ChessPieceMovementStrategy getMovementStrategy();
 }

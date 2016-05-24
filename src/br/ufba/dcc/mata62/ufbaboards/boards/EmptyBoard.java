@@ -23,6 +23,8 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
+import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
+
 /**
  *
  * @author jeferson
@@ -32,9 +34,9 @@ public class EmptyBoard extends AbstractBoard{
     public EmptyBoard(int matrixSizePanel, String[] leftRightNames, String[] topBottomNames) {
         super(matrixSizePanel, leftRightNames, topBottomNames);
     }
-    
+
     @Override
-    public void notifyObserver() {
+    public void notifyObserver(AbstractPiece piece) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

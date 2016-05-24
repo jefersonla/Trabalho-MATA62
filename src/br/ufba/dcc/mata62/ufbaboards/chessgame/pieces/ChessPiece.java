@@ -99,5 +99,10 @@ public class ChessPiece extends AbstractPiece {
     public void setYCoordinate(int y) {
         this.y = y;
     }
+
+    @Override
+    public ChessPieceMovementStrategy getMovementStrategy() {
+        return strategy;
+    }
     
 }

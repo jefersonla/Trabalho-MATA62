@@ -23,11 +23,16 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.BlankPiece;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.ChessPiece;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.PieceFactory;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.ChessPieceMovementStrategy;
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
 import br.ufba.dcc.mata62.ufbaboards.pieces.BoardPiece;
+import br.ufba.dcc.mata62.ufbaboards.utils.CoordinatesMovement;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 
 /**
@@ -35,7 +40,7 @@ import javax.swing.BorderFactory;
  * @author jeferson
  */
 public class BoardMatrixPanel extends javax.swing.JPanel {
-    protected BoardPiece[][] piecesMatrix;
+    protected AbstractPiece[][] piecesMatrix;
     protected int tam;
     
     /**
@@ -58,12 +63,12 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             for(int j = 0; j < size; j++){                
                 /* Select Heavy Blue Pieces */
                 if((i % 2) == (j % 2)){   
-                    piecesMatrix[i][j] = new AbstractPiece(new Color(51, 102, 255));
+                    piecesMatrix[i][j] = new BlankPiece(i, j, new Color(51, 102, 255));
                     piecesMatrix[i][j].setBackground(new Color(51, 102, 255));
                 }
                 /* Select Light Blue Pieces */
                 else{
-                    piecesMatrix[i][j] = new AbstractPiece(new Color(204, 204, 255));
+                    piecesMatrix[i][j] = new BlankPiece(i, j, new Color(204, 204, 255));
                     piecesMatrix[i][j].setBackground(new Color(204, 204, 255));
                 }
                     
@@ -119,8 +124,23 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public void highlightMovements(){
+    public void addObservers(AbstractBoard board){
+        for(int i = 0; i < tam; i++)
+            for(int j = 0; j < tam; j++){
+                piecesMatrix[i][j].addObserver(board);
+            }
+    }
+    
+    public void highlightMovements(AbstractPiece piece){
+        ChessPieceMovementStrategy movementStrategy = piece.getMovementStrategy();
+        ArrayList<CoordinatesMovement> possibleMovements = movementStrategy.getPossibleMovements();
+        ChessPiece myPiece = (ChessPiece) piece;
+        int actualX = myPiece.getXCoordinate();
+        int actualY = myPiece.getYCoordinate();
         
+        for(CoordinatesMovement possibleMovement : possibleMovements){
+            
+        }
     }
     
     /**

@@ -23,10 +23,12 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.boards;
 
+import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
+
 /**
  *
  * @author jeferson
  */
 public interface Observer {
-    public void notifyObserver();
+    public void notifyObserver(AbstractPiece piece);
 }

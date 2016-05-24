@@ -26,6 +26,7 @@ package br.ufba.dcc.mata62.ufbaboards.chessgame.boards;
 import br.ufba.dcc.mata62.ufbaboards.boards.AbstractBoard;
 import br.ufba.dcc.mata62.ufbaboards.boards.BoardMatrixPanel;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.PieceFactory;
+import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
 
 /**
  *
@@ -56,11 +57,13 @@ public class ChessBoard extends AbstractBoard{
                 }),
                 new String[]{"8", "7", "6", "5", "4", "3", "2", "1"},
                 new String[]{"A", "B", "C", "D", "E", "F", "G", "H"});
+        
+        boardMatrix.addObservers(this);
     }
 
     @Override
-    public void notifyObserver() {
-        boardMatrix.highlightMovements();
+    public void notifyObserver(AbstractPiece piece) {
+        boardMatrix.highlightMovements(piece);
     }
     
 }

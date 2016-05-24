@@ -32,5 +32,5 @@ import br.ufba.dcc.mata62.ufbaboards.boards.Observer;
 public interface PieceObserved {
     public void addObserver(Observer obs);
     public void removeObserver(Observer obs);
-    public void notifica();
+    public void notifica(AbstractPiece piece);
 }

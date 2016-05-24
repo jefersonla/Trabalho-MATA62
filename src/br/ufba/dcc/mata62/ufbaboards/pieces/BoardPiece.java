@@ -34,7 +34,7 @@ import javax.swing.JButton;
 public class BoardPiece extends JButton{
     private Color hoverBackgroundColor;
     private Color pressedBackgroundColor;
-    private Color defaultColor;
+    protected Color defaultColor;
     
     public BoardPiece(Color hoverColor, Color pressedColor, Color defaultColor) {        
         hoverBackgroundColor = hoverColor;
