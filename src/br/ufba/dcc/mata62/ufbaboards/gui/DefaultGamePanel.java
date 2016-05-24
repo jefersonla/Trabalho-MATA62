@@ -31,7 +31,7 @@ import javax.swing.JPanel;
  *
  * @author jeferson
  */
-public class GamePanel extends javax.swing.JPanel {
+public class DefaultGamePanel extends javax.swing.JPanel {
 
     private JPanel actualMatrixBoardPanel;
     private JPanel actualSidebarPanel;
@@ -39,7 +39,7 @@ public class GamePanel extends javax.swing.JPanel {
     /**
      * Creates new form UfbaBoardPanel
      */
-    public GamePanel() {
+    public DefaultGamePanel() {
         initComponents();
         
         /* Set actual matrix board panel and sidebar panel to null */

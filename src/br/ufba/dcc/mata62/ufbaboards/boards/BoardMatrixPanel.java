@@ -53,7 +53,7 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         for(int i = 0; i < size; i++)
             for(int j = 0; j < size; j++){
                 /* Initialize the board Piece */
-                piecesMatrix[i][j] = new AbstractPiece(new Color(153, 255, 153), new Color(102, 204, 255));
+                piecesMatrix[i][j] = new AbstractPiece();
                 
                 /* Select Heavy Blue Pieces */
                 if((i % 2) == (j % 2))                    
@@ -71,6 +71,10 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             }
     }
 
+    public BoardMatrixPanel(String[][] matrix){
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

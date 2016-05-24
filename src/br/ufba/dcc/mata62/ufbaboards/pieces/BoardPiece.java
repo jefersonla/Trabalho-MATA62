@@ -42,6 +42,13 @@ public class BoardPiece extends JButton{
         setUI(new BoardPieceUI());
     }
     
+    public BoardPiece(Color hoverColor, Color pressedColor, Icon icoRes) {        
+        super(icoRes);
+        hoverBackgroundColor = hoverColor;
+        pressedBackgroundColor = pressedColor;
+        setUI(new BoardPieceUI());
+    }
+    
     @Override
     protected void paintComponent(Graphics g) {
         if (getModel().isPressed()) {

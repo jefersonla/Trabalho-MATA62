@@ -24,7 +24,6 @@
 package br.ufba.dcc.mata62.ufbaboards.jogoxadrez;
 
 import br.ufba.dcc.mata62.ufbaboards.AbstractGame;
-import br.ufba.dcc.mata62.ufbaboards.gui.SidebarPanel;
 import br.ufba.dcc.mata62.ufbaboards.gui.TwoPlayersStartPanel;
 import br.ufba.dcc.mata62.ufbaboards.gui.UfbaBoardFrame;
 import br.ufba.dcc.mata62.ufbaboards.persistence.SQLitePersistence;
@@ -75,10 +74,10 @@ public class ChessGame extends AbstractGame {
         appPanelLayout.show(appPanel, "entryPanel");
         
         /* Add an empty Chess Board Matrix */
-        gamePanel1.addNewMatrixBoardPanel(boardFactory.getBoard("chess"));
+        gamePanel1.addNewMatrixBoardPanel(boardFactory.getBoard("empty"));
         
         /* Add a sidebar panel */
-        gamePanel1.addNewSidebarPanel(new SidebarPanel());
+        gamePanel1.addNewSidebarPanel(new ChessSidebarPanel());
         
         /* Set Game Name */
         setGameName("ChessGame V 1.0");
@@ -132,23 +131,23 @@ public class ChessGame extends AbstractGame {
     }
     
     public void setTimerButtonState(boolean state){
-        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        ChessSidebarPanel tmpSidebar = (ChessSidebarPanel) gamePanel1.getSidebarPanel();
         tmpSidebar.setTimerButtonState(state);
     }
     
     public void disableSidebarItens(){        
-        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        ChessSidebarPanel tmpSidebar = (ChessSidebarPanel) gamePanel1.getSidebarPanel();
         tmpSidebar.disableItens();
     }
     
     public void enableTimerIten(){
-        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        ChessSidebarPanel tmpSidebar = (ChessSidebarPanel) gamePanel1.getSidebarPanel();
         tmpSidebar.enableTimer();
         
     }
     
     public void setTimer(int sec, int min, int hour){
-        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        ChessSidebarPanel tmpSidebar = (ChessSidebarPanel) gamePanel1.getSidebarPanel();
         tmpSidebar.setActualTimer(sec, min, hour);
     }
     
@@ -164,7 +163,7 @@ public class ChessGame extends AbstractGame {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
         
-        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        ChessSidebarPanel tmpSidebar = (ChessSidebarPanel) gamePanel1.getSidebarPanel();
         tmpSidebar.setPlayer1Name("<html><center>" + player1Name + "</center></html>");
         tmpSidebar.setPlayer2Name("<html><center>" + player2Name + "</center></html>");
     }
@@ -206,7 +205,7 @@ public class ChessGame extends AbstractGame {
     @Override
     protected void newGameMenuAction() {
         startGame();
-        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        ChessSidebarPanel tmpSidebar = (ChessSidebarPanel) gamePanel1.getSidebarPanel();
         tmpSidebar.changePlayer1State(true);
     }
 

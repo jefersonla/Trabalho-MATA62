@@ -138,7 +138,7 @@ public abstract class UfbaBoardFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         appPanel = new javax.swing.JPanel();
-        gamePanel1 = new br.ufba.dcc.mata62.ufbaboards.gui.GamePanel();
+        gamePanel1 = new br.ufba.dcc.mata62.ufbaboards.gui.DefaultGamePanel();
         appMenu = new javax.swing.JMenuBar();
         gameMenu = new javax.swing.JMenu();
         newGameMenuItem = new javax.swing.JMenuItem();
@@ -417,7 +417,7 @@ public abstract class UfbaBoardFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem gameHelpMenuItem;
     private javax.swing.JMenu gameMenu;
     private javax.swing.JMenu gameMenuExtra;
-    protected br.ufba.dcc.mata62.ufbaboards.gui.GamePanel gamePanel1;
+    protected br.ufba.dcc.mata62.ufbaboards.gui.DefaultGamePanel gamePanel1;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem newGameMenuItem;
     private javax.swing.JMenuItem newSpecialGameMenuItem;

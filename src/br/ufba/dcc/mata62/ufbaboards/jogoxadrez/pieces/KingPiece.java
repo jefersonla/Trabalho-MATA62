@@ -23,10 +23,16 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.pieces;
 
+import java.awt.Color;
+
 /**
  *
  * @author jeferson
  */
-public class KingPiece {
+public class KingPiece extends ChessPiece {
+    
+    public KingPiece() {
+        super();
+    }
     
 }

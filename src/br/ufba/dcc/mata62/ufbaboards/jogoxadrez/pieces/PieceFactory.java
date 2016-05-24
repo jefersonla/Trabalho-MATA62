@@ -23,24 +23,42 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.pieces;
 
-import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
-import javax.swing.Icon;
+import java.awt.Color;
 
 /**
  *
  * @author jeferson
  */
-public class ChessPiece extends AbstractPiece {
-    /* Indexes */
-    private int x;
-    private int y;
+public abstract class PieceFactory {
+    /* Available constant pieces */
+    public static final String BISHOP = "BISHOP";
+    public static final String BLANK  = "BLANK";
+    public static final String KING   = "KING";
+    public static final String KNIGHT = "KNIGHT";
+    public static final String QUEEN  = "QUEEN";
+    public static final String ROOK   = "ROOK";
     
-    public ChessPiece(){
-        super();
+    /**
+     * Return a piece of the desired type
+     * @param tipo The type of the piece
+     * @return the new piece or null if not found
+     */
+    public static ChessPiece getNewPiece(String tipo){
+        switch(tipo){
+            case BISHOP:
+                return new BishopPiece();
+            case BLANK:
+                return new BlankPiece();
+            case KING:
+                return new KingPiece();
+            case KNIGHT:
+                return new KnightPiece();
+            case QUEEN:
+                return new QueenPiece();
+            case ROOK:
+                return new RookPiece();
+        }
+        
+        return null;
     }
-    
-    public ChessPiece(Icon icores){
-        super(icores);
-    }
-    
 }

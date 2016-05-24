@@ -277,7 +277,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
       <SubComponents>
-        <Component class="br.ufba.dcc.mata62.ufbaboards.gui.GamePanel" name="gamePanel1">
+        <Component class="br.ufba.dcc.mata62.ufbaboards.gui.DefaultGamePanel" name="gamePanel1">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
           </AuxValues>

@@ -23,24 +23,10 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.jogoxadrez.pieces;
 
-import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
-import javax.swing.Icon;
-
 /**
  *
  * @author jeferson
  */
-public class ChessPiece extends AbstractPiece {
-    /* Indexes */
-    private int x;
-    private int y;
-    
-    public ChessPiece(){
-        super();
-    }
-    
-    public ChessPiece(Icon icores){
-        super(icores);
-    }
+public class KnightMovementStrategy {
     
 }

@@ -24,6 +24,7 @@
 package br.ufba.dcc.mata62.ufbaboards.pieces;
 
 import java.awt.Color;
+import javax.swing.Icon;
 
 /**
  *
@@ -31,8 +32,12 @@ import java.awt.Color;
  */
 public class AbstractPiece extends BoardPiece {
     
-    public AbstractPiece(Color hoverColor, Color pressedColor) {
-        super(hoverColor, pressedColor);
+    public AbstractPiece() {
+        super(new Color(153, 255, 153), new Color(102, 204, 255));
+    }
+    
+    public AbstractPiece(Icon icores){
+        super(new Color(153, 255, 153), new Color(102, 204, 255), icores);
     }
     
 }
