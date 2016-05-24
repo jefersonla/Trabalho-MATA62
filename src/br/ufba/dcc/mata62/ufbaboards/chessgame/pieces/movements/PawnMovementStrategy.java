@@ -23,10 +23,28 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements;
 
+import br.ufba.dcc.mata62.ufbaboards.utils.CoordinatesMovement;
+
 /**
  *
  * @author jeferson
  */
 public class PawnMovementStrategy extends ChessPieceMovementStrategy{
+    private boolean isFirstMovement;
+    private final CoordinatesMovement firstMovement;
+    public PawnMovementStrategy(boolean inverted){
+        super();
+        isFirstMovement = true;
+        firstMovement = new CoordinatesMovement(0, inverted ? -2 : 2, false, false);
+        
+        possibleMovements.add(new CoordinatesMovement(0, inverted ? -1 : 1, false, false));
+        possibleMovements.add(new CoordinatesMovement(0, inverted ? -2 : 2, false, false));
+    }
     
+    public void removeMovement(){
+        if(isFirstMovement){
+            possibleMovements.remove(firstMovement);
+            isFirstMovement = false;
+        }
+    }
 }

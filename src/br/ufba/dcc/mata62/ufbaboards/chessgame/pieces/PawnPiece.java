@@ -33,7 +33,7 @@ import java.awt.Color;
 public class PawnPiece extends ChessPiece {
     
     public PawnPiece(String color, int x, int y, Color defaultColor) {
-        super("pawn", color, new PawnMovementStrategy(), x, y, defaultColor);
+        super("pawn", color, new PawnMovementStrategy(color.equals("white")), x, y, defaultColor);
     }
     
 }

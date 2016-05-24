@@ -23,10 +23,22 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements;
 
+import br.ufba.dcc.mata62.ufbaboards.utils.CoordinatesMovement;
+
 /**
  *
  * @author jeferson
  */
 public class KnightMovementStrategy extends ChessPieceMovementStrategy{
-    
+    public KnightMovementStrategy(){
+        super();
+        possibleMovements.add(new CoordinatesMovement(-2, 1, false, false));
+        possibleMovements.add(new CoordinatesMovement(-1, 2, false, false));
+        possibleMovements.add(new CoordinatesMovement(2, 1, false, false));
+        possibleMovements.add(new CoordinatesMovement(1, 2, false, false));
+        possibleMovements.add(new CoordinatesMovement(-2, -1, false, false));
+        possibleMovements.add(new CoordinatesMovement(-1, -2, false, false));
+        possibleMovements.add(new CoordinatesMovement(2, -1, false, false));
+        possibleMovements.add(new CoordinatesMovement(1, -2, false, false));
+    }
 }
