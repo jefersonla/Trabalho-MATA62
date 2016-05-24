@@ -23,8 +23,10 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.ChessPieceMovementStrategy;
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
 import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
+import java.awt.Color;
 import javax.swing.ImageIcon;
 
 /**
@@ -54,16 +56,17 @@ public class ChessPiece extends AbstractPiece {
     protected String color;
     protected String name;
     
-    public ChessPiece(int x, int y){
-        super();
+    public ChessPiece(int x, int y, Color defaultColor){
+        super(defaultColor);
         this.state = new ChessPieceDead();
         this.name = "BLANK";
         this.x = x;
         this.y = y;
     }
     
-    public ChessPiece(String name, String color, ChessPieceMovementStrategy strategy, int x, int y){
-        super();
+    public ChessPiece(String name, String color,
+            ChessPieceMovementStrategy strategy, int x, int y, Color defaultColor){
+        super(defaultColor);
         this.x = x;
         this.y = y;
         this.color = color;

@@ -1,19 +1,5 @@
 package br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez;
 
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.FramePrincipal;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaPeaoPreto;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaBispoBranco;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaRainhaBranco;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaTorrePreto;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaBispoPreto;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaTorreBranco;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaCavaloPreto;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaReiPreto;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaRainhaPreto;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaPeaoBranco;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaVazia;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaReiBranco;
-import br.ufba.dcc.mata62.ufbaboards.old.jogoxadrez.PecaCavaloBranco;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -161,11 +147,8 @@ public class Tabuleiro extends javax.swing.JPanel {
 
     private void adicionarAoTabuleiro(JButton peca) {
         peca.setLocation(new Point(x, y));
-        peca.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActionPerformed(evt);
-            }
+        peca.addActionListener((java.awt.event.ActionEvent evt) -> {
+            ActionPerformed(evt);
         });
 
         if (contador % 8 != 0) {
@@ -199,11 +182,8 @@ public class Tabuleiro extends javax.swing.JPanel {
     private void movePeca(JButton posicao) {
         if (posicao.getBackground().equals(new Color(0, 180, 0))) {
             JButton vazio = new PecaVazia();
-            vazio.addActionListener(new java.awt.event.ActionListener() {
-                @Override
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    ActionPerformed(evt);
-                }
+            vazio.addActionListener((java.awt.event.ActionEvent evt) -> {
+                ActionPerformed(evt);
             });
 
             if (this.peca instanceof PecaPeaoBranco) {

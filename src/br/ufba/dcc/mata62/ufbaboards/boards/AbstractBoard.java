@@ -27,7 +27,7 @@ package br.ufba.dcc.mata62.ufbaboards.boards;
  *
  * @author jeferson
  */
-public class AbstractBoard extends BoardPanel implements Observer {
+public abstract class AbstractBoard extends BoardPanel implements Observer {
 
     public AbstractBoard(int matrixSizePanel, String[] leftRightNames, String[] topBottomNames){
         super(matrixSizePanel, leftRightNames, topBottomNames);

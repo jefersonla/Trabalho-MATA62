@@ -23,6 +23,8 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
+import java.awt.Color;
+
 /**
  *
  * @author jeferson
@@ -43,24 +45,27 @@ public class PieceFactory {
      * Return a piece of the desired type
      * @param tipo The type of the piece
      * @param color
+     * @param x
+     * @param y
+     * @param defaultColor
      * @return the new piece or null if not found
      */
-    public static ChessPiece getNewPiece(String tipo, String color, int x, int y){
+    public static ChessPiece getNewPiece(String tipo, String color, int x, int y, Color defaultColor){
         switch(tipo){
             case BLANK:
-                return new BlankPiece(x, y);
+                return new BlankPiece(x, y, defaultColor);
             case BISHOP:
-                return new BishopPiece(color, x, y);
+                return new BishopPiece(color, x, y, defaultColor);
             case KING:
-                return new KingPiece(color, x, y);
+                return new KingPiece(color, x, y, defaultColor);
             case KNIGHT:
-                return new KnightPiece(color, x, y);
+                return new KnightPiece(color, x, y, defaultColor);
             case QUEEN:
-                return new QueenPiece(color, x, y);
+                return new QueenPiece(color, x, y, defaultColor);
             case ROOK:
-                return new RookPiece(color, x, y);
+                return new RookPiece(color, x, y, defaultColor);
             case PAWN:
-                return new PawnPiece(color, x, y);
+                return new PawnPiece(color, x, y, defaultColor);
         }
         
         return null;

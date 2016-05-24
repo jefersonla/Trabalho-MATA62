@@ -23,14 +23,17 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.PawnMovementStrategy;
+import java.awt.Color;
+
 /**
  *
  * @author jeferson
  */
 public class PawnPiece extends ChessPiece {
     
-    public PawnPiece(String color, int x, int y) {
-        super("pawn", color, new ChessPieceMovementStrategy(), x, y);
+    public PawnPiece(String color, int x, int y, Color defaultColor) {
+        super("pawn", color, new PawnMovementStrategy(), x, y, defaultColor);
     }
     
 }

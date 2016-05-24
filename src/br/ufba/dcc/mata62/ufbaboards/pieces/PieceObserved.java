@@ -23,10 +23,14 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.pieces;
 
+import br.ufba.dcc.mata62.ufbaboards.boards.Observer;
+
 /**
  *
  * @author jeferson
  */
-public class PieceObserved {
-    
+public interface PieceObserved {
+    public void addObserver(Observer obs);
+    public void removeObserver(Observer obs);
+    public void notifica();
 }

@@ -28,5 +28,5 @@ package br.ufba.dcc.mata62.ufbaboards.boards;
  * @author jeferson
  */
 public interface Observer {
-    
+    public void notifyObserver();
 }

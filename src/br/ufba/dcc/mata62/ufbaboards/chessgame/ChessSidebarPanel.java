@@ -107,6 +107,11 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
         changeTimerStateButton.setSelected(false);
     }
     
+    public void addMovementToList(String movement){
+        // 001 00:00:00 wKing [A 3]
+        // String.format("%03d %02d:%02d:%02d %s", turn, hour, min, sec, movement)
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -205,11 +210,6 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
 
         movementsScrollList.setCellRenderer(new MovementsCellRenderer());
         movementsScrollList.setFont(new java.awt.Font("Dialog", 1, 9)); // NOI18N
-        movementsScrollList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "001 00:00:00 wKing [A 3]", "002 00:01:00 bBishop [A 5]" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         movementsScrollPanel.setViewportView(movementsScrollList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -225,7 +225,7 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
                 .addComponent(changeTimerStateButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(timerCounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(movementsScrollPanel)
+            .addComponent(movementsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(movementsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(undoMovementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)

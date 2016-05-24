@@ -32,7 +32,7 @@ import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.PieceFactory;
  * @author jeferson
  */
 public class ChessBoard extends AbstractBoard{
-    
+      
     public ChessBoard() {
         super(  new BoardMatrixPanel(new String[][]{
                     {PieceFactory.ROOK  , PieceFactory.KNIGHT, PieceFactory.BISHOP, PieceFactory.QUEEN, PieceFactory.KING , PieceFactory.BISHOP, PieceFactory.KNIGHT, PieceFactory.ROOK  },
@@ -56,6 +56,11 @@ public class ChessBoard extends AbstractBoard{
                 }),
                 new String[]{"8", "7", "6", "5", "4", "3", "2", "1"},
                 new String[]{"A", "B", "C", "D", "E", "F", "G", "H"});
+    }
+
+    @Override
+    public void notifyObserver() {
+        boardMatrix.highlightMovements();
     }
     
 }

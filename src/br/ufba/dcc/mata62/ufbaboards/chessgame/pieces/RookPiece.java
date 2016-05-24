@@ -23,14 +23,17 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.RookieMovementStrategy;
+import java.awt.Color;
+
 /**
  *
  * @author jeferson
  */
 public class RookPiece extends ChessPiece {
     
-    public RookPiece(String color, int x, int y) {
-        super("rook", color, new ChessPieceMovementStrategy(), x, y);
+    public RookPiece(String color, int x, int y, Color defaultColor) {
+        super("rook", color, new RookieMovementStrategy(), x, y, defaultColor);
     }
     
 }

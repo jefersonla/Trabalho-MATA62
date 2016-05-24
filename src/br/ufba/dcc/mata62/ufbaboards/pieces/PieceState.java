@@ -28,5 +28,5 @@ package br.ufba.dcc.mata62.ufbaboards.pieces;
  * @author jeferson
  */
 public interface PieceState {
-    
+    public void killPiece();
 }

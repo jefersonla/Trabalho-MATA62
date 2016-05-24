@@ -21,19 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
-
-import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.BishopMovementStrategy;
-import java.awt.Color;
+package br.ufba.dcc.mata62.ufbaboards.boards;
 
 /**
  *
  * @author jeferson
  */
-public class BishopPiece extends ChessPiece{    
+public class EmptyBoard extends AbstractBoard{
+
+    public EmptyBoard(int matrixSizePanel, String[] leftRightNames, String[] topBottomNames) {
+        super(matrixSizePanel, leftRightNames, topBottomNames);
+    }
     
-    public BishopPiece(String color, int x, int y, Color defaultColor) {
-        super("bishop", color, new BishopMovementStrategy(), x, y, defaultColor);
+    @Override
+    public void notifyObserver() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

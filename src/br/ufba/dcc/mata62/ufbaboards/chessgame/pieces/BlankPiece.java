@@ -23,14 +23,16 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
+import java.awt.Color;
+
 /**
  *
  * @author jeferson
  */
 public class BlankPiece extends ChessPiece {
     
-    public BlankPiece(int x, int y) {
-        super(x, y);
+    public BlankPiece(int x, int y, Color defaultColor) {
+        super(x, y, defaultColor);
     }
     
 }

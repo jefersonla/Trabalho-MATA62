@@ -30,5 +30,10 @@ import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
  * @author jeferson
  */
 public class ChessPieceAlive implements PieceState {
+
+    @Override
+    public void killPiece() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

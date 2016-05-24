@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements;
 
 /**
  *
  * @author jeferson
  */
-public class BishopMovementStrategy {
+public class QueenMovementStrategy extends ChessPieceMovementStrategy{
     
 }

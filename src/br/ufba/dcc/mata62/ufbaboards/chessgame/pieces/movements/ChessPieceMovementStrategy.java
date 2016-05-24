@@ -21,12 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements;
+
+import br.ufba.dcc.mata62.ufbaboards.utils.CoordinatesMovement;
+import java.util.ArrayList;
 
 /**
  *
  * @author jeferson
  */
-public class RookieMovementStrategy {
+public abstract class ChessPieceMovementStrategy {
+    protected ArrayList<CoordinatesMovement> possibleMovements;
     
+    public ChessPieceMovementStrategy(){
+        possibleMovements = new ArrayList<>();
+    }
+    
+    public ArrayList<CoordinatesMovement> getPossibleMovements(){
+        return possibleMovements;
+    } 
 }

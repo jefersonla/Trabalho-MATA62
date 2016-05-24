@@ -21,19 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
-
-import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.BishopMovementStrategy;
-import java.awt.Color;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements;
 
 /**
  *
  * @author jeferson
  */
-public class BishopPiece extends ChessPiece{    
-    
-    public BishopPiece(String color, int x, int y, Color defaultColor) {
-        super("bishop", color, new BishopMovementStrategy(), x, y, defaultColor);
-    }
+public class RookieMovementStrategy extends ChessPieceMovementStrategy{
     
 }

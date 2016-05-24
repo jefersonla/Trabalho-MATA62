@@ -36,6 +36,7 @@ import javax.swing.BorderFactory;
  */
 public class BoardMatrixPanel extends javax.swing.JPanel {
     protected BoardPiece[][] piecesMatrix;
+    protected int tam;
     
     /**
      * Creates new form BoardPanel
@@ -43,6 +44,8 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
      */
     public BoardMatrixPanel(int size) { 
         initComponents();
+        
+        this.tam = size;
         
         /* Create matrix of pieces */
         piecesMatrix = new AbstractPiece[size][size];
@@ -52,17 +55,18 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         
         /* Populate Panel */
         for(int i = 0; i < size; i++)
-            for(int j = 0; j < size; j++){
-                /* Initialize the board Piece */
-                piecesMatrix[i][j] = new AbstractPiece();
-                
+            for(int j = 0; j < size; j++){                
                 /* Select Heavy Blue Pieces */
-                if((i % 2) == (j % 2))                    
+                if((i % 2) == (j % 2)){   
+                    piecesMatrix[i][j] = new AbstractPiece(new Color(51, 102, 255));
                     piecesMatrix[i][j].setBackground(new Color(51, 102, 255));
+                }
                 /* Select Light Blue Pieces */
-                else                    
+                else{
+                    piecesMatrix[i][j] = new AbstractPiece(new Color(204, 204, 255));
                     piecesMatrix[i][j].setBackground(new Color(204, 204, 255));
-                
+                }
+                    
                 /* Define black thin border */
                 piecesMatrix[i][j].setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
                 piecesMatrix[i][j].setPreferredSize(pieceDimension);
@@ -75,6 +79,8 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
     public BoardMatrixPanel(String[][] matrix, String[][] colorPieces){
         initComponents();
         
+        this.tam = 8;
+        
         /* Create matrix of pieces */
         int size = 8;
         piecesMatrix = new AbstractPiece[size][size];
@@ -85,16 +91,21 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         /* Populate Panel */
         for(int i = 0; i < size; i++)
             for(int j = 0; j < size; j++){
-                /* Initialize the board Piece */
-                piecesMatrix[i][j] = PieceFactory.getNewPiece(matrix[i][j], colorPieces[i][j], i, j);
                 
                 /* Select Heavy Blue Pieces */
-                if((i % 2) == (j % 2))                    
+                if((i % 2) == (j % 2)){
+                    piecesMatrix[i][j] = PieceFactory.getNewPiece(  matrix[i][j],
+                                                colorPieces[i][j], i, j,
+                                                new Color(51, 102, 255));
                     piecesMatrix[i][j].setBackground(new Color(51, 102, 255));
+                }
                 /* Select Light Blue Pieces */
-                else                    
+                else{
+                    piecesMatrix[i][j] = PieceFactory.getNewPiece(  matrix[i][j],
+                                                                    colorPieces[i][j], i, j,
+                                                                    new Color(204, 204, 255));
                     piecesMatrix[i][j].setBackground(new Color(204, 204, 255));
-                
+                }
                 /* Define black thin border */
                 piecesMatrix[i][j].setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
                 piecesMatrix[i][j].setPreferredSize(pieceDimension);
@@ -106,6 +117,10 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
 
     public BoardMatrixPanel() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void highlightMovements(){
+        
     }
     
     /**

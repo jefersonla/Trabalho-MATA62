@@ -23,14 +23,17 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.KnightMovementStrategy;
+import java.awt.Color;
+
 /**
  *
  * @author jeferson
  */
 public class KnightPiece extends ChessPiece {
     
-    public KnightPiece(String color, int x, int y) {
-        super("knight", color, new ChessPieceMovementStrategy(), x, y);
+    public KnightPiece(String color, int x, int y, Color defaultColor) {
+        super("knight", color, new KnightMovementStrategy(), x, y, defaultColor);
     }
     
 }

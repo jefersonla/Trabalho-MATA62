@@ -21,12 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements;
+
+import br.ufba.dcc.mata62.ufbaboards.utils.CoordinatesMovement;
 
 /**
  *
  * @author jeferson
  */
-public class KingMovementStrategy {
-    
+public class BishopMovementStrategy extends ChessPieceMovementStrategy {
+    public BishopMovementStrategy(){
+        super();
+        possibleMovements.add(new CoordinatesMovement(1, 1, true, true));
+        possibleMovements.add(new CoordinatesMovement(1, -1, true, true));
+        possibleMovements.add(new CoordinatesMovement(-1, 1, true, true));
+        possibleMovements.add(new CoordinatesMovement(-1, -1, true, true));
+    }
 }

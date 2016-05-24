@@ -23,17 +23,44 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.pieces;
 
+import br.ufba.dcc.mata62.ufbaboards.boards.Observer;
 import java.awt.Color;
-import javax.swing.Icon;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 /**
  *
  * @author jeferson
  */
-public class AbstractPiece extends BoardPiece {
+public class AbstractPiece extends BoardPiece implements PieceObserved{
     
-    public AbstractPiece() {
-        super(new Color(153, 255, 153), new Color(102, 204, 255));
+    private ArrayList<Observer> observers;
+    
+    public AbstractPiece(Color defaultColor) {
+        super(new Color(153, 255, 153), new Color(102, 204, 255), defaultColor);
+        observers = new ArrayList<>();
+    }
+
+    public void ActionPerformed(ActionEvent evt){
+        
+    }
+
+    @Override
+    public void addObserver(Observer obs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeObserver(Observer obs) {
+        observers.add(obs);
+    }
+
+    @Override
+    public void notifica() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public void setSelected(Color bg) {
+        super.setBackground(bg); //To change body of generated methods, choose Tools | Templates.
+    }
 }

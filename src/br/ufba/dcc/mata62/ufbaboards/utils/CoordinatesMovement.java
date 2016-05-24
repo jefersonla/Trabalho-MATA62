@@ -21,12 +21,56 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
+package br.ufba.dcc.mata62.ufbaboards.utils;
 
 /**
  *
  * @author jeferson
  */
-public class QueenMovementStrategy {
+public class CoordinatesMovement {
+    int x;
+    int y;
+    boolean x_inf;
+    boolean y_inf;
+    
+    public CoordinatesMovement(int x, int y, boolean x_inf, boolean y_inf){
+        this.x = x;
+        this.y = y;
+        this.x_inf = x_inf;
+        this.y_inf = y_inf;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public boolean isX_inf() {
+        return x_inf;
+    }
+
+    public void setX_inf(boolean x_inf) {
+        this.x_inf = x_inf;
+    }
+
+    public boolean isY_inf() {
+        return y_inf;
+    }
+
+    public void setY_inf(boolean y_inf) {
+        this.y_inf = y_inf;
+    }
+    
     
 }

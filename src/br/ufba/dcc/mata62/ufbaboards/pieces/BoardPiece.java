@@ -25,7 +25,6 @@ package br.ufba.dcc.mata62.ufbaboards.pieces;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.Icon;
 import javax.swing.JButton;
 
 /**
@@ -34,16 +33,10 @@ import javax.swing.JButton;
  */
 public class BoardPiece extends JButton{
     private Color hoverBackgroundColor;
-    private Color pressedBackgroundColor;    
+    private Color pressedBackgroundColor;
+    private Color defaultColor;
     
-    public BoardPiece(Color hoverColor, Color pressedColor) {        
-        hoverBackgroundColor = hoverColor;
-        pressedBackgroundColor = pressedColor;
-        setUI(new BoardPieceUI());
-    }
-    
-    public BoardPiece(Color hoverColor, Color pressedColor, Icon icoRes) {        
-        super(icoRes);
+    public BoardPiece(Color hoverColor, Color pressedColor, Color defaultColor) {        
         hoverBackgroundColor = hoverColor;
         pressedBackgroundColor = pressedColor;
         setUI(new BoardPieceUI());

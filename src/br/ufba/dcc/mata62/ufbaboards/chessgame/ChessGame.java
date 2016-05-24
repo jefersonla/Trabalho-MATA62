@@ -53,8 +53,8 @@ public class ChessGame extends AbstractGame {
     
     /* Attributes */
     private int numberOfGames;
-    private int numberOfWins;
-    private int numberOfLosts;
+    private int player1Wins;
+    private int player2Wins;
     private int playerTurn;
     
     private ChessGame(){
@@ -89,8 +89,8 @@ public class ChessGame extends AbstractGame {
         
         /* Statistics Default */
         numberOfGames = 0;
-        numberOfWins = 0;
-        numberOfLosts = 0;
+        player1Wins = 0;
+        player2Wins = 0;
         
         /* Player Turn */
         playerTurn = 0;
@@ -124,12 +124,12 @@ public class ChessGame extends AbstractGame {
         numberOfGames += 1;
     }
     
-    public void increaseWonGames(){
-        numberOfWins += 1;
+    public void increasePlayer1Wins(){
+        player1Wins += 1;
     }
     
-    public void increaseLostGames(){
-        numberOfLosts += 1;
+    public void increasePlayer2Wins(){
+        player2Wins += 1;
     }
     
     public void setTimerButtonState(boolean state){
@@ -254,14 +254,11 @@ public class ChessGame extends AbstractGame {
                                         "<html> "
                                             + "<h1> Game Statistics </h1>"
                                             + "<p></p>"
-                                            + "<p><strong> Played Games :</strong> " + numberOfGames + " </p>"
+                                            + "<p><strong> Played Games : </strong> " + numberOfGames + " </p>"
                                             + "<p></p>"
-                                            + "<p><strong> Games Won :</strong> " + numberOfWins + " </p>"
+                                            + "<p><strong> Player 1 Victories : </strong> " + player1Wins + " </p>"
                                             + "<p></p>"
-                                            + "<p><strong> Games Lost :</strong> " + numberOfLosts + " </p>"
-                                            + "<p></p>"
-                                            + "<p><strong> Porcentage Records :</strong> "
-                                                + ((numberOfGames != 0) ? ((numberOfWins * 100) / numberOfGames) : "0") + "% </p>"
+                                            + "<p><strong> Player 2 Victories : </strong> " + player2Wins + " </p>"
                                             + "<p></p>"
                                         + "</html>",
                                         "Statistics UFBA Boards",

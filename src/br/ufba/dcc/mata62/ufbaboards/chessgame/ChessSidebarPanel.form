@@ -43,7 +43,7 @@
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Component id="timerCounter" max="32767" attributes="0"/>
           </Group>
-          <Component id="movementsScrollPanel" alignment="0" max="32767" attributes="0"/>
+          <Component id="movementsScrollPanel" alignment="0" pref="0" max="32767" attributes="0"/>
           <Component id="movementsLabel" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <Component id="undoMovementButton" min="-2" pref="80" max="-2" attributes="0"/>
@@ -261,10 +261,7 @@
               <Font name="Dialog" size="9" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="001 00:00:00 wKing [A 3]"/>
-                <StringItem index="1" value="002 00:01:00 bBishop [A 5]"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>

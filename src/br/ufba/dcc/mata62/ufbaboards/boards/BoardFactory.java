@@ -39,9 +39,9 @@ public class BoardFactory {
             case "chess":
                 return new ChessBoard();
             case "empty":
-                return new AbstractBoard(   8,
-                                            new String[]{"8", "7", "6", "5", "4", "3", "2", "1"},
-                                            new String[]{"A", "B", "C", "D", "E", "F", "G", "H"});
+                return new EmptyBoard(  8,
+                                        new String[]{"8", "7", "6", "5", "4", "3", "2", "1"},
+                                        new String[]{"A", "B", "C", "D", "E", "F", "G", "H"});
         }
         
         return null;
