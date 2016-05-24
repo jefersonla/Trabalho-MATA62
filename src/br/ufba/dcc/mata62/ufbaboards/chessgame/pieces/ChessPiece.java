@@ -23,6 +23,7 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.BlankPieceMovementStrategy;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.ChessPieceMovementStrategy;
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
 import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
@@ -62,6 +63,7 @@ public class ChessPiece extends AbstractPiece {
         this.name = "BLANK";
         this.x = x;
         this.y = y;
+        this.strategy = new BlankPieceMovementStrategy();
     }
     
     public ChessPiece(String name, String color,

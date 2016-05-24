@@ -138,15 +138,42 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         int actualX = myPiece.getXCoordinate();
         int actualY = myPiece.getYCoordinate();
         
-        /*
         for(CoordinatesMovement possibleMovement : possibleMovements){
+            int wantedX = possibleMovement.getX();
+            int wantedY = possibleMovement.getY();
             
-        }
-        */
-        for(int i = 0; i < tam; i++)
-            for(int j = 0; j < tam; j++){
-                piecesMatrix[i][j].highlightPiece();
-            }      
+            if(possibleMovement.isX_inf() && possibleMovement.isY_inf()){
+                while(((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
+                    ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
+                    !piecesMatrix[actualX + wantedX][actualY + wantedY].isOcuped()){
+                    piecesMatrix[actualX + wantedX][actualY + wantedY].highlightPiece();
+                    wantedX += 1;
+                    wantedY += 1;
+                }
+            }
+            if(possibleMovement.isX_inf()){
+                while(((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
+                    ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
+                    !piecesMatrix[actualX + wantedX][actualY + wantedY].isOcuped()){
+                    piecesMatrix[actualX + wantedX][actualY + wantedY].highlightPiece();
+                    wantedX += 1;
+                }
+            }
+            if(possibleMovement.isY_inf()){
+                while(((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
+                    ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
+                    !piecesMatrix[actualX + wantedX][actualY + wantedY].isOcuped()){
+                    piecesMatrix[actualX + wantedX][actualY + wantedY].highlightPiece();
+                    wantedY += 1;
+                }
+            }
+            else{    
+                if( ((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
+                    ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
+                    !piecesMatrix[actualX + wantedX][actualY + wantedY].isOcuped()) 
+                    piecesMatrix[actualX + wantedX][actualY + wantedY].highlightPiece();   
+            }
+        } 
     }
     
     public void removeHighlight(){

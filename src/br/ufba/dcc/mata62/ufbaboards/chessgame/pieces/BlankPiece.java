@@ -34,4 +34,9 @@ public class BlankPiece extends ChessPiece {
     public BlankPiece(int x, int y, Color defaultColor) {
         super(x, y, defaultColor);
     }    
+    
+    @Override
+    public boolean isOcuped(){
+        return false;
+    }
 }

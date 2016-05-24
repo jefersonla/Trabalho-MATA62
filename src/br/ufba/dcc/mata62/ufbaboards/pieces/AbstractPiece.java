@@ -73,5 +73,9 @@ public abstract class AbstractPiece extends BoardPiece implements PieceObserved{
         setBackground(Color.GREEN);
     }
     
+    public boolean isOcuped(){
+        return true;
+    }
+    
     public abstract ChessPieceMovementStrategy getMovementStrategy();
 }
