@@ -30,4 +30,10 @@ package br.ufba.dcc.mata62.ufbaboards;
 public interface IGame {
     public AbstractGame getGameInstance(String game);
     public void playGame(AbstractGame newGame);
+    
+    /* Ensure that all games implements change state methods */
+    public void startGame();
+    public void pauseGame();
+    public void continueGame();
+    public void stopGame();
 }

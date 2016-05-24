@@ -56,6 +56,7 @@ public class ChessGame extends AbstractGame {
     private int numberOfGames;
     private int numberOfWins;
     private int numberOfLosts;
+    private int playerTurn;
     
     private ChessGame(){
         /* Call super constructor */
@@ -86,9 +87,24 @@ public class ChessGame extends AbstractGame {
         timer = new GameTimer();
         
         /* Statistics Default */
-        numberOfGames = 1;
-        numberOfWins = 1;
+        numberOfGames = 0;
+        numberOfWins = 0;
         numberOfLosts = 0;
+        
+        /* Player Turn */
+        playerTurn = 0;
+    }
+    
+    public void blockTurn(){
+        playerTurn = 0;
+    }
+    
+    public void changeTurn(){
+        playerTurn = (playerTurn == 1) ? 2 : 1;
+    }
+    
+    public void setTurn(int turn){
+        playerTurn = turn;
     }
     
     public void stopTimer(){
@@ -103,6 +119,18 @@ public class ChessGame extends AbstractGame {
         timer.resetTimer();
     }
     
+    public void increasePlayedGames(){
+        numberOfGames += 1;
+    }
+    
+    public void increaseWonGames(){
+        numberOfWins += 1;
+    }
+    
+    public void increaseLostGames(){
+        numberOfLosts += 1;
+    }
+    
     public void setTimerButtonState(boolean state){
         SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
         tmpSidebar.setTimerButtonState(state);
@@ -113,9 +141,10 @@ public class ChessGame extends AbstractGame {
         tmpSidebar.disableItens();
     }
     
-    public void enableSidebarItens(){
+    public void enableTimerIten(){
         SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
-        tmpSidebar.enableItens();
+        tmpSidebar.enableTimer();
+        
     }
     
     public void setTimer(int sec, int min, int hour){
@@ -176,7 +205,9 @@ public class ChessGame extends AbstractGame {
 
     @Override
     protected void newGameMenuAction() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        startGame();
+        SidebarPanel tmpSidebar = (SidebarPanel) gamePanel1.getSidebarPanel();
+        tmpSidebar.changePlayer1State(true);
     }
 
     @Override
@@ -184,6 +215,11 @@ public class ChessGame extends AbstractGame {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    protected void restartGameMenuAction() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
     @Override
     protected void changePlayersMenuAction() {
         JTextField player1TmpName = new JTextField(player1Name,10);
@@ -214,31 +250,45 @@ public class ChessGame extends AbstractGame {
             setPlayersName(player1TmpName.getText(), player2TmpName.getText());
         }
     }
-
+    
     @Override
     protected void statisticsMenuAction() {
         JOptionPane.showMessageDialog(  this,
                                         "<html> "
-                                            + "<center>"
-                                                + "<h1> Game Statistics - Since Opened </h1>"
-                                                + "<p></p>"
-                                                + "<p><strong> Played Games :</strong> " + numberOfGames + " </p>"
-                                                + "<p></p>"
-                                                + "<p><strong> Games Won :</strong> " + numberOfWins + " </p>"
-                                                + "<p></p>"
-                                                + "<p><strong> Games Lost :</strong> " + numberOfLosts + " </p>"
-                                                + "<p></p>"
-                                                + "<p><strong> Porcentage Records :</strong> " + ((numberOfWins * 100) / numberOfGames) + "% </p>"
-                                                + "<p></p>"
-                                            + "</center>"
+                                            + "<h1> Game Statistics </h1>"
+                                            + "<p></p>"
+                                            + "<p><strong> Played Games :</strong> " + numberOfGames + " </p>"
+                                            + "<p></p>"
+                                            + "<p><strong> Games Won :</strong> " + numberOfWins + " </p>"
+                                            + "<p></p>"
+                                            + "<p><strong> Games Lost :</strong> " + numberOfLosts + " </p>"
+                                            + "<p></p>"
+                                            + "<p><strong> Porcentage Records :</strong> "
+                                                + ((numberOfGames != 0) ? ((numberOfWins * 100) / numberOfGames) : "NaN") + "% </p>"
+                                            + "<p></p>"
                                         + "</html>",
                                         "Statistics UFBA Boards",
                                         JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
-    protected void restartGameMenuAction() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void startGame() {
+        state.startGame();
+    }
+
+    @Override
+    public void pauseGame() {
+        state.pauseGame();
+    }
+
+    @Override
+    public void continueGame() {
+        state.continueGame();
+    }
+
+    @Override
+    public void stopGame() {
+        state.stopGame();
     }
         
 }

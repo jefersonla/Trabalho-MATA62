@@ -33,7 +33,7 @@ public class InProgress implements GameState{
 
     public InProgress(){
         ChessGame chessGame = ChessGame.getInstance();
-        chessGame.enableSidebarItens();
+        chessGame.enableTimerIten();
         chessGame.startTimer();
     }
     

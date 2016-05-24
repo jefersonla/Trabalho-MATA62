@@ -32,15 +32,15 @@ import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
 public class Paused implements GameState{
     
     public Paused(){
-        ChessGame.getInstance().setTimerButtonState(false);
-        ChessGame.getInstance().stopTimer();
+        ChessGame chessGame = ChessGame.getInstance();
+        chessGame.stopTimer();
     }
 
     @Override
     public void startGame() {
         ChessGame chessGame = ChessGame.getInstance();
-        chessGame.setGameState(new InProgress());
         chessGame.restartTimer();
+        chessGame.setGameState(new InProgress());
     }
 
     @Override

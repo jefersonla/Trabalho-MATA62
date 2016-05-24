@@ -24,6 +24,7 @@
 package br.ufba.dcc.mata62.ufbaboards.gui;
 
 import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -99,12 +100,8 @@ public class SidebarPanel extends javax.swing.JPanel {
         redoMovementButton.setEnabled(false);
     }
     
-    public void enableItens(){
-        changePlayer1State(true);
-        changePlayer2State(true);
+    public void enableTimer(){
         changeTimerState.setEnabled(true);
-        undoMovementButton.setEnabled(true);
-        redoMovementButton.setEnabled(true);
     }
     
     /**
@@ -288,9 +285,13 @@ public class SidebarPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_undoMovementButtonActionPerformed
 
     private void changeTimerStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeTimerStateActionPerformed
-        ChessGame chessGame = ChessGame.getInstance();
+        ChessGame chessGame = ChessGame.getInstance();        
+        JToggleButton toggleButton = (JToggleButton)evt.getSource();
         
-        
+        if(toggleButton.isSelected())
+            chessGame.pauseGame();
+        else
+            chessGame.continueGame();
     }//GEN-LAST:event_changeTimerStateActionPerformed
 
     private void redoMovementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoMovementButtonActionPerformed

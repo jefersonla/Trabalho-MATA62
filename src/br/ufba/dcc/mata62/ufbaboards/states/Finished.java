@@ -40,8 +40,8 @@ public class Finished implements GameState{
     @Override
     public void startGame() {
         ChessGame chessGame = ChessGame.getInstance();
-        chessGame.setGameState(new InProgress());
         chessGame.restartTimer();
+        chessGame.setGameState(new InProgress());
     }
 
     @Override
