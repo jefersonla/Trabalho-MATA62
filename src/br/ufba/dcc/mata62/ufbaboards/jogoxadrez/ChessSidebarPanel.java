@@ -23,7 +23,8 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.jogoxadrez;
 
-import br.ufba.dcc.mata62.ufbaboards.jogoxadrez.ChessGame;
+import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
 import javax.swing.JToggleButton;
 
 /**
@@ -200,6 +201,7 @@ public class ChessSidebarPanel extends javax.swing.JPanel {
             }
         });
 
+        movementsScrollList.setCellRenderer(new MovementsCellRenderer());
         movementsScrollList.setFont(new java.awt.Font("Dialog", 1, 9)); // NOI18N
         movementsScrollList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "001 00:00:00 wKing [A 3]", "002 00:01:00 bBishop [A 5]" };
