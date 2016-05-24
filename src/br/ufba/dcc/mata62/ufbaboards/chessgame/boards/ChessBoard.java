@@ -25,6 +25,7 @@ package br.ufba.dcc.mata62.ufbaboards.chessgame.boards;
 
 import br.ufba.dcc.mata62.ufbaboards.boards.AbstractBoard;
 import br.ufba.dcc.mata62.ufbaboards.boards.BoardMatrixPanel;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.ChessPiece;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.PieceFactory;
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
 
@@ -61,10 +62,32 @@ public class ChessBoard extends AbstractBoard{
         boardMatrix.addObservers(this);
     }
 
+    private AbstractPiece lastPiece;
+    
     @Override
     public void notifyObserver(AbstractPiece piece) {
         boardMatrix.removeHighlight();
-        boardMatrix.highlightMovements(piece);
+        
+        if(piece.isHighlighted()){
+            piece.setIcon(lastPiece.getIcon());
+            lastPiece.setIcon(null);
+            ChessPiece myPiece = (ChessPiece) piece;
+            int actualX = myPiece.getXCoordinate();
+            int actualY = myPiece.getYCoordinate();
+            
+            myPiece = (ChessPiece) lastPiece;
+            int lastX = myPiece.getXCoordinate();
+            int lastY = myPiece.getYCoordinate();
+            
+            boardMatrix.removePiece(lastPiece, lastX, lastY);
+            boardMatrix.addPiece(lastPiece, actualX, actualY);
+            System.out.println("Change");
+        }
+        else{
+            lastPiece = piece;
+            boardMatrix.highlightMovements(piece);
+            System.out.println("Change To the place "+);
+        }
     }
     
 }

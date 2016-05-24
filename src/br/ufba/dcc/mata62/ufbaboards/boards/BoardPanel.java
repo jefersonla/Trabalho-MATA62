@@ -34,6 +34,14 @@ import java.awt.CardLayout;
 public class BoardPanel extends javax.swing.JPanel {
     protected BoardMatrixPanel boardMatrix;
     
+    public void removePiece(AbstractPiece piece, int x, int y){
+        int pieceIndex = (x * y) + x;
+        
+    }
+    public void addPiece(AbstractPiece piece, int x, int y){
+        
+    }
+    
     /**
      * Creates new form BoardPanel
      * @param newBoardMatrixSize

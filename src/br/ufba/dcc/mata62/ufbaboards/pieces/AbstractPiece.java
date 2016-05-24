@@ -69,6 +69,10 @@ public abstract class AbstractPiece extends BoardPiece implements PieceObserved{
         setBackground(defaultColor);
     }
     
+    public boolean isHighlighted(){
+        return getBackground() == Color.GREEN;
+    }
+    
     public void highlightPiece(){
         setBackground(Color.GREEN);
     }

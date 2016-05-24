@@ -28,7 +28,6 @@ import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.ChessPiece;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.PieceFactory;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.ChessPieceMovementStrategy;
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
-import br.ufba.dcc.mata62.ufbaboards.pieces.BoardPiece;
 import br.ufba.dcc.mata62.ufbaboards.utils.CoordinatesMovement;
 import java.awt.Color;
 import java.awt.Dimension;
