@@ -52,6 +52,11 @@ public class ChessGame extends AbstractGame {
     /* Timer Action Listener */
     GameTimer timer;
     
+    /* Attributes */
+    private int numberOfGames;
+    private int numberOfWins;
+    private int numberOfLosts;
+    
     private ChessGame(){
         /* Call super constructor */
         super();
@@ -79,6 +84,11 @@ public class ChessGame extends AbstractGame {
         
         /* Add a new timer */
         timer = new GameTimer();
+        
+        /* Statistics Default */
+        numberOfGames = 1;
+        numberOfWins = 1;
+        numberOfLosts = 0;
     }
     
     public void stopTimer(){
@@ -210,16 +220,19 @@ public class ChessGame extends AbstractGame {
         JOptionPane.showMessageDialog(  this,
                                         "<html> "
                                             + "<center>"
-                                                + "<h1> UFBA Boards V " + VERSION + "</h1>"
+                                                + "<h1> Game Statistics - Since Opened </h1>"
                                                 + "<p></p>"
-                                                + "<p>UFBA Boards is a creation of Jeferson Lima</p>"
-                                                + "<p>a Computer Science student at UFBA.</p>"
-                                                + "<p>UFBA Boards is released under the MIT LICENSE.</p>"
-                                                + "<p></p><p></p>"
-                                                + "<b> Copyright 2016 Jeferson Lima. </b>"
+                                                + "<p><strong> Played Games :</strong> " + numberOfGames + " </p>"
+                                                + "<p></p>"
+                                                + "<p><strong> Games Won :</strong> " + numberOfWins + " </p>"
+                                                + "<p></p>"
+                                                + "<p><strong> Games Lost :</strong> " + numberOfLosts + " </p>"
+                                                + "<p></p>"
+                                                + "<p><strong> Porcentage Records :</strong> " + ((numberOfWins * 100) / numberOfGames) + "% </p>"
+                                                + "<p></p>"
                                             + "</center>"
                                         + "</html>",
-                                        "About UFBA Boards - " + gameName,
+                                        "Statistics UFBA Boards",
                                         JOptionPane.INFORMATION_MESSAGE);
     }
 
