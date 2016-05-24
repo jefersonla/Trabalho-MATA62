@@ -29,8 +29,8 @@ package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
  */
 public class BishopPiece extends ChessPiece{    
     
-    public BishopPiece() {
-        super();
+    public BishopPiece(String color, int x, int y) {
+        super("bishop", color, new ChessPieceMovementStrategy(), x, y);
     }
     
 }

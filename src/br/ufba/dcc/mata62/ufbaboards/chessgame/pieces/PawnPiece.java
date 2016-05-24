@@ -23,16 +23,14 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
-import java.awt.Color;
-
 /**
  *
  * @author jeferson
  */
 public class PawnPiece extends ChessPiece {
     
-    public PawnPiece() {
-        super();
+    public PawnPiece(String color, int x, int y) {
+        super("pawn", color, new ChessPieceMovementStrategy(), x, y);
     }
     
 }

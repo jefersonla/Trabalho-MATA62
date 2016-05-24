@@ -25,13 +25,15 @@ package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
 import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
-import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author jeferson
  */
 public class ChessPiece extends AbstractPiece {
+    public static final String RESOURCE_URL = "/br/ufba/dcc/mata62/ufbaboards/chessgame/pieces/resources/";
+    
     /* Indexes */
     private int x;
     private int y;
@@ -46,18 +48,53 @@ public class ChessPiece extends AbstractPiece {
     private ChessPieceMovementStrategy strategy;
     
     /* Possible resources */
-    protected Icon pieceResource;
+    protected ImageIcon pieceResource;
     
-    public ChessPiece(){
+    /* Attributes */
+    protected String color;
+    protected String name;
+    
+    public ChessPiece(int x, int y){
         super();
         this.state = new ChessPieceDead();
+        this.name = "BLANK";
+        this.x = x;
+        this.y = y;
     }
     
-    public ChessPiece(Icon icores, ChessPieceMovementStrategy strategy){
-        super(icores);
-        this.pieceResource = icores;
+    public ChessPiece(String name, String color, ChessPieceMovementStrategy strategy, int x, int y){
+        super();
+        this.x = x;
+        this.y = y;
+        this.color = color;
         this.strategy = strategy;
         this.state = new ChessPieceAlive();
+        this.pieceResource = new ImageIcon(getClass().getResource(getUrlResource(name, color)));
+        setIcon(pieceResource);
+    }
+    
+    private String getUrlResource(String name, String color){
+        return RESOURCE_URL + color + "_" + name + ".png";
+    }
+    
+    public void setState(PieceState state){
+        this.state = state;
+    }
+
+    public int getXCoordinate() {
+        return x;
+    }
+
+    public void setXCoordinate(int x) {
+        this.x = x;
+    }
+
+    public int getYCoordinate() {
+        return y;
+    }
+
+    public void setYCoordinate(int y) {
+        this.y = y;
     }
     
 }

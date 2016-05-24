@@ -42,22 +42,25 @@ public class PieceFactory {
     /**
      * Return a piece of the desired type
      * @param tipo The type of the piece
+     * @param color
      * @return the new piece or null if not found
      */
-    public static ChessPiece getNewPiece(String tipo, String color){
+    public static ChessPiece getNewPiece(String tipo, String color, int x, int y){
         switch(tipo){
-            case BISHOP:
-                return new BishopPiece(color);
             case BLANK:
-                return new BlankPiece(color);
+                return new BlankPiece(x, y);
+            case BISHOP:
+                return new BishopPiece(color, x, y);
             case KING:
-                return new KingPiece(color);
+                return new KingPiece(color, x, y);
             case KNIGHT:
-                return new KnightPiece(color);
+                return new KnightPiece(color, x, y);
             case QUEEN:
-                return new QueenPiece(color);
+                return new QueenPiece(color, x, y);
             case ROOK:
-                return new RookPiece(color);
+                return new RookPiece(color, x, y);
+            case PAWN:
+                return new PawnPiece(color, x, y);
         }
         
         return null;

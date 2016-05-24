@@ -21,16 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
+package br.ufba.dcc.mata62.ufbaboards.boards;
 
 /**
  *
  * @author jeferson
  */
-public class KingPiece extends ChessPiece {
-    
-    public KingPiece(String color, int x, int y) {
-        super("king", color, new ChessPieceMovementStrategy(), x, y);
-    }
+public interface Observer {
     
 }

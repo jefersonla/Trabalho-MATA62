@@ -45,14 +45,14 @@ public class ChessBoard extends AbstractBoard{
                     {PieceFactory.ROOK  , PieceFactory.KNIGHT, PieceFactory.BISHOP, PieceFactory.QUEEN, PieceFactory.KING , PieceFactory.BISHOP, PieceFactory.KNIGHT, PieceFactory.ROOK  }
                 },
                 new String[][]{
-                    {"W", "W", "W", "W", "W", "W", "W", "W"},
-                    {"W", "W", "W", "W", "W", "W", "W", "W"},
-                    {"N", "N", "N", "N", "N", "N", "N", "N"},
-                    {"N", "N", "N", "N", "N", "N", "N", "N"},
-                    {"N", "N", "N", "N", "N", "N", "N", "N"},
-                    {"N", "N", "N", "N", "N", "N", "N", "N"},
-                    {"B", "B", "B", "B", "B", "B", "B", "B"},
-                    {"B", "B", "B", "B", "B", "B", "B", "B"}
+                    {"white", "white", "white", "white", "white", "white", "white", "white"},
+                    {"white", "white", "white", "white", "white", "white", "white", "white"},
+                    {"null" , "null" , "null" , "null" , "null" , "null" , "null" , "null"},
+                    {"null" , "null" , "null" , "null" , "null" , "null" , "null" , "null"},
+                    {"null" , "null" , "null" , "null" , "null" , "null" , "null" , "null"},
+                    {"null" , "null" , "null" , "null" , "null" , "null" , "null" , "null"},
+                    {"black", "black", "black", "black", "black", "black", "black", "black"},
+                    {"black", "black", "black", "black", "black", "black", "black", "black"}
                 }),
                 new String[]{"8", "7", "6", "5", "4", "3", "2", "1"},
                 new String[]{"A", "B", "C", "D", "E", "F", "G", "H"});

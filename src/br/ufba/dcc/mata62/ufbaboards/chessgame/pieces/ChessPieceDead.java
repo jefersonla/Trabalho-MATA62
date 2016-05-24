@@ -29,6 +29,6 @@ import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
  *
  * @author jeferson
  */
-public class ChessPieceDead extends PieceState {
+public class ChessPieceDead implements PieceState {
     
 }

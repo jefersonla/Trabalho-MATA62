@@ -272,6 +272,7 @@ public class ChessGame extends AbstractGame {
     public void startGame() {
         state.startGame();
         ChessSidebarPanel tmpSidebar = (ChessSidebarPanel) gamePanel1.getSidebarPanel();
+        gamePanel1.addNewMatrixBoardPanel(boardFactory.getBoard("chess"));
         tmpSidebar.releaseTimerButton();
     }
 

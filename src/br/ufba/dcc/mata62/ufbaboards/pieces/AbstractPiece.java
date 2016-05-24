@@ -36,8 +36,4 @@ public class AbstractPiece extends BoardPiece {
         super(new Color(153, 255, 153), new Color(102, 204, 255));
     }
     
-    public AbstractPiece(Icon icores){
-        super(new Color(153, 255, 153), new Color(102, 204, 255), icores);
-    }
-    
 }

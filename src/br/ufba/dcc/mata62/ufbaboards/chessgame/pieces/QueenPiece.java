@@ -29,8 +29,8 @@ package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
  */
 public class QueenPiece extends ChessPiece {
     
-    public QueenPiece() {
-        super();
+    public QueenPiece(String color, int x, int y) {
+        super("queen", color, new ChessPieceMovementStrategy(), x, y);
     }
     
 }

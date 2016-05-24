@@ -86,7 +86,7 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         for(int i = 0; i < size; i++)
             for(int j = 0; j < size; j++){
                 /* Initialize the board Piece */
-                piecesMatrix[i][j] = PieceFactory.getNewPiece(matrix[i][j], colorPieces[i][j]);
+                piecesMatrix[i][j] = PieceFactory.getNewPiece(matrix[i][j], colorPieces[i][j], i, j);
                 
                 /* Select Heavy Blue Pieces */
                 if((i % 2) == (j % 2))                    

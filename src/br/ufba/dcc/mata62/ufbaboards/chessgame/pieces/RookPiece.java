@@ -23,16 +23,14 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
-import java.awt.Color;
-
 /**
  *
  * @author jeferson
  */
 public class RookPiece extends ChessPiece {
     
-    public RookPiece() {
-        super();
+    public RookPiece(String color, int x, int y) {
+        super("rook", color, new ChessPieceMovementStrategy(), x, y);
     }
     
 }

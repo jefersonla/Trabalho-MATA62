@@ -29,8 +29,8 @@ package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
  */
 public class BlankPiece extends ChessPiece {
     
-    public BlankPiece() {
-        super();
+    public BlankPiece(int x, int y) {
+        super(x, y);
     }
     
 }
