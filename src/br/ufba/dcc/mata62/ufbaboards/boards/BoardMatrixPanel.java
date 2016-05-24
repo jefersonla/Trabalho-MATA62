@@ -138,9 +138,22 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         int actualX = myPiece.getXCoordinate();
         int actualY = myPiece.getYCoordinate();
         
+        /*
         for(CoordinatesMovement possibleMovement : possibleMovements){
             
         }
+        */
+        for(int i = 0; i < tam; i++)
+            for(int j = 0; j < tam; j++){
+                piecesMatrix[i][j].highlightPiece();
+            }      
+    }
+    
+    public void removeHighlight(){
+        for(int i = 0; i < tam; i++)
+            for(int j = 0; j < tam; j++){
+                piecesMatrix[i][j].deSelect();
+            }            
     }
     
     /**

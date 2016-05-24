@@ -37,8 +37,9 @@ public class BoardPiece extends JButton{
     protected Color defaultColor;
     
     public BoardPiece(Color hoverColor, Color pressedColor, Color defaultColor) {        
-        hoverBackgroundColor = hoverColor;
-        pressedBackgroundColor = pressedColor;
+        this.hoverBackgroundColor = hoverColor;
+        this.pressedBackgroundColor = pressedColor;
+        this.defaultColor = defaultColor;
         setUI(new BoardPieceUI());
     }
     

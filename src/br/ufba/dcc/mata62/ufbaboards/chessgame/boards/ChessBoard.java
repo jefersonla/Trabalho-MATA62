@@ -63,6 +63,7 @@ public class ChessBoard extends AbstractBoard{
 
     @Override
     public void notifyObserver(AbstractPiece piece) {
+        boardMatrix.removeHighlight();
         boardMatrix.highlightMovements(piece);
     }
     
