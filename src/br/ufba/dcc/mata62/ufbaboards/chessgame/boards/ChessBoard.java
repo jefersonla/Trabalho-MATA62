@@ -25,11 +25,11 @@ package br.ufba.dcc.mata62.ufbaboards.chessgame.boards;
 
 import br.ufba.dcc.mata62.ufbaboards.boards.AbstractBoard;
 import br.ufba.dcc.mata62.ufbaboards.boards.BoardMatrixPanel;
-import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.BlankPiece;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.ChessPiece;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.ChessPieceAlive;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.ChessPieceDead;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.PieceFactory;
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
-import java.awt.Color;
 
 /**
  *
@@ -62,6 +62,8 @@ public class ChessBoard extends AbstractBoard{
                 new String[]{"A", "B", "C", "D", "E", "F", "G", "H"});
         
         boardMatrix.addObservers(this);
+        // Set turn to White
+        boardMatrix.changeTurn("black");
     }
 
     private AbstractPiece lastPiece;
@@ -70,37 +72,57 @@ public class ChessBoard extends AbstractBoard{
     public void notifyObserver(AbstractPiece piece) {             
         if(piece.isHighlighted()){
             /* BUGGED */
-            //piece.setIcon(lastPiece.getIcon());
-            //lastPiece.setIcon(null);
-            ChessPiece myPiece = (ChessPiece) piece;
-            int actualX = myPiece.getXCoordinate();
-            int actualY = myPiece.getYCoordinate();
+            piece.setIcon(lastPiece.getIcon());
+            lastPiece.setIcon(null);
             
-            ChessPiece movePiece = (ChessPiece) lastPiece;
-            int lastX = movePiece.getXCoordinate();
-            int lastY = movePiece.getYCoordinate();
+            ChessPiece actualPiece = (ChessPiece) piece;
+            //actualPiece.addObserver(this);
+            int actualX = actualPiece.getXCoordinate();
+            int actualY = actualPiece.getYCoordinate();
+            
+            ChessPiece previousPiece = (ChessPiece) lastPiece;
+            //previousPiece.removeObserver(this);
+            int lastX = previousPiece.getXCoordinate();
+            int lastY = previousPiece.getYCoordinate();
+            
+            if(previousPiece.getColorName().equals("white"))
+                boardMatrix.moveWhitePiece(lastX, lastY, actualX, actualY);
+            else if (previousPiece.getColorName().equals("black"))
+                boardMatrix.moveBlackPiece(lastX, lastY, actualX, actualY);
+            
+            //boardMatrix.turnAlive(actualX, actualY);
+            previousPiece.setState(new ChessPieceDead());
+            actualPiece.setState(new ChessPieceAlive());
+            
+            System.out.println("From X: " + lastX + " Y: " + lastY);
+            System.out.println("To X: " + actualX + " Y: " + actualY);
+            
+            /* Change Turn */
+            boardMatrix.changeTurn(previousPiece.getColorName());
             
             /* Change some properties before change location */
-            movePiece.setXCoordinate(actualX);
-            movePiece.setYCoordinate(actualY);
+            //movePiece.setXCoordinate(actualX);
+            //movePiece.setYCoordinate(actualY);
             
-            ChessPiece newPiece = new BlankPiece(lastX, lastY, movePiece.getDefaultColor());
-            newPiece.addObserver(this);
+            //ChessPiece newPiece = new BlankPiece(lastX, lastY, movePiece.getDefaultColor());
+            //newPiece.addObserver(this);
             
             /* Remove e adiciona uma peça em branco */
-            boardMatrix.removePiece(newPiece, movePiece, lastX, lastY);
+            //boardMatrix.removePiece(newPiece, movePiece, lastX, lastY);
             /* Adiciona a nova peça, porém para adicionar a nova peça é preciso saber quem remover */
-            boardMatrix.addPiece(piece, movePiece, actualX, actualY);
-            System.out.println("Change to X: " + actualX + " Y: " + actualY);
+            //boardMatrix.addPiece(piece, movePiece, actualX, actualY);
+
             boardMatrix.removeHighlight();
         }
-        else{
+        else if(piece.canMove()){
             boardMatrix.removeHighlight();
             lastPiece = piece;
             boardMatrix.highlightMovements(piece);
             
             System.out.println("Clicked icon");
         }
+        else
+            boardMatrix.removeHighlight();
     }
     
 }

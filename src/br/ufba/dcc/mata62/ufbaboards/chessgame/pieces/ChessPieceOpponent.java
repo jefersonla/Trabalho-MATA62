@@ -21,15 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufba.dcc.mata62.ufbaboards.pieces;
+package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
+
+import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
+import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
 
 /**
  *
  * @author jeferson
  */
-public interface PieceState {
-    public void killPiece(AbstractPiece piece);
-    public void turnOpponent(AbstractPiece piece);
-    public boolean canMove();
-    public boolean canMoveTo();
+public class ChessPieceOpponent implements PieceState {
+
+    @Override
+    public void killPiece(AbstractPiece piece) {
+        piece.setState(new ChessPieceDead());
+    }
+
+    @Override
+    public void turnOpponent(AbstractPiece piece) {
+        piece.setState(new ChessPieceAlive());
+    }
+
+    @Override
+    public boolean canMove() {
+        return false;
+    }
+
+    @Override
+    public boolean canMoveTo() {
+        return true;
+    }
+    
 }

@@ -23,6 +23,7 @@
  */
 package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 
+import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
 import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
 
 /**
@@ -32,8 +33,23 @@ import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
 public class ChessPieceDead implements PieceState {
 
     @Override
-    public void killPiece() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void killPiece(AbstractPiece piece) {
+        throw new UnsupportedOperationException("You cannot kill a piece that is already dead."); 
     }
-    
+
+    @Override
+    public void turnOpponent(AbstractPiece piece) {
+        throw new UnsupportedOperationException("You cannot turn a dead piece an opponent.");
+    }
+
+    @Override
+    public boolean canMove() {
+        return false;
+    }
+
+    @Override
+    public boolean canMoveTo() {
+        return true;
+    }
+
 }

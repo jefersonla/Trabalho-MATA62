@@ -24,6 +24,7 @@
 package br.ufba.dcc.mata62.ufbaboards.pieces;
 
 import br.ufba.dcc.mata62.ufbaboards.boards.Observer;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.ChessPieceAlive;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.ChessPieceMovementStrategy;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -35,8 +36,12 @@ import java.util.ArrayList;
  */
 public abstract class AbstractPiece extends BoardPiece implements PieceObserved{
     
+    /* Attributes */
     private final ArrayList<Observer> observers;
     private boolean flag;
+    
+    /* State */
+    private PieceState state;
     
     public AbstractPiece(Color defaultColor) {
         super(new Color(153, 255, 153), new Color(102, 204, 255), defaultColor);
@@ -79,9 +84,30 @@ public abstract class AbstractPiece extends BoardPiece implements PieceObserved{
         setBackground(Color.GREEN);
     }
     
-    public boolean isOcuped(){
-        return true;
+    public boolean canMove(){
+        return state.canMove();
+    }
+    
+    public void killPiece(){
+        state.killPiece(this);
+        setIcon(null);
+    }
+    
+    public void turnOpponent(){
+        state.turnOpponent(this);
+    }
+    
+    public void turnAlly(){
+        state = new ChessPieceAlive();
+    }
+    
+    public void setState(PieceState state){
+        this.state = state;
     }
     
     public abstract ChessPieceMovementStrategy getMovementStrategy();
+
+    public boolean canMoveTo() {
+        return state.canMoveTo();
+    }
 }

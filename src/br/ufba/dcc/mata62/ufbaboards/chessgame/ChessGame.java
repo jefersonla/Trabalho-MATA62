@@ -100,8 +100,9 @@ public class ChessGame extends AbstractGame {
         playerTurn = 0;
     }
     
-    public void changeTurn(){
+    public int changeTurn(){
         playerTurn = (playerTurn == 1) ? 2 : 1;
+        return playerTurn;
     }
     
     public void setTurn(int turn){

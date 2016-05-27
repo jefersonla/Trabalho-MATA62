@@ -26,7 +26,6 @@ package br.ufba.dcc.mata62.ufbaboards.chessgame.pieces;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.BlankPieceMovementStrategy;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.ChessPieceMovementStrategy;
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
-import br.ufba.dcc.mata62.ufbaboards.pieces.PieceState;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
@@ -44,9 +43,6 @@ public class ChessPiece extends AbstractPiece {
     /* Selected */
     boolean selected;
     
-    /* State */
-    private PieceState state;
-    
     /* Strategy */
     private final ChessPieceMovementStrategy strategy;
     
@@ -59,7 +55,7 @@ public class ChessPiece extends AbstractPiece {
     
     public ChessPiece(int x, int y, Color defaultColor){
         super(defaultColor);
-        this.state = new ChessPieceDead();
+        setState(new ChessPieceDead());
         this.name = "BLANK";
         this.x = x;
         this.y = y;
@@ -75,17 +71,13 @@ public class ChessPiece extends AbstractPiece {
         this.y = y;
         this.color = color;
         this.strategy = strategy;
-        this.state = new ChessPieceAlive();
+        setState(new ChessPieceAlive());
         this.pieceResource = new ImageIcon(getClass().getResource(getUrlResource(name, color)));
         setIcon(pieceResource);
     }
     
     private String getUrlResource(String name, String color){
         return RESOURCE_URL + color + "_" + name + ".png";
-    }
-    
-    public void setState(PieceState state){
-        this.state = state;
     }
 
     public int getXCoordinate() {
@@ -113,9 +105,14 @@ public class ChessPiece extends AbstractPiece {
         return defaultColor;
     }
 
+    public String getColorName(){
+        return color;
+    }
+    
     @Override
     public ChessPieceMovementStrategy getMovementStrategy() {
         return strategy;
     }
+
     
 }

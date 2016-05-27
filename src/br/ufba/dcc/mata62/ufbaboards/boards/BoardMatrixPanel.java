@@ -25,6 +25,7 @@ package br.ufba.dcc.mata62.ufbaboards.boards;
 
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.BlankPiece;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.ChessPiece;
+import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.ChessPieceAlive;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.PieceFactory;
 import br.ufba.dcc.mata62.ufbaboards.chessgame.pieces.movements.ChessPieceMovementStrategy;
 import br.ufba.dcc.mata62.ufbaboards.pieces.AbstractPiece;
@@ -40,6 +41,9 @@ import javax.swing.BorderFactory;
  */
 public class BoardMatrixPanel extends javax.swing.JPanel {
     protected AbstractPiece[][] piecesMatrix;
+    protected boolean whiteLocations[][];
+    protected boolean blackLocations[][];
+            
     protected int tam;
     
     public void removePiece(AbstractPiece newPiece, AbstractPiece piece, int x, int y){
@@ -113,6 +117,8 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         /* Create matrix of pieces */
         int size = 8;
         piecesMatrix = new AbstractPiece[size][size];
+        whiteLocations = new boolean[size][size];
+        blackLocations = new boolean[size][size];
         
         int pieceSide = 54; 
         Dimension pieceDimension = new Dimension(pieceSide, pieceSide);
@@ -121,6 +127,16 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         for(int i = 0; i < size; i++)
             for(int j = 0; j < size; j++){
                 
+                /* Initialize locations */
+                whiteLocations[i][j] = false;
+                blackLocations[i][j] = false;
+                
+                /* Start Piece */
+                if(colorPieces[i][j].equals("black"))
+                    blackLocations[i][j] = true;
+                else if(colorPieces[i][j].equals("white"))
+                    whiteLocations[i][j] = true;
+                    
                 /* Select Heavy Blue Pieces */
                 if((i % 2) == (j % 2)){
                     piecesMatrix[i][j] = PieceFactory.getNewPiece(  matrix[i][j],
@@ -169,7 +185,7 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             if(possibleMovement.isX_inf() && possibleMovement.isY_inf()){
                 while(((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
                     ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
-                    !piecesMatrix[actualY + wantedY][actualX + wantedX].isOcuped()){
+                    piecesMatrix[actualY + wantedY][actualX + wantedX].canMoveTo()){
                     piecesMatrix[actualY + wantedY][actualX + wantedX].highlightPiece();
                     wantedX += 1;
                     wantedY += 1;
@@ -178,7 +194,7 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             if(possibleMovement.isX_inf()){
                 while(((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
                     ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
-                    !piecesMatrix[actualY + wantedY][actualX + wantedX].isOcuped()){
+                    piecesMatrix[actualY + wantedY][actualX + wantedX].canMoveTo()){
                     piecesMatrix[actualY + wantedY][actualX + wantedX].highlightPiece();
                     wantedX += 1;
                 }
@@ -186,7 +202,7 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             if(possibleMovement.isY_inf()){
                 while(((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
                     ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
-                    !piecesMatrix[actualY + wantedY][actualX + wantedX].isOcuped()){
+                    piecesMatrix[actualY + wantedY][actualX + wantedX].canMoveTo()){
                     piecesMatrix[actualY + wantedY][actualX + wantedX].highlightPiece();
                     wantedY += 1;
                 }
@@ -194,7 +210,7 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             else{    
                 if( ((actualX + wantedX >= 0) && (actualX + wantedX < tam)) &&
                     ((actualY + wantedY >= 0) && (actualY + wantedY < tam)) &&
-                    !piecesMatrix[actualY + wantedY][actualX + wantedX].isOcuped()) 
+                    piecesMatrix[actualY + wantedY][actualX + wantedX].canMoveTo()) 
                     piecesMatrix[actualY + wantedY][actualX + wantedX].highlightPiece();   
             }
         } 
@@ -205,6 +221,37 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
             for(int j = 0; j < tam; j++){
                 piecesMatrix[i][j].deSelect();
             }            
+    }
+    
+    public void moveWhitePiece(int lastX, int lastY, int newX, int newY){
+        whiteLocations[lastX][lastY]    = false;
+        whiteLocations[newX][newY]      = true;
+    }
+    
+    public void moveBlackPiece(int lastX, int lastY, int newX, int newY){
+        blackLocations[lastX][lastY]    = false;
+        blackLocations[newX][newY]      = true;
+    }
+    
+    public void changeTurn(String turn){
+        if(turn.equals("white")){
+            for(int i = 0; i < tam; i++)
+                for(int j = 0; j < tam; j++){
+                    if(blackLocations[i][j])
+                        piecesMatrix[i][j].turnAlly();
+                    if(whiteLocations[i][j])
+                        piecesMatrix[i][j].turnOpponent();
+                }
+        }
+        else{
+            for(int i = 0; i < tam; i++)
+                for(int j = 0; j < tam; j++){
+                    if(whiteLocations[i][j])
+                        piecesMatrix[i][j].turnAlly();
+                    if(blackLocations[i][j])
+                        piecesMatrix[i][j].turnOpponent();
+                }
+        }
     }
     
     /**
@@ -223,6 +270,10 @@ public class BoardMatrixPanel extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("Board Game Panel");
         getAccessibleContext().setAccessibleDescription("Board Game Panel");
     }// </editor-fold>//GEN-END:initComponents
+
+    public void turnAlive(int actualX, int actualY) {
+        piecesMatrix[actualX][actualY].setState(new ChessPieceAlive());
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
